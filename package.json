@@ -1,0 +1,27 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "A static blog with metalsmith",
+  "scripts": {
+    "test": "node --harmony build-io true",
+    "deploy": "node --harmony build-io & cd build & git init & git add * & git commit -m \"deploy\" & git remote add origin https://github.com/thoughtspile/thoughtspile.github.io.git & git push -f origin master"
+  },
+  "devDependencies": {
+    "metalsmith": "latest",
+    "metalsmith-markdown": "latest",
+    "metalsmith-collections": "latest",
+    "metalsmith-in-place": "latest",
+    "metalsmith-layouts": "latest",
+    "metalsmith-path": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoughtspile/blog.git"
+  },
+  "author": {
+      "name": "Vladimir Klepov",
+      "email": "v.klepov@gmail.com",
+      "url": "thoughtspile.github.io"
+  },
+  "license": "MIT"
+}

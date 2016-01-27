@@ -1,0 +1,13 @@
+---
+title: Projects by Vladimir
+layout: ../templates/article.html
+---
+<div class = 'postList'>
+{{#projects}}
+    <article>
+        <a href = {{{site.url}}}/{{{path}}}><h2>{{{title}}}</h2></a>
+        <div class = 'postExcerpt'>{{{excerpt}}}</div>
+        <span class = 'date'>{{date}}</span>
+    </article>
+{{/projects}}
+</div>

@@ -1,0 +1,44 @@
+article {
+    position: static;
+}
+
+h1 {
+    display: none;
+}
+
+header {
+    visibility: hidden;
+}
+
+header a, header a:hover, header a:visited, header a:active {
+    color: #dda;
+}
+
+.postList {
+    font-size: 40px;
+    margin-top: 220px;
+}
+
+.main-banner {
+    position: absolute;
+    color: #dda;
+    font-size: 200px;
+    top: 0px;
+    left: 0px;
+    z-index: -100;
+    white-space: nowrap;
+    line-height: 1em;
+    margin-top: 20px;
+}
+
+.email {
+    display: none;
+}
+
+.fa {
+    display: inline-block;
+    border-radius: 160px;
+    border-color: #dda;
+    margin: 0 20px;
+    font-size: 40px;
+}

@@ -1,0 +1,90 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic);
+
+* {
+	font-family: 'PT Serif', serif;
+	border: 0;
+	margin: 0;
+}
+
+body {
+    background: #fffff9;
+	height: 100%;
+	width: 100%;
+}
+
+
+nav, footer {
+	padding-top: 2em;
+    width: 100%;
+    background: #A0E9C0;
+}
+
+nav {
+	height: 4em;
+	padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+footer {    
+	height: 4em;
+}
+
+h1 {
+    font-weight: 400;
+	font-size: 2em;
+	color: #111;
+    width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 44em;
+}
+
+.tile1 {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.tile1 {
+    width: 42em;
+    !border-right: 2px solid;
+    margin-bottom: 2em;
+}
+
+.tileTitle {
+    display: inline-block;
+    background: rgba(255, 255, 255, .5);
+    font-size: 1.6em;
+    text-decoration: none;
+    margin-bottom: .6em;
+    color: #46f;
+}
+
+.tileTitle:hover {
+    text-decoration: none;
+    background-image: linear-gradient(90deg, #46f, #46f);
+    background-repeat: repeat-x; 
+    background-size: 1px 1px;
+    background-position: 0 90%;
+}
+
+.projDesc {
+    margin-right: 1em;
+}
+
+#parse_tree {
+    position: relative;
+    top: -1.5em;
+    z-index: -10;
+    margin-right: 1em;
+    margin-bottom: -1.5em;
+    width: 20em;
+}

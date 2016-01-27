@@ -1,0 +1,176 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic&subset=latin,cyrillic);
+
+body {
+    overflow-x: hidden;
+    font-family: 'PT Sans', serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+header a, header a:hover, header a:visited, header a:active {
+    color: white;
+    text-decoration: none;
+}
+
+not(.postList) .date {
+    display: inline-block;
+    width: 100%;
+}
+
+.date::after, .date::before {
+    content: '';
+    display: inline-block;
+    height: 50%;
+    width: auto;
+    border-bottom: 1px solid #333;
+}
+
+
+header h1 {
+    width: .3em;
+    font-size: 70px;
+    text-align: center;
+    position: relative;
+    margin: 0 auto 0 auto;
+    line-height: .745em;
+}
+
+header a:focus {
+    outline: 0;
+}
+
+h1 span {
+    display: inline-block;
+}
+
+header a:hover, header a:focus {
+    color: #f75;
+}
+
+.letk, .letv {
+    position: absolute;
+    overflow: hidden;
+    transition: color .5s;
+}
+
+.letv {
+    text-align: right;
+    right: .2em;
+    width: .6em;
+}
+
+.letk {
+    text-align: left;
+    left: .3em;
+    width: .6em;
+}
+
+h1:hover .letv, h1:hover .letk, h1:focus .letv, h1:focus .letk {
+    overflow: visible;
+    width: 4.5em;
+}
+
+header {
+    background: #dda;
+    width: 100%;
+    box-sizing: border-box;
+    padding: .5em 1em 0 1em;
+}
+
+
+.postList {
+    padding: 0;
+    width: 100%;
+}
+
+.postList article {
+    max-width: 100%;
+    margin-bottom: 2em;
+}
+
+.postList article h2 {
+    margin: .5em 0;
+}
+
+.postList article p {
+    margin: 0;
+}
+
+.postList a {
+    text-decoration: none;
+    color: #46f;
+}
+
+.postList a:hover {
+    text-decoration: underline;
+}
+
+.postList .date {
+    color: #666;
+    float: right;
+    width: auto;
+}
+
+
+.postNav {
+    width: 100%;
+    display: table;
+}
+
+.prev, .next {
+    display: table-cell;
+}
+
+.next {
+    text-align: right;
+}
+
+
+pre {
+    padding: 1em 0;
+    position: relative;
+    width: 100%;
+    color: white;
+}
+
+pre:before {
+    content: '';
+    z-index: -1;
+    position:absolute;
+    left: -3000px;
+    right: -3000px;
+    top: 0;
+    bottom: 0;
+    background: #114;
+}
+
+
+article, footer {
+    position: relative;
+    width: 35em;
+    max-width: 90%;
+    margin: 0 auto;
+    color: #333;
+}
+
+footer {
+    padding-bottom: 3em;
+}
+
+.email {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.social {
+    text-align: center;
+}
+
+.fa, .fa:active, .fa:visited {
+    color: #666;
+}
+
+.fa:hover {
+    color: #f75;
+}

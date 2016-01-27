@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="{{site.url}}/css/article.css" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    {{#customStyle}}
+    <link rel="stylesheet" href="{{site.url}}/{{{customStyle}}}" media="screen">
+    {{/customStyle}}
+
+    <meta name = 'description' content = 'Web developer from Russia: portfolio and a tech blog.'>
+</head>
+
+<body>
+    <header>
+        <a href = '{{site.url}}'><h1>
+            <span class = 'letv'>Vladimir</span>.<span class = 'letk'>Klepov</span>
+        </h1></a>
+        <nav></nav>
+    </header>
+
+    <article>
+        <h1>{{title}}</h1>
+        {{#date}} <div class = 'date'>{{date}}</div> {{/date}}
+        {{{contents}}}
+    </article>
+
+    <footer>
+        <div class = 'postNav'>
+            <a class = 'prev' href = '{{site.url}}/{{previous.path}}'>{{previous.title}}</a>
+            <a class = 'next' href = '{{site.url}}/{{next.path}}'>{{next.title}}</a>
+        </div>
+        <div class = 'email'>
+            <a href = 'mailto:v.klepov@gamil.com'>v.klepov@gmail.com</a>
+        </div>
+        <div class = 'social'>
+            <a href="https://vk.com/id6959040">
+                <i class = 'fa fa-vk'></i></a>
+            <a href="https://ru.linkedin.com/in/vladimir-klepov-990b56b7">
+                <i class = 'fa fa-linkedin'></i></a>
+            <a href="https://www.flickr.com/photos/vklepov/">
+                <i class = 'fa fa-flickr'></i></a>
+            <a href="https://github.com/thoughtspile">
+                <i class = 'fa fa-github'></i></a>
+        </div>
+    </footer>
+
+    {{^debug}}
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter32842287 = new Ya.Metrika({
+                        id:32842287,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/32842287" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    {{/debug}}
+</body>
+
+</html>
