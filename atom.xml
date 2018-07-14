@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://thoughtspile.github.io/"/>
-  <updated>2018-07-07T07:56:33.000Z</updated>
+  <updated>2018-07-14T12:06:23.000Z</updated>
   <id>https://thoughtspile.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Quick Tip: docx is a zip Archive</title>
+    <link href="https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/"/>
+    <id>https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/</id>
+    <published>2018-07-14T11:33:41.000Z</published>
+    <updated>2018-07-14T12:06:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Microsof Office’s <code>docx</code> files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyone should know it!</p><p>When I tell my colleagues, friends, or students about it, they don’t take me seriously the first time. So, here we go again. If you have a docx (or xlsx, or pptx) file, you can unzip it with <code>unzip proj.docx -d proj</code> or any other unarchiver and get a folder with all the stuff that makes up the document:</p><p><img src="/images/unzipped-docx.png" alt=""></p><p>From here, you can:</p><ul><li>quickly grab all the media from  <code>word/media</code></li><li>work with the document (<code>word/document</code>) via an XML parser (or grep / sed, but it’s a secret)</li></ul><p>And do all the other marvellous stuff — no Office or even GUI needed. Now go and spread the light of this newfound knowledge and never complain about docx again!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Microsof Office’s &lt;code&gt;docx&lt;/code&gt; files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyo
+      
+    
+    </summary>
+    
+    
+      <category term="microsoft, zip, &#39;quick tip&#39;" scheme="https://thoughtspile.github.io/tags/microsoft-zip-quick-tip/"/>
+    
+  </entry>
   
   <entry>
     <title>Advanced Promise Coordination: Rate Limiting</title>
