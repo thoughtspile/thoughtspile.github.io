@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="I’ve been playing around with this idea for a while. The more I got into writing (Strunk-White and William Zinsser’s “On Writing Well” are most suggested), the more similarities to software developmen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programming is Like Writing">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="I’ve been playing around with this idea for a while. The more I got into writing (Strunk-White and William Zinsser’s “On Writing Well” are most suggested), the more similarities to software developmen">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://thoughtspile.github.io/images/hexo-source.png">
+<meta property="og:image" content="https://thoughtspile.github.io/images/tintin-grasshopper.png">
+<meta property="og:image" content="https://thoughtspile.github.io/images/maxwell-perkins.jpg">
+<meta property="og:updated_time" content="2018-09-19T12:49:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programming is Like Writing">
+<meta name="twitter:description" content="I’ve been playing around with this idea for a while. The more I got into writing (Strunk-White and William Zinsser’s “On Writing Well” are most suggested), the more similarities to software developmen">
+<meta name="twitter:image" content="https://thoughtspile.github.io/images/hexo-source.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Programming is Like Writing</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/07/14/docx-is-a-zip-archive/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&text=Programming is Like Writing"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&is_video=false&description=Programming is Like Writing"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Programming is Like Writing&body=Check out this article: https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&name=Programming is Like Writing&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-produce-text-not-really"><span class="toc-number">1.</span> <span class="toc-text">You produce text (not really)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You’re-transmitting-intention-through-text"><span class="toc-number">2.</span> <span class="toc-text">You’re transmitting intention through text</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#People-think-complex-and-long-is-cool-it-is-not"><span class="toc-number">3.</span> <span class="toc-text">People think complex and long is cool (it is not)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Teamwork-is-limited-it-is-still-there"><span class="toc-number">4.</span> <span class="toc-text">Teamwork is limited (it is still there)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-conclusion-I-am-so-serious"><span class="toc-number">5.</span> <span class="toc-text">The conclusion (I am so serious)</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Programming is Like Writing
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-19T12:04:27.000Z" itemprop="datePublished">19.09.2018</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>I’ve been playing around with this idea for a while. The more I got into writing (Strunk-White and William Zinsser’s “On Writing Well” are most suggested), the more similarities to software development I found. Now I’m ready to put it forward: <em>writing code is still writing,</em> or <em>writing code is writing,</em> or maybe even “you’re <strong>writing</strong> code”.</p>
+<p>After some online research this analogy does not seem as fresh. Jeff Atwood in <a href="https://blog.codinghorror.com/coding-its-just-writing/" target="_blank" rel="noopener">Coding: It’s Just Writing</a> notes the similarities between William Strunk’s tips on writing and programming best practices, and then there’s Bert Wagner <a href="https://hackernoon.com/writing-good-code-is-like-writing-a-novel-33973645be01" target="_blank" rel="noopener">talking</a> about the psychological similarities between coding and writing. On the other hand, the topic does not seem completely dead either, so watch me take another stab on it!</p>
+<h2 id="You-produce-text-not-really"><a href="#You-produce-text-not-really" class="headerlink" title="You produce text (not really)"></a>You produce text (not really)</h2><p>On the surface, the end result of both writing and coding is text (as in “a sequence of words with some meaning”). However, this view breaks down once you think about it.</p>
+<p>People in the software industry know that the value they provide is in solving <em>business problems</em> through code, not in writing code per se. Yet I don’t feel “shoving shitcode on top of shitcode to make things work” is the way to go. Let’s ban the whole business / technical argument for a minute.</p>
+<figure><br>  <img style="border: 1px solid #eee;" src="/images/hexo-source.png"><br>  <div style="color: #666; text-align: center;">This is not why people like open source</div><br></figure>
+
+<p>The users do not care for the code — they only see the GUI (or an API). What code you wrote in there is irreleveant as long as it works. When your users start caring about the code, it’s either because they want to learn from it, or because you screwed up and they have to dive in and debug. Not the primary use cases, huh?</p>
+<p>But writers do indeed write texts. Or do they? A piece of writing is only valuable once you put it into your head and think about it. Very much like running a program, isn’t it? A good book is good because of the feelings and ideas it gives you, not because of the arrangement of words. Still not convinced? Think about play- and screenwriting: there is no <em>text</em> in a movie, yet the writing itself sure as hell is there.</p>
+<p>Now, who carese about the word arrangements? Literature students do: they learn the ways to use words for the desired effect. When the text is so bad you can’t make sense of it (some lawyer mumbo-jumbo), you read it over and over again — isn’t it “text debugging”? Bingo on both!</p>
+<h2 id="You’re-transmitting-intention-through-text"><a href="#You’re-transmitting-intention-through-text" class="headerlink" title="You’re transmitting intention through text"></a>You’re transmitting intention through text</h2><p>And text is not even the best medium for what we the writers (see what I did there?) are trying to acheive. But we don’t know any better, so we settled on it somehow. We just want to communicate the ideas in our heads: algorithms, storylines, all is one.</p>
+<p><img src="/images/tintin-grasshopper.png" alt=""></p>
+<p>The attempts to run away from the text? Check! Visual programming and comic books, respectively. However, people do not take these too seriously. Don’t grumble, give these some time and they will outshine the poor old text.</p>
+<h2 id="People-think-complex-and-long-is-cool-it-is-not"><a href="#People-think-complex-and-long-is-cool-it-is-not" class="headerlink" title="People think complex and long is cool (it is not)"></a>People think complex and long is cool (it is not)</h2><p>What makes a writer good? It must be all those fancy baroque wordings! I heard James Joyce was good, and you can barely make sense of his books. The more grotesque plot twists, the merrier. But didn’t the greatest writers always talk about working hard to keep their works simple?</p>
+<p>Now, what makes a programmer good? It must be all the fancy optimization hacks! How cool, this dude uses Singletons, Message Queues and Service Workers! No one can understand this code — what a work of genius! Sounds familiar? If you program, you know it’s bullshit. The best code for the job is the simplest code for the job — it’s easy to follow and does not strangle the performance with all the unnecessary layers of abstraction.</p>
+<h2 id="Teamwork-is-limited-it-is-still-there"><a href="#Teamwork-is-limited-it-is-still-there" class="headerlink" title="Teamwork is limited (it is still there)"></a>Teamwork is limited (it is still there)</h2><p>Ten writers working on a book won’t write it ten times better or faster than one. Similarly, if you give one task to ten programmers with no management, they would drown in merge conflicts before delivering.</p>
+<p><img style="border: 1px solid #eee;" src="/images/maxwell-perkins.jpg"></p>
+<p>However, teamwork does exist in both industries, and is strikingly similar. Our code reviews = writers’ proofreading and editing. I remember Hemmingway’s quote about how cool his editor was, but I can’t seem to find that one now that there’s some <em>proofreading</em> software called <em>Hemmingway</em> — hope it edits sober. And you know how the code collapses into anarchy once there’s no one to stop you and watch with a clear eye.</p>
+<h2 id="The-conclusion-I-am-so-serious"><a href="#The-conclusion-I-am-so-serious" class="headerlink" title="The conclusion (I am so serious)"></a>The conclusion (I am so serious)</h2><p>And I feel that as exploring other areas — art, cooking, construction, retail, what not — I will find even more structure to all of these. So make sure to come by when I publish more posts on “Programming is like Making Pasta”, “Hackathons are Like Doodling” and “Working in Outsource is Like Being an Illegal Plumber”.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-produce-text-not-really"><span class="toc-number">1.</span> <span class="toc-text">You produce text (not really)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#You’re-transmitting-intention-through-text"><span class="toc-number">2.</span> <span class="toc-text">You’re transmitting intention through text</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#People-think-complex-and-long-is-cool-it-is-not"><span class="toc-number">3.</span> <span class="toc-text">People think complex and long is cool (it is not)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Teamwork-is-limited-it-is-still-there"><span class="toc-number">4.</span> <span class="toc-text">Teamwork is limited (it is still there)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-conclusion-I-am-so-serious"><span class="toc-number">5.</span> <span class="toc-text">The conclusion (I am so serious)</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&text=Programming is Like Writing"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&is_video=false&description=Programming is Like Writing"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Programming is Like Writing&body=Check out this article: https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&title=Programming is Like Writing"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/&name=Programming is Like Writing&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

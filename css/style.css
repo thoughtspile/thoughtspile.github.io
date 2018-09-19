@@ -461,12 +461,6 @@ body {
 .content {
   flex: 1;
 }
-.content p {
-  hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;
-}
 .content code {
   hyphens: manual;
   -moz-hyphens: manual;
