@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="I’ve been developing an AngularJS application for the past year — and voila! here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been">
+<meta name="keywords" content="javascript,angularjs,programming,frontend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simpifying AngularJS controllers with ES5 get &#x2F; set">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="I’ve been developing an AngularJS application for the past year — and voila! here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://thoughtspile.github.io/images/angularjs-is-bad.jpeg">
+<meta property="og:updated_time" content="2018-09-20T14:39:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Simpifying AngularJS controllers with ES5 get &#x2F; set">
+<meta name="twitter:description" content="I’ve been developing an AngularJS application for the past year — and voila! here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been">
+<meta name="twitter:image" content="https://thoughtspile.github.io/images/angularjs-is-bad.jpeg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Simpifying AngularJS controllers with ES5 get / set</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/09/19/Programming-is-like-writing/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&text=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&is_video=false&description=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Simpifying AngularJS controllers with ES5 get / set&body=Check out this article: https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&name=Simpifying AngularJS controllers with ES5 get / set&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-context-—-where-am-I-Help"><span class="toc-number">1.</span> <span class="toc-text">The context — where am I? (Help)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem-—-what’s-wrong"><span class="toc-number">2.</span> <span class="toc-text">The Problem — what’s wrong?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-classic-solution"><span class="toc-number">3.</span> <span class="toc-text">The classic solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-get-set-solution"><span class="toc-number">4.</span> <span class="toc-text">The get / set solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-good-have-we-done"><span class="toc-number">5.</span> <span class="toc-text">What good have we done?</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Simpifying AngularJS controllers with ES5 get / set
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-20T14:04:06.000Z" itemprop="datePublished">20.09.2018</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/angularjs/">angularjs</a>, <a class="tag-link" href="/tags/frontend/">frontend</a>, <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/programming/">programming</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>I’ve been developing an AngularJS application for the past year — and <em>voila!</em> here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been waiting to publish this post for 3 years. It’s just how things turned up for me. Since there’s no shortage of AngularJS apps in the wild, I’ve decided to share some tips for taming Angular (the Terrible one) and staying sane (yes you can).</p>
+<figure><br>  <img src="/images/angularjs-is-bad.jpeg"><br>  <div style="color: #666; text-align: center;">Oh AngularJS, what a reputation you’ve earned yourself</div><br></figure>
+
+<h2 id="The-context-—-where-am-I-Help"><a href="#The-context-—-where-am-I-Help" class="headerlink" title="The context — where am I? (Help)"></a>The context — where am I? (Help)</h2><p>Some context first. I spent two years developing React front-ends. When offered a job on an AngularJS app, I was scared at first — we’ve all spent years making fun of it. The team lead was shaking a full Vue rewrite around not to scare the candidates off. The idea of playing around with Vue felt good (I’m a playful coder, don’t judge me), but Joel Spolsky’s <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/" target="_blank" rel="noopener">spooky story</a> of Netscape’s full rewrite had been growing on me for years. And well, there were <em>features</em> to be made, no time for the geek fun.</p>
+<p>Now I’m gone from the project (no relation to the tech stack whatsoever), and the app is still moslty AngularJS. It’s in a good shape, and has all the modern things: webpack, babel, a sprinkle of React here and there. I feel I’ve made a good job by focusing on the business stuff.</p>
+<h2 id="The-Problem-—-what’s-wrong"><a href="#The-Problem-—-what’s-wrong" class="headerlink" title="The Problem — what’s wrong?"></a>The Problem — what’s wrong?</h2><p>So, what was it I was gonna tell you kids about? We have a service that holds the list of users. Here it is, with all the ES6 exquisiteness:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">  load() &#123;</span><br><span class="line">    <span class="keyword">return</span> get(<span class="string">'/users'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, the component. All basic, too, just shows a list of users:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserListController</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(userService) &#123;</span><br><span class="line">    <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    <span class="keyword">this</span>.userService.load().then(<span class="function"><span class="params">users</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.users = users;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">angular.component(<span class="string">'userList'</span>, &#123;</span><br><span class="line">  template: <span class="string">`&lt;user-card ng-repeat="user in $ctrl.users" user="user"&gt;&lt;/user-card&gt;`</span>,</span><br><span class="line">  controller: UserListController</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>But we can also add a user. Once the thing is done, we should update the list — it’s surely changed. But — oh no! — we have no way of doing it, because the data is stuck in <code>UserListController</code>.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">  load() &#123;</span><br><span class="line">    <span class="keyword">return</span> get(<span class="string">'/users'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addUser(user) &#123;</span><br><span class="line">    <span class="keyword">return</span> post(<span class="string">'./users'</span>, user).then(<span class="comment">/* oops */</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="The-classic-solution"><a href="#The-classic-solution" class="headerlink" title="The classic solution"></a>The classic solution</h2><p>The classic, ES3-level <a href="https://www.justinobney.com/keeping-angular-service-list-data-in-sync-among-multiple-controllers/" target="_blank" rel="noopener">solution put forward by Justin Obney</a> is to make <code>users</code> the property of <code>UserService</code> and never reassign it, only mutate (mute? mutilate?). The controller references the service property, and the angular view watch works, since <code>users</code> are shared by reference. Here’s the code:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.users = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  load() &#123;</span><br><span class="line">    <span class="keyword">return</span> get(<span class="string">'/users'</span>).then(<span class="function"><span class="params">users</span> =&gt;</span> &#123;</span><br><span class="line">      angular.copy(users, <span class="keyword">this</span>.users);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addUser(user) &#123;</span><br><span class="line">    <span class="keyword">return</span> post(<span class="string">'./users'</span>, user).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.load());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserListController</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(userService) &#123;</span><br><span class="line">    <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    <span class="keyword">this</span>.users = <span class="keyword">this</span>.userService.users;</span><br><span class="line">    userService.load();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>There are three problems with this solution:</p>
+<ol>
+<li>It’s fragile: if we accidentally reassign <code>users</code> either in the controller or the service, the whole scheme breaks down.</li>
+<li>Instead of using normal javascript, you dance around the reference. The result of a well-behaved library function that does not mutate the data must be merged back into the original object.</li>
+<li>The suggested way of caring for the reference, <code>angular.copy</code>, is angular-specific and makes a deep copy.</li>
+</ol>
+<p>We can work around the first issue using TypeScript’s <code>readonly</code> properties, but the reference dance persists. Using TS2+ over AngularJS is a bit bipolar, too (exacly what I used on the project, but that’s beside the point).</p>
+<p>Luckily, we can do much better — let me show you how.</p>
+<h2 id="The-get-set-solution"><a href="#The-get-set-solution" class="headerlink" title="The get / set solution"></a>The get / set solution</h2><p>My solution relies on ES5 getters. Compatibility analysis, if I please? ES5 is nothing hot, it’s been around long enough to be considered the web standard. People who use IE9 are probably used to the web looking and working strange. Considering a modern framework — Vue or React? They require IE9+ anyways. So yes, we can use ES5 safely.</p>
+<p>We do whatever we want to the service property, and declare a getter for it on the controller:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.users = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  load() &#123;</span><br><span class="line">    <span class="keyword">return</span> get(<span class="string">'/users'</span>).then(<span class="function"><span class="params">users</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.users = users;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addUser(user) &#123;</span><br><span class="line">    <span class="keyword">return</span> post(<span class="string">'./users'</span>, user).then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.load());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserListController</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(userService) &#123;</span><br><span class="line">    <span class="keyword">this</span>.userService = userService;</span><br><span class="line">    userService.load();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  get users() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.userService.users;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Digest works normally. Mutate the <code>users</code> array in the service and the views update. Reassign in the service — the views still update. Mutate the array in a controller — the views update (a bug, not a feature? Maybe, but that’s how it goes). We can’t accidentally reassign the controller property because it only has a getter. And we have zero angular-specific code. The trick is backwards-compatible with the old one, so we needn’t rewrite the service all at once. Nice!</p>
+<h2 id="What-good-have-we-done"><a href="#What-good-have-we-done" class="headerlink" title="What good have we done?"></a>What good have we done?</h2><p>Is this the holy grail? Certainly not. It requires some boilerplate, a 4-line getter per controller. We’re still stuck with the shaky shared ownersip: every controller can change the object. But this is an improvement over the old way.</p>
+<p>For completeness, here are three other solutions off the top of my head:</p>
+<ol>
+<li>Bind to service from the template: <code>&lt;user-card ng-repeat=&quot;user in $ctrl.userService.users&quot;&gt;&lt;/user-card&gt;</code>. Bad, because it breaks abstraction layering — the view should not touch the service.</li>
+<li>Make the service an event bus, do <code>this.trigger(&#39;users.update&#39;, users);</code> on every users change. Vanilla implementation is fragile (never forget to call <code>trigger</code> on update), but this might work with some structure around (though at this point we might as well stick mobx into the service).</li>
+<li><p><code>$scope.$watch(() =&gt; this.userService.users, users =&gt; this.users = users)</code>. The effect is the same as in my solution, but at the cost of an extra digest iteration. Fall back to this one for ES3 complicance.</p>
+<p>Never say never to AngularJS — who knows how it’s gonna turn out. Drop a comment if the topic interests you! I still have a couple of AngularJS tricks down my sleeve to keep you safe. ES6 modules? String templates? CSS modules? Yes you can.</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-context-—-where-am-I-Help"><span class="toc-number">1.</span> <span class="toc-text">The context — where am I? (Help)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem-—-what’s-wrong"><span class="toc-number">2.</span> <span class="toc-text">The Problem — what’s wrong?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-classic-solution"><span class="toc-number">3.</span> <span class="toc-text">The classic solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-get-set-solution"><span class="toc-number">4.</span> <span class="toc-text">The get / set solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-good-have-we-done"><span class="toc-number">5.</span> <span class="toc-text">What good have we done?</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&text=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&is_video=false&description=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Simpifying AngularJS controllers with ES5 get / set&body=Check out this article: https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&title=Simpifying AngularJS controllers with ES5 get / set"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/&name=Simpifying AngularJS controllers with ES5 get / set&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
