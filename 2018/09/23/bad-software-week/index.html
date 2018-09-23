@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="In the midst of my September job hop I headed to Kazan for the weekend. I don’t know exactly why — probably because I could. I had a hotel booked via booking.com, but once I arrived there the receptio">
+<meta name="keywords" content="programming,life,thoughtspile,depression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Another Week with Bad Software">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/09/23/bad-software-week/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="In the midst of my September job hop I headed to Kazan for the weekend. I don’t know exactly why — probably because I could. I had a hotel booked via booking.com, but once I arrived there the receptio">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://thoughtspile.github.io/images/kazan-bridge.jpg">
+<meta property="og:updated_time" content="2018-09-23T11:37:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Another Week with Bad Software">
+<meta name="twitter:description" content="In the midst of my September job hop I headed to Kazan for the weekend. I don’t know exactly why — probably because I could. I had a hotel booked via booking.com, but once I arrived there the receptio">
+<meta name="twitter:image" content="https://thoughtspile.github.io/images/kazan-bridge.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Another Week with Bad Software</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/09/22/typescript-unsuck-guide/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/23/bad-software-week/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&text=Another Week with Bad Software"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&is_video=false&description=Another Week with Bad Software"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Another Week with Bad Software&body=Check out this article: https://thoughtspile.github.io/2018/09/23/bad-software-week/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&name=Another Week with Bad Software&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Return"><span class="toc-number">1.</span> <span class="toc-text">The Return</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-must-it-be-like-this"><span class="toc-number">2.</span> <span class="toc-text">Why must it be like this?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-also"><span class="toc-number">3.</span> <span class="toc-text">And also</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Another Week with Bad Software
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-09-23T11:35:02.000Z" itemprop="datePublished">23.09.2018</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/depression/">depression</a>, <a class="tag-link" href="/tags/life/">life</a>, <a class="tag-link" href="/tags/programming/">programming</a>, <a class="tag-link" href="/tags/thoughtspile/">thoughtspile</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>In the midst of my September job hop I headed to Kazan for the weekend. I don’t know exactly why — probably because I could. I had a hotel booked via booking.com, but once I arrived there the receptionist told me it was the first time he’s heard of my booking, and he told me that they had no more rooms, and he told me that I’d rather find another place to stay.</p>
+<p>But why, I always see these things for what they are. Some sneaky caffeinated programmer kids at work with the booking system integrations, you should always double-check after us! After what came next, I started suspecting there’s some particularly defective developer marketing himself as a <em>“Chief Hotel Booking Management System (HBMS) Professional with 10+ years experience in the field”</em>.</p>
+<p><img src="/images/kazan-bridge.jpg" alt=""></p>
+<p>I booked the next hotel for the two nights, with a discount, and walked there. Guess what? The room I booked was occupied, but they had another one, but not for two night, just one. In the end it worked out all right because there was that woman using the responsive, fully interactive, enterprise-ready ERP system “sheet of paper and a pencil” that allows you to reschedule bookings at will, with no programmers involved.</p>
+<p>The rest of my trip went well, probably because I had little interaction with software stuff. The pizza place charged me twice, because they thought the first payment didn’t pass, but they gave the money back. Human problem, wasn’t it? (Of course not completely, some usability failure out there, but let’s leave it for what it is, shall we?)</p>
+<h2 id="The-Return"><a href="#The-Return" class="headerlink" title="The Return"></a>The Return</h2><p>I was riding the train from the airport, almost eager to get back to work writing things that mostly function. I was a bit worried they didn’t give me a call — was I supposed to just come to the office and figure out what to do next? Anyways, I made some calls and found out that the information about me starting my work got lost somewhere along the course of a month it’s been running around the infrastructure.</p>
+<p>This got me a little worried: I haven’t spent a week in Moscow without work in over three years, and, besides, I was running low on money. I wasn’t angry with anyone in particular: who should I blame for the state of the industry? I’m just as guilty as anyone for letting it fall that low. it turned out not to be taht bad after all: the weather was good, and I got a chance to walk the empty city — everyone here in Moscow is too busy working hard to be out of office in the middle of the day.</p>
+<p>My accidental vacation started along the fanfare of Nikita Prokopov’s <a href="http://tonsky.me/blog/disenchantment/" target="_blank" rel="noopener">software disenchantment</a>. It’s depressing but, and even more depressive for being true. Let me pick a quote for you:</p>
+<blockquote>
+<p>We cover shit with blankets just not to deal with it.</p>
+</blockquote>
+<p>I’ve been subscribed to this blog for several years, and never knew the man was Russian. I should have guessed — where else can a man that depressed and dissatisfied with the state-of-the-world come from? The part that caught my atteniton was the Russian apps on the screenshots. From there I got onto Nikita’s <a href="https://tonsky.livejournal.com/" target="_blank" rel="noopener">russian-language blog</a>.</p>
+<h2 id="Why-must-it-be-like-this"><a href="#Why-must-it-be-like-this" class="headerlink" title="Why must it be like this?"></a>Why must it be like this?</h2><p>It’s a good the blog is in Russian — serves well to save the good people of the world from moscow-grade sadness. Somewhere in the comments on the fourth page I found a neat explanation for why the things in software are the way they are. I can’t find the particular comment any more, but I remember the gist and even spent some time elaborating on it.</p>
+<p>Once a problem is solved by software at a minimum viable level, you don’t need programmers (we are crazy expensive) to actually make it work. The solution gets canned and distributed in a bundle that usually works, as long as you’re not getting too tricky:</p>
+<ul>
+<li>Edit a table of numbers? Excel!</li>
+<li>Write a text? Word!</li>
+<li>Send some data to another person? E-mail!</li>
+<li>Make a website? Wordpress!</li>
+<li>Edit an image? Photoshop!</li>
+</ul>
+<p>The programmers are there to stick them into the holes of the abstraction. If you’re generating excel tables programatically from a database, or want your website to synchronize with a price list from a Googledoc, you need some programmers to duct-tape the systems together in unexpected ways (I’m working hard to stay away from shit-based metaphors, but feel free to make one yourself). These systems have a long train of backwards compatibility, they are a massive overkill for the job, but hey, they work just well enough.</p>
+<p>I’m enraged by the lack of attention to static website generators. The idea is beautiful: pipe some markdowns through a template, get a set of static HTMLs and resources that can be host anywhere for, like, free! Why do people make their websites in Wordpress — have a MySQL database at work pushing the limits of storing static data, and PHP, rendering the pages at every request. Oh dear, the system was supposed to write blogs — how did they ever manage to bend it into e-commerce, landing pages and ERP front-ends?</p>
+<p>No, I do know the answer to that — just hit a freelance farm to find a bunch of schoolchildren who can make you something that looks like a website in a week, for $50. I wouldn’t consider disrupting a business with that low profit margin — and who would?</p>
+<h2 id="And-also"><a href="#And-also" class="headerlink" title="And also"></a>And also</h2><p>On Thursday I was watching my TV when the electricity died. It spent the evening randomly switching it on and off, then got stuck loading forever. The philips tech support was very sympathetic. “There’s some very high tech in there — a whole embedded system! How in the world did you expect it to survive the electricity shutdown?” they said. And yeah, sure, what did I expect from a system that had a piece of software in it?</p>
+<figure><br>  <iframe style="margin: 0 auto; display: block" width="560" height="315" src="https://www.youtube.com/embed/-eREiQhBDIk?rel=0&amp;start=230" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br>  <div style="text-align: center; color: #666">Here’s what I (and Nikita, and even Uncle Bob lately) think of software</div><br></figure>
+
+<p>Really, I should assume I write code at least marginally better-than-average and get into programming education. There’s a horrible shortage of material on learning actual programming (not “How to Use Technology X to Solve Problem Y”-style things) out there. I must to fight as well as I possibly can. You must, too (yes, you, the guy who actually read this all).</p>
+<hr>
+<p>You’ve just seen a weekly snapshot of my thoughts pile. While taking another look at this website’s design to see if the the navigation is obscure enough to prevent the users from noticing the other posts (it probably is; I don’t think i’m changing it just yet) I noticed something horrible.</p>
+<p>The blog’s address has <em>thoughts pile</em> in it. How is that name appropriate for the smart, boring and technical stuff I’ve come to post? I need to give the place some wildness it deserves. <em>Klyukovka, ay, igray Balalaechka!</em> Writing messy speculative posts is far more entertaining!</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Return"><span class="toc-number">1.</span> <span class="toc-text">The Return</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-must-it-be-like-this"><span class="toc-number">2.</span> <span class="toc-text">Why must it be like this?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#And-also"><span class="toc-number">3.</span> <span class="toc-text">And also</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/09/23/bad-software-week/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&text=Another Week with Bad Software"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&is_video=false&description=Another Week with Bad Software"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Another Week with Bad Software&body=Check out this article: https://thoughtspile.github.io/2018/09/23/bad-software-week/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&title=Another Week with Bad Software"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/09/23/bad-software-week/&name=Another Week with Bad Software&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
