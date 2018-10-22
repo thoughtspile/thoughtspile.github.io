@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://thoughtspile.github.io/"/>
-  <updated>2018-10-22T12:59:08.000Z</updated>
+  <updated>2018-10-22T13:09:57.000Z</updated>
   <id>https://thoughtspile.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://thoughtspile.github.io/2018/10/22/typescript-derived-interface/"/>
     <id>https://thoughtspile.github.io/2018/10/22/typescript-derived-interface/</id>
     <published>2018-10-22T07:21:34.000Z</published>
-    <updated>2018-10-22T12:59:08.000Z</updated>
+    <updated>2018-10-22T13:09:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>If you use Angular DI, you probably declare your service classes twice, like this:</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> IUserService &#123;</span><br><span class="line">  getUsers(): IUser[];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserService <span class="keyword">implements</span> IUserService &#123;</span><br><span class="line">  getUsers() &#123;</span><br><span class="line">    <span class="keyword">return</span> fetch&lt;IUser[]&gt;(<span class="string">'/users'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Declaring classes like this is horrible. You describe your logic twice for no good reason. You get no extra error protection, no better code completion, no benefits whatsoever. You just edit twice on every change.</p><p>You don’t normally share an interface between classes. The language, unlike C++, does not require you to declare the signature before the implementation for technical reasons. You write twice as much code because the framework wants you to. Why chose to live like that?</p><p>Luckily, in TS you can just write:</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserService &#123;</span><br><span class="line">  getUsers() &#123;</span><br><span class="line">    <span class="keyword">return</span> fetch&lt;IUser[]&gt;(<span class="string">'/users'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">type</span> IUserService = UserService;</span><br></pre></td></tr></table></figure><p>You get proper type inference in methods, and the interface is then itself inferred from the implementation. You’re welcome!</p>]]></content>
     
@@ -42,11 +42,11 @@
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
     
-      <category term="angularjs" scheme="https://thoughtspile.github.io/tags/angularjs/"/>
-    
       <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
     
       <category term="typescript" scheme="https://thoughtspile.github.io/tags/typescript/"/>
+    
+      <category term="angular" scheme="https://thoughtspile.github.io/tags/angular/"/>
     
   </entry>
   
