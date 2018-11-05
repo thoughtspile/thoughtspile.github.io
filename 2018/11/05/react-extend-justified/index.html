@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="Do not extend components. If there is anything React community agrees upon, this is it. Use HOCs. Use state managers (and their connector HOCs). Use render props. Do not inherit. Remember, composition">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why you Might Want to Extend React Components">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/11/05/react-extend-justified/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="Do not extend components. If there is anything React community agrees upon, this is it. Use HOCs. Use state managers (and their connector HOCs). Use render props. Do not inherit. Remember, composition">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-05T11:48:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Why you Might Want to Extend React Components">
+<meta name="twitter:description" content="Do not extend components. If there is anything React community agrees upon, this is it. Use HOCs. Use state managers (and their connector HOCs). Use render props. Do not inherit. Remember, composition">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Why you Might Want to Extend React Components</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/10/28/simplistic-di/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/11/05/react-extend-justified/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&text=Why you Might Want to Extend React Components"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&is_video=false&description=Why you Might Want to Extend React Components"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why you Might Want to Extend React Components&body=Check out this article: https://thoughtspile.github.io/2018/11/05/react-extend-justified/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&name=Why you Might Want to Extend React Components&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introducing-Component-Inheritance"><span class="toc-number">1.</span> <span class="toc-text">Introducing Component Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Business-Reuse-Legacy-Components"><span class="toc-number">2.</span> <span class="toc-text">The Business: Reuse Legacy Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Technical-Performance-Considerations"><span class="toc-number">3.</span> <span class="toc-text">The Technical: Performance Considerations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-of-Both-Worlds-and-Generality"><span class="toc-number">4.</span> <span class="toc-text">Best of Both Worlds (and Generality)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Downsides"><span class="toc-number">5.</span> <span class="toc-text">The Downsides</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Why you Might Want to Extend React Components
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-11-05T11:38:29.000Z" itemprop="datePublished">05.11.2018</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Do not <code>extend</code> components. If there is anything React community agrees upon, this is it. <a href="https://reactjs.org/docs/composition-vs-inheritance.html" target="_blank" rel="noopener">Use HOCs</a>. Use state managers (and their connector HOCs). Use render props. <a href="https://stackoverflow.com/a/47032288/2699012" target="_blank" rel="noopener">Do not inherit</a>. Remember, <a href="https://en.wikipedia.org/wiki/Composition_over_inheritance" target="_blank" rel="noopener">composition over inheritance</a>! Obey your guru. Once upon a time, a developer extended his component, and a lightning stroke him.</p>
+<p>This is a mantra. I like mantras just as much as <a href="https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose" target="_blank" rel="noopener">Steven here</a> (I don’t). Things other people say should not discourage you from thinking for yourself, doing your research and analyzing design choices pragmatically, not superstitiously.</p>
+<p>For a motivational example: when the docs say <code>At Facebook, we use React in thousands of components, and we haven&#39;t found any use cases where we would recommend creating component inheritance hierarchies</code>, that’s a bit tongue-in-cheek. They have indeed found at least one such case — sitting right in React core, there is <code>PureComponent</code>. With this in mind, let us embark on journey to stop being afraid and extend our components joyfully.</p>
+<h2 id="Introducing-Component-Inheritance"><a href="#Introducing-Component-Inheritance" class="headerlink" title="Introducing Component Inheritance"></a>Introducing Component Inheritance</h2><p>A bit of history for those who haven’t been around in the wild days of React (circa 2014). We had no redux, no HOCs, and no idea how to write React apps that do not fall apart. We came up with all sorts of wild patterns. Coding was adventurous and imaginative, just probably not in a good way.</p>
+<p>Our working example starts with an idea of making a reusable piece of logic that would give our components <code>toggle</code> functionality — provide a boolean state flag and a way to switch it. The guys with OOP background see an immediately apparent way to do it. We make a semi-component:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Togglable</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Basic React state stuff</span></span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">open</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">    <span class="keyword">this</span>.toggle = <span class="keyword">this</span>.toggle.bind(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  toggle() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">open</span>: !<span class="keyword">this</span>.state.open &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Why semi-? No render, won't work by itself.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And now we extend it with <code>render</code> definition of our choice:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TogglerExt</span> <span class="keyword">extends</span> <span class="title">Togglable</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;div onClick=&#123;this.toggle&#125;&gt;</span><br><span class="line">      &#123;this.state.open ? 'open' : 'closed'&#125;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For completeness, here’s a canonical way to do this in 2018 using a HOC:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> withToggle = <span class="function"><span class="params">Cmp</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">WithToggle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="keyword">super</span>();</span><br><span class="line">      <span class="keyword">this</span>.state = &#123; <span class="attr">open</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">      <span class="keyword">this</span>.toggle = <span class="keyword">this</span>.toggle.bind(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    toggle() &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123; <span class="attr">open</span>: !<span class="keyword">this</span>.state.open &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;Cmp open=&#123;this.state.open&#125; toggle=&#123;this.toggle&#125; /&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const TogglerHoc = withToggle(p =&gt; (</span><br><span class="line">  &lt;div onClick=&#123; p.toggle &#125;&gt;</span><br><span class="line">    &#123;this.state.open ? 'open' : 'closed'&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+<p>We could also write this in three lines of <a href="https://github.com/acdlite/recompose" target="_blank" rel="noopener">recompose</a> (<code>withState</code> + <code>withHandlers</code>), but that’s beside the point. Also note how the code for both options is almost identical — we’ll use this later to do something cool.</p>
+<h2 id="The-Business-Reuse-Legacy-Components"><a href="#The-Business-Reuse-Legacy-Components" class="headerlink" title="The Business: Reuse Legacy Components"></a>The Business: Reuse Legacy Components</h2><p>You know these — components that are 300+ lines long and have a fair share of business  logic in them. For some reason, they usually have JSX-returning methods, something like <code>renderAvatar</code>. The most infuriating thing about these? They may be old, obese and gross, but they’ve been around this project longer than you have, and are mostly working the way they’re supposed to. Something like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCard</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  renderMenu() &#123;</span><br><span class="line">    <span class="comment">// some JSX here</span></span><br><span class="line">  &#125;</span><br><span class="line">  isOnline() &#123;</span><br><span class="line">    <span class="comment">// and a lot of logic there</span></span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;Card&gt;</span><br><span class="line">      &lt;Avatar url=&#123;this.props.avatar&#125; isOnline=&#123;this.isOnline()&#125; /&gt;</span><br><span class="line">      &#123; this.renderMenu() &#125;</span><br><span class="line">    &lt;/Card&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So, how would you approach making a similar component with the same business logic and similar layout parts? To be concrete, let’s say we want to put our users into a table instead of a card list. Would you run and start decomposing, making <code>render*</code> methods proper components, extracting the business logic into a state manager? Do you have all the time in the world to do this task? Let’s hack around and do some real work.</p>
+<p><code>extend</code> to the rescue!</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserRow</span> <span class="keyword">extends</span> <span class="title">UserCard</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;tr&gt;</span><br><span class="line">      &lt;td&gt;</span><br><span class="line">        &lt;Avatar url=&#123;this.props.avatar&#125; isOnline=&#123;this.isOnline()&#125; /&gt;</span><br><span class="line">      &lt;/td&gt;</span><br><span class="line">      &lt;td&gt;&#123; this.renderMenu() &#125;&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Do not judge me! We’ve reused the old component without disrupting its function and with little to no duplication (just some in the <code>render</code> method). Let’s try once again, with method overrides and super calls:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SellerCard</span> <span class="keyword">extends</span> <span class="title">UserCard</span> </span>&#123;</span><br><span class="line">  renderMenu() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.isBlocked</span><br><span class="line">      ? &lt;Menu warn="Blocked seller" /&gt;</span><br><span class="line">      : super.renderMenu();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>There’s a hundred reasons not to write components like this, and I wouldn’t call it a clean solution I am proud of, but this is very effective in getting out of the <em>so worried about the state of your codebase you can’t eat</em> block.</p>
+<h2 id="The-Technical-Performance-Considerations"><a href="#The-Technical-Performance-Considerations" class="headerlink" title="The Technical: Performance Considerations"></a>The Technical: Performance Considerations</h2><p>Never mind the design, let’s move into the land of extreme performance hacks. Common sense tells that with HOCs React has twice as much bookkeeping to do: set up both the parent and the child components, call their lifecycle hooks in the proper order, and so on. So, subclass components should be faster than HOCs.</p>
+<p>Since common sense is not worth much when it comes to performance testing, I made an actual benchmark using the toggler example introduced earlier. It is a realistic use case, not some synthetic benchmark. Still, it shows updating the HOC to be slightly (3–10%) slower in webkits (Chrome and Safari), and 50% slower in Firefox. If you don’t trust me, head over to a <a href="https://github.com/thoughtspile/hoc-vs-extend" target="_blank" rel="noopener">special repo</a> and see for yourself.</p>
+<p>This is probably not a deal-breaker for most real apps, but, again, something to keep in mind — layering HOCs has a real performance cost. This is also the reason why <code>PureComponent</code> works best as-is — having performance helpers be performant makes sense.</p>
+<h2 id="Best-of-Both-Worlds-and-Generality"><a href="#Best-of-Both-Worlds-and-Generality" class="headerlink" title="Best of Both Worlds (and Generality)"></a>Best of Both Worlds (and Generality)</h2><p>An especially powerful thing about the extend pattern is its generality. The parent component exposes all its methods and internal state for you to play with, so you can do whatever you please, even make a HOC out of it! This openness is not always good — with great power comes great responsibility, <em>etcetera, etcetera.</em> For what it’s worth, here is the extend-toggler, wrapped in a HOC:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> withToggleExt = <span class="function"><span class="params">Cmp</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">WithToggle</span> <span class="keyword">extends</span> <span class="title">Togglable</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;Cmp open=&#123;this.state.open&#125; toggle=&#123;this.toggle&#125; /&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>With a bit of trickery you could even make a generic <em>hocifier</em> that takes two components and plugs one into the other’s render method.</p>
+<h2 id="The-Downsides"><a href="#The-Downsides" class="headerlink" title="The Downsides"></a>The Downsides</h2><p>Frankly, I do not extend components all the time either, and here is why:</p>
+<ul>
+<li>No clear-cut interface boundary. Well-written HOCs have decorator options and the props they inject into the decorated component. With extend, all the component code is the public interface. You can somewhat cover it with TypeScript, but it’s duct tape over duct tape.</li>
+<li>There is no way to inherit from several components. Using extend, you can’t make your component both Pure and Togglable. HOCs, on the other hand, are easily composable, albeit with a runtime performance cost. Granted, JS is so dynamic you could write your own multiple inheritance / mixin engine, but this is also beyond the scope of this article.</li>
+<li>You can’t use functional components any more. Not for the base components, not for the derived ones. It’s a pity, I love the brevity and ease of creation.</li>
+<li>Lifecycle hooks in child components are verbose. If you define <code>componentDidMount</code> in the child component, it’s now your responsibility to call the parent hook. Even worse, the parent hook may or may not exist, so you have to check before you call.</li>
+</ul>
+<p>Dual extend / HOC pattern works around these issues nicely, but nullifies the performance benefits.</p>
+<hr>
+<p>So, should switch to extending your components exclusively? As you might have guessed by the downside list, absolutely not! Just do not rule out this option, especially if you’re developing a library. Since you can expose both options to the library users, there’s no reason to reject. To repeat, the two cases where I find <code>extend</code> viable are:</p>
+<ul>
+<li>Making a slightly changed version of a legacy component without rewriting it completely.</li>
+<li>Squeezing the last bit of performance out of your helper components, at the expense of convenience.</li>
+</ul>
+<p>If you like what you just read, encourage me in the comments and subscribe to my blog — I have a more exhaustive overview of React composition patterns in writing, with HOCs, render props, and maybe even <code>useState</code>. If you hate what you just read (interesting! why are you still reading it then?) — discourage me in the comments or write an angry email. Anyways, you’re a bit smarter now. Have a nice week and enjoy yourself.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introducing-Component-Inheritance"><span class="toc-number">1.</span> <span class="toc-text">Introducing Component Inheritance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Business-Reuse-Legacy-Components"><span class="toc-number">2.</span> <span class="toc-text">The Business: Reuse Legacy Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Technical-Performance-Considerations"><span class="toc-number">3.</span> <span class="toc-text">The Technical: Performance Considerations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Best-of-Both-Worlds-and-Generality"><span class="toc-number">4.</span> <span class="toc-text">Best of Both Worlds (and Generality)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Downsides"><span class="toc-number">5.</span> <span class="toc-text">The Downsides</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/11/05/react-extend-justified/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&text=Why you Might Want to Extend React Components"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&is_video=false&description=Why you Might Want to Extend React Components"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Why you Might Want to Extend React Components&body=Check out this article: https://thoughtspile.github.io/2018/11/05/react-extend-justified/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&title=Why you Might Want to Extend React Components"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/11/05/react-extend-justified/&name=Why you Might Want to Extend React Components&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
