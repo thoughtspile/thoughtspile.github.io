@@ -17,12 +17,10 @@
 <meta property="og:site_name" content="Vladimir Klepov as a Coder">
 <meta property="og:description" content="I’ve been developing an AngularJS application for the past year — and voila! here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://thoughtspile.github.io/images/angularjs-is-bad.jpeg">
-<meta property="og:updated_time" content="2018-10-04T17:00:26.000Z">
+<meta property="og:updated_time" content="2018-11-10T11:36:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simpifying AngularJS controllers with ES5 get &#x2F; set">
 <meta name="twitter:description" content="I’ve been developing an AngularJS application for the past year — and voila! here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been">
-<meta name="twitter:image" content="https://thoughtspile.github.io/images/angularjs-is-bad.jpeg">
     
     
         
@@ -146,8 +144,6 @@
 
   <div class="content" itemprop="articleBody">
     <p>I’ve been developing an AngularJS application for the past year — and <em>voila!</em> here I am, alive and well. I’m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been waiting to publish this post for 3 years. It’s just how things turned up for me. Since there’s no shortage of AngularJS apps in the wild, I’ve decided to share some tips for taming Angular (the Terrible one) and staying sane (yes you can).</p>
-<figure><br>  <img src="/images/angularjs-is-bad.jpeg"><br>  <div style="color: #666; text-align: center;">Oh AngularJS, what a reputation you’ve earned yourself</div><br></figure>
-
 <h2 id="The-context-—-where-am-I-Help"><a href="#The-context-—-where-am-I-Help" class="headerlink" title="The context — where am I? (Help)"></a>The context — where am I? (Help)</h2><p>Some context first. I spent two years developing React front-ends. When offered a job on an AngularJS app, I was scared at first — we’ve all spent years making fun of it. The team lead was shaking a full Vue rewrite around not to scare the candidates off. The idea of playing around with Vue felt good (I’m a playful coder, don’t judge me), but Joel Spolsky’s <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/" target="_blank" rel="noopener">spooky story</a> of Netscape’s full rewrite had been growing on me for years. And well, there were <em>features</em> to be made, no time for the geek fun.</p>
 <p>Now I’m gone from the project (no relation to the tech stack whatsoever), and the app is still moslty AngularJS. It’s in a good shape, and has all the modern things: webpack, babel, a sprinkle of React here and there. I feel I’ve made a good job by focusing on the business stuff.</p>
 <h2 id="The-Problem-—-what’s-wrong"><a href="#The-Problem-—-what’s-wrong" class="headerlink" title="The Problem — what’s wrong?"></a>The Problem — what’s wrong?</h2><p>So, what was it I was gonna tell you kids about? We have a service that holds the list of users. Here it is, with all the ES6 exquisiteness:</p>
