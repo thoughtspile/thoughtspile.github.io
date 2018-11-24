@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+<meta name="keywords" content="javascript,programming,performance">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Major Garbage Producers in JS">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/11/24/garbage-producing-js/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-24T15:31:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Major Garbage Producers in JS">
+<meta name="twitter:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Major Garbage Producers in JS</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/11/05/react-extend-justified/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&text=Major Garbage Producers in JS"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&is_video=false&description=Major Garbage Producers in JS"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Major Garbage Producers in JS&body=Check out this article: https://thoughtspile.github.io/2018/11/24/garbage-producing-js/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&name=Major Garbage Producers in JS&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-method-chains"><span class="toc-number">1.</span> <span class="toc-text">Array method chains</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Less-calls-larger-functions"><span class="toc-number">1.1.</span> <span class="toc-text">Less calls, larger functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-loops"><span class="toc-number">1.2.</span> <span class="toc-text">for loops</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Defensive-Cloning"><span class="toc-number">2.</span> <span class="toc-text">Defensive Cloning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Clone-only-what’s-necessary"><span class="toc-number">2.1.</span> <span class="toc-text">Clone only what’s necessary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Immutable-js"><span class="toc-number">2.2.</span> <span class="toc-text">Use Immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Make-up-your-mind-about-mutation"><span class="toc-number">2.3.</span> <span class="toc-text">Make up your mind about mutation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-arguments"><span class="toc-number">3.</span> <span class="toc-text">Object arguments</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Major Garbage Producers in JS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-11-24T15:25:43.000Z" itemprop="datePublished">24.11.2018</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/performance/">performance</a>, <a class="tag-link" href="/tags/programming/">programming</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on garbage — reject plastic bags in a supermarket, recycle bottles, keep the paper garbage in a closet until the special paper-garbage truck comes on Thursday. But when it comes to JS, the general sentiment magically becomes “let’s litter like crazy, then let the engine designers do their thing and come up with something to make that work at the speed of C”. Apparently, there’s only that much the poor guys can do.</p>
+<p>Even if you do a quick complexity analysis here and there, and know your way around a profiler, hot garbage is going to bite you. It won’t be a literal memory leak — occasionally garbage collector would come and clean up your mess — but it places strain on the user’s PC resources, and in the worst case you might end up with a 10+ seconds GC pause.</p>
+<p>It’s time that we learn to stand up for ourselves. We should at least identify eco-unfriendly JS patterns, so that we know whom to blame. In this post, I describe three patterns that lead to excess garbage production, and give you an insight into static-memory JS programming — the kind you want to use in low-level hot code.</p>
+<h2 id="Array-method-chains"><a href="#Array-method-chains" class="headerlink" title="Array method chains"></a>Array method chains</h2><p>Chaining array methods might be concise and functional, but it’s a terrible memory buster. Count with me:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = arr <span class="comment">// Say we have   110 elements here</span></span><br><span class="line">  .filter(<span class="function"><span class="params">e</span> =&gt;</span> e.user) <span class="comment">// say, + 100 elements</span></span><br><span class="line">  .map(<span class="function"><span class="params">e</span> =&gt;</span> e.user) <span class="comment">//         + 100 elements</span></span><br><span class="line">  .map(<span class="function"><span class="params">u</span> =&gt;</span> u.wealth || <span class="number">0</span>) <span class="comment">//  + 100 elements</span></span><br><span class="line">  .reduce(<span class="function">(<span class="params">acc, wealth</span>) =&gt;</span> acc + wealth, <span class="number">0</span>); <span class="comment">// all to get a number!</span></span><br></pre></td></tr></table></figure>
+<p>We’ve just allocated 300 elements across 3 arrays, while we only needed one numeric variable (what is it, around 8 bytes?).</p>
+<h3 id="Less-calls-larger-functions"><a href="#Less-calls-larger-functions" class="headerlink" title="Less calls, larger functions"></a>Less calls, larger functions</h3><p>Just because you can write every operation as a one-liner arrow, does not mean you should. In the above case, we could rewrite the chain into a non-chain, removing intermediate arrays:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> res = arr.reduce(<span class="function">(<span class="params">acc, e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> wealth = (e &amp;&amp; e.user) ? (e.user.wealth || <span class="number">0</span>) : <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> acc + wealth;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>As you can see in <a href="https://jsperf.com/array-chains" target="_blank" rel="noopener">this jsperf</a>, this solution is several times faster than the excessively chained one.</p>
+<p>Of course, this limits the reusability of individual transforms — but, honestly, when was the last time you used non-inline function in a map (<code>.map(mapper)</code>)? Programming is a way of tradeoffs.</p>
+<h3 id="for-loops"><a href="#for-loops" class="headerlink" title="for loops"></a><code>for</code> loops</h3><p>For especially hot functions, it makes sense to switch to good old <code>for</code> loops with index:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> total = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> e = arr[i];</span><br><span class="line">  <span class="keyword">if</span> (e &amp;&amp; e.user) &#123;</span><br><span class="line">    total += e.user.wealth || <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Iterator-based for..of loops may be the stylish and concise choice here, but, depending on your browser, they may be as fast as the indexed version, or the slowest option, or be not supported at all. When you transpile the code into ES5, for..of loops turn into plain loops and naturally run at the same speed, but you should not assume this would always be the case. Also, the spec requires iterators to produce a new object at any iteration, which complicates the GC job instead of easing it.</p>
+<h2 id="Defensive-Cloning"><a href="#Defensive-Cloning" class="headerlink" title="Defensive Cloning"></a>Defensive Cloning</h2><p>This pattern is not as widespread in Redux community as it used to be in Flux / event bus times, but it’s a case where a single statement can stall your program. I’m talking about <code>_.cloneDeep</code> and friends.</p>
+<p>The premise of cloning is noble: you have no idea what the consumers will do to your object, but mutating them might break the other consumers’ assumptions. <strong>example</strong> This is most prominent in middlewares and observables, because these patterns assume low coupling, and you have no idea where the object you create goes and what happens to it. If you hand each consumer a unique copy of the object, it can do no harm to others.</p>
+<h3 id="Clone-only-what’s-necessary"><a href="#Clone-only-what’s-necessary" class="headerlink" title="Clone only what’s necessary"></a>Clone only what’s necessary</h3><p>The basic redux pattern with object spreads — using <code>{ ...state, user }</code> to overwrite a single property — is already a good enough solution. Even if you overwrite the most deeply nested property, you generally allocate only <code>O(log N)</code> new memory for an N-sized object. That is, if you have a 3-nested object with 6 properties at each level, you only create 3 new object per clone instead of 6^3 = 216. Much better!</p>
+<h3 id="Use-Immutable-js"><a href="#Use-Immutable-js" class="headerlink" title="Use Immutable.js"></a>Use Immutable.js</h3><p>Libraries such as Immutable.js give the consumers no way to mutate the original object. They also enable you to change the object in patches, with smaller memory pressure than the naive method. The drawback is that the syntax for working with Immutable objects is more verbose, especially if you’re interfacing with plain JS objects, so this solution works best for apps developed from scratch. As an alternative, you could employ ES6 <code>Object.freeze</code>, but the browser support is not quite there yet.</p>
+<p>Unfortunately, this option also imposes runtime performance cost for property access, which might not be the best thing to do out of pure cautiousness.</p>
+<h3 id="Make-up-your-mind-about-mutation"><a href="#Make-up-your-mind-about-mutation" class="headerlink" title="Make up your mind about mutation"></a>Make up your mind about mutation</h3><p>My favorite option here is not technological. Impose a global rule over your codebase: <em>do not mutate the objects you did not create.</em> Beat yourself on the fingers with a ruler when you do. Enforce this in code reviews. Explain the problem you’re solving to your colleagues. If you absolutely must mutate the object, clone it as soon as you receive it. That’s 1 explicit clone per 100 calls, not the default case. Much better.</p>
+<h2 id="Object-arguments"><a href="#Object-arguments" class="headerlink" title="Object arguments"></a>Object arguments</h2><p>This one is primarily for designing hot-utility libraries. The guys often opt for ease of use and design APIs with <code>options</code> argument that accepts an object:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Ugly and inflexible (or is it?)</span></span><br><span class="line">formatGreeting(<span class="string">'Waldemar'</span>) <span class="comment">// hello, Waldemar!</span></span><br><span class="line"><span class="comment">// You don't have to remember arg position! And we can add more options later.</span></span><br><span class="line">formatGreeting(&#123; <span class="attr">name</span>: <span class="string">'Waldemar'</span> &#125;) <span class="comment">// hello, Waldemar!</span></span><br></pre></td></tr></table></figure>
+<p>It’s all very nice and convenient until you realize that you have to create an object on every call, then throw it away. Here’s <a href="https://jsperf.com/object-vs-positional-args" target="_blank" rel="noopener">another jsperf</a> that shows just how big a hit this can be.</p>
+<p>Make a rule of accepting required arguments positionally in hot utility functions. You can always reserve the last position for an optional argument object a-la python to allow your users to opt-in to extended functionality:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">formatGreeting(<span class="string">'Waldemar'</span>, &#123; <span class="attr">lang</span>: <span class="string">'fr'</span> &#125;) <span class="comment">// Bonjour, Waldemar!</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>I know, I know, your favourite quote starts with “premature optimization” and ends with “evil”. However, if you don’t take these things into consideration when writing low-level code, you’ll soon find your validations take 400ms per keyword stroke, your visualizations hang the browser, and your node server do GC pauses every other second. I’m not promoting the use of these techniques in all your code, but as soon as you recognize a code path is hot — go for it! At least you’ll know what to look for. Good luck!</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-method-chains"><span class="toc-number">1.</span> <span class="toc-text">Array method chains</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Less-calls-larger-functions"><span class="toc-number">1.1.</span> <span class="toc-text">Less calls, larger functions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-loops"><span class="toc-number">1.2.</span> <span class="toc-text">for loops</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Defensive-Cloning"><span class="toc-number">2.</span> <span class="toc-text">Defensive Cloning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Clone-only-what’s-necessary"><span class="toc-number">2.1.</span> <span class="toc-text">Clone only what’s necessary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Immutable-js"><span class="toc-number">2.2.</span> <span class="toc-text">Use Immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Make-up-your-mind-about-mutation"><span class="toc-number">2.3.</span> <span class="toc-text">Make up your mind about mutation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-arguments"><span class="toc-number">3.</span> <span class="toc-text">Object arguments</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&text=Major Garbage Producers in JS"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&is_video=false&description=Major Garbage Producers in JS"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Major Garbage Producers in JS&body=Check out this article: https://thoughtspile.github.io/2018/11/24/garbage-producing-js/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&title=Major Garbage Producers in JS"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/11/24/garbage-producing-js/&name=Major Garbage Producers in JS&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
