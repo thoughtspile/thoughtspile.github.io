@@ -9,18 +9,18 @@
     
       <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
     
-    <meta name="description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+    <meta name="description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my European readers), you probably do all sorts of crazy thinks to cut down on">
 <meta name="keywords" content="javascript,programming,performance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Major Garbage Producers in JS">
 <meta property="og:url" content="https://thoughtspile.github.io/2018/11/24/garbage-producing-js/index.html">
 <meta property="og:site_name" content="Vladimir Klepov as a Coder">
-<meta property="og:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+<meta property="og:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my European readers), you probably do all sorts of crazy thinks to cut down on">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-24T15:31:32.000Z">
+<meta property="og:updated_time" content="2018-11-24T15:34:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Major Garbage Producers in JS">
-<meta name="twitter:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on g">
+<meta name="twitter:description" content="The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my European readers), you probably do all sorts of crazy thinks to cut down on">
     
     
         
@@ -141,7 +141,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my german readers), you probably do all sorts of crazy thinks to cut down on garbage — reject plastic bags in a supermarket, recycle bottles, keep the paper garbage in a closet until the special paper-garbage truck comes on Thursday. But when it comes to JS, the general sentiment magically becomes “let’s litter like crazy, then let the engine designers do their thing and come up with something to make that work at the speed of C”. Apparently, there’s only that much the poor guys can do.</p>
+    <p>The reckless coding culture of JS favors producing garbage. In real life, if you’re environmentally conscious (hey there, my European readers), you probably do all sorts of crazy thinks to cut down on garbage — reject plastic bags in a supermarket, recycle bottles, keep the paper garbage in a closet until the special paper-garbage truck comes on Thursday. But when it comes to JS, the general sentiment magically becomes “let’s litter like crazy, then let the engine designers do their thing and come up with something to make that work at the speed of C”. Apparently, there’s only that much the poor guys can do.</p>
 <p>Even if you do a quick complexity analysis here and there, and know your way around a profiler, hot garbage is going to bite you. It won’t be a literal memory leak — occasionally garbage collector would come and clean up your mess — but it places strain on the user’s PC resources, and in the worst case you might end up with a 10+ seconds GC pause.</p>
 <p>It’s time that we learn to stand up for ourselves. We should at least identify eco-unfriendly JS patterns, so that we know whom to blame. In this post, I describe three patterns that lead to excess garbage production, and give you an insight into static-memory JS programming — the kind you want to use in low-level hot code.</p>
 <h2 id="Array-method-chains"><a href="#Array-method-chains" class="headerlink" title="Array method chains"></a>Array method chains</h2><p>Chaining array methods might be concise and functional, but it’s a terrible memory buster. Count with me:</p>
