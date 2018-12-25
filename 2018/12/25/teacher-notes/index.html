@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="It’s about time that I celebrate five years of teaching. At daytime, I lead a normal programmer’s life. But evenings and weekends, I don’t write more code, the way I’m supposed to — instead, I turn in">
+<meta name="keywords" content="life,thoughtspile,teaching">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5 Traps Awaiting a Newbie Teacher">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/12/25/teacher-notes/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="It’s about time that I celebrate five years of teaching. At daytime, I lead a normal programmer’s life. But evenings and weekends, I don’t write more code, the way I’m supposed to — instead, I turn in">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-12-25T17:16:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5 Traps Awaiting a Newbie Teacher">
+<meta name="twitter:description" content="It’s about time that I celebrate five years of teaching. At daytime, I lead a normal programmer’s life. But evenings and weekends, I don’t write more code, the way I’m supposed to — instead, I turn in">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>5 Traps Awaiting a Newbie Teacher</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c1957fa423bba0012ec3bd1&product=inline-share-buttons'
+      async='async'></script>
+
+</head>
+
+<body class="max-width mx-auto px3">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/12/17/design-crash-course/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/12/25/teacher-notes/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&text=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&is_video=false&description=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=5 Traps Awaiting a Newbie Teacher&body=Check out this article: https://thoughtspile.github.io/2018/12/25/teacher-notes/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&name=5 Traps Awaiting a Newbie Teacher&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Your-goal-is-to-teach"><span class="toc-number">1.</span> <span class="toc-text">Your goal is to teach</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-have-no-idea-what-is-obvious"><span class="toc-number">2.</span> <span class="toc-text">You have no idea what is obvious</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-have-to-lie-all-the-time"><span class="toc-number">3.</span> <span class="toc-text">You have to lie all the time</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Teaching-stuff-you-don’t-know-well-is-cool"><span class="toc-number">4.</span> <span class="toc-text">Teaching stuff you don’t know well is cool</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-don’t-have-to-know-everything"><span class="toc-number">5.</span> <span class="toc-text">You don’t have to know everything</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        5 Traps Awaiting a Newbie Teacher
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Vladimir Klepov as a Coder</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-12-25T17:13:30.000Z" itemprop="datePublished">25.12.2018</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/life/">life</a>, <a class="tag-link" href="/tags/teaching/">teaching</a>, <a class="tag-link" href="/tags/thoughtspile/">thoughtspile</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>It’s about time that I celebrate five years of teaching. At daytime, I lead a normal programmer’s life. But evenings and weekends, I don’t write more code, the way I’m supposed to — instead, I turn into a covert teacher (sometimes literally, when my contract prohibits part-time jobs). I have taught school mathematics, conversational english (and IELTS preparation!), C++ and JS programming and data analysis. Let me tell you how I got into this first.</p>
+<p>Being a tutor is probably the job with the most bang for your buck in Russia. The market is enormous given the popular belief that not going to a university (even if that’s a major in philology from Higher State University of Toilet Construction and Design) limits your career choices to carrying boxes around (OK, maybe you get to drive a truck). And the entry qualification for a tutor — well, if you’re a university student yourself, and have several hours a week to spare, you’re good to go. And the hourly pay (if you’re convincing) is about how much you can make as a web developer. It’s insane not to hop in.</p>
+<p>One of the things that seems to scare people off teaching is the big talk surrounding education. There are “second mothers”, whom we “trust with our kids”, doing a “mission”, not a job. That’s for selfless martyrs fighting the battle for the future of humanity, not for you, don’t even get close. Over the years, I’ve discovered education to be a normal industry with a healthy amount of money rolling around — people love learning, and the governments are happy to throw a bit in there, too. It’s a good job.</p>
+<p>Here, I’ve put together a list of things I learnt over these years. They seem common-sense, yet I find myself breaking them all the time — you really need self-control. To make me feel better, supposedly established education professionals do fall into these traps, too. Let’s go.</p>
+<h1 id="Your-goal-is-to-teach"><a href="#Your-goal-is-to-teach" class="headerlink" title="Your goal is to teach"></a>Your goal is to teach</h1><p>As a teacher, you should teach — no more, no less. You help people do something they couldn’t do before. This should be pretty simple, but I see people fail to understand this, time after time. The failure comes in two flavours.</p>
+<p>Boosting your self-esteem is not what you’re after. OK, you know the stuff you’re teaching, your students don’t — pretty much as expected, isn’t it? There’s no reason to point that out all the time. If you’ve been explaining something for the past hour, but failed to get it through to the student — you’re the stupid one here, because you haven’t done your job of explaining well.</p>
+<p>Luckily, this simple rule also frees you from the extra job. Being a motivation coach, a therapist or a buddy to your students is completely optional. If someone decides they’re better off not knowing whatever you have to teach — fine, you don’t have a moral obligation to show them the right path. Yes, some people do not want whatever it is that you have to offer. They could, but they don’t. Life goes on.</p>
+<h1 id="You-have-no-idea-what-is-obvious"><a href="#You-have-no-idea-what-is-obvious" class="headerlink" title="You have no idea what is obvious"></a>You have no idea what is obvious</h1><p>As a specialist, you find some things obvious, but your students don’t necessarily share this view. Whenever you assume people know <em>a very-basic-thing</em>, someone will surprise you in a most unexpected way. The worst thing is you can’t plan for it, precisely because it’s so obvious to you when you’re planning the course.</p>
+<p>Here’s how I got burnt with it. I was teaching data analysis to second year CS students, and, introducing the homework, I made a remark: “save the results into JSON, then load them”. Next thing I know — I have 5 hand-written JSON parsers. I somewhat understand how it came about — when you spend a year writing parsers and studying grammars, everything looks like a parser. Since then I always devote 15 minutes in the beginning of my courses to using standard JSON module, back and forth, until the students feel I think they’re idiots. I don’t, I’m just cautious.</p>
+<p>Now, a turn-around with me on the opposite end: during my final year at the university, we had a class on computer architecture. The lecturer was a cool and knowledgeable fellow working in the industry. The class normally went as follows: “Look and repeat: we open the terminal, create a folder, open vim, write assembly code, compile it, write more assembly, recomplile, do more CLI manipulations, <em>et voila</em> — we’ve just written an operating system!” Except that for me it was more like “I did it! I did it! I know how to create a folder! And I can exit vim!” (by the way, that’s <code>esc</code>, just to make sure, then <code>shift + Z + Z</code> — very useful). Watching someone write assembly at that speed is very entertaining by itself, but I still don’t know much about computer architecture.</p>
+<p>Frankly, I don’t know how to solve this problem, once and for all. Watch out for the moment when the students stop understanding, ask if everything is clear (they might not want to admin — be insistent), and plan your lessons with a time reserve for unforeseen explanations.</p>
+<h1 id="You-have-to-lie-all-the-time"><a href="#You-have-to-lie-all-the-time" class="headerlink" title="You have to lie all the time"></a>You have to lie all the time</h1><p>Teaching is the art of deception. With your knowledge in the field, you tend to get carried far away, into the land of obscure details and edge cases. These asides, no matter how fun they may be for you, rarely add anything to your students’ knowledge. Stay brief and go with the short and simple, even if not technically true, answers.</p>
+<p>Let’s go though some examples of good vs bad answers together:</p>
+<ul>
+<li>Can I divide by zero? <em>good:</em> No way! <em>bad:</em> Strictly speaking, no, but you can instead take a limit of f(x) / x as x approaches zero, which might have a value, which you can use to complete the definition at zero, so that you have effectively divided by zero. Oddly enough, certain functions can be said to have <em>any</em> value at zero… (to be continued)</li>
+<li>Should I use functions, or just copy and paste my code? <em>good:</em> Use functions, Don’t Repeat Yourself. <em>bad:</em> Probably functions, but, depending on the situation, copy-paste can be fine, especially for shorter snippets. You have to plan for expanding your codebase. Sometimes, if your logic is stateful, using classes can be more convenient. Lisp and some other languages also have marcos… (ends up explaining monads)</li>
+<li>What does “корова” mean? <em>good:</em> That’s “cow”. <em>bad:</em> This depends on the context. — Oh, in that case, it’s “cow”, but you can also hear it used as an obscenity, implying that the person is overweight, which is not necessarily true. And there is also a Soviet candy called “коровка”, which is “little cow”, similar to toffee (an hour of discussing sweets and the history of the Eastern Bloc).</li>
+</ul>
+<p>Hope you get the idea. There’s nothing wrong with in-depth explanations, as long as you’re sure the student hasn’t lost track of where you are, and you have nothing more appropriate to teach.</p>
+<h1 id="Teaching-stuff-you-don’t-know-well-is-cool"><a href="#Teaching-stuff-you-don’t-know-well-is-cool" class="headerlink" title="Teaching stuff you don’t know well is cool"></a>Teaching stuff you don’t know well is cool</h1><p>Nothing scares people more than the prospect of teaching something they have no experience with. Say, you work with React, but get an offer to teach Vue. No way, you don’t know Vue, do you? Don’t be scared, it’s going to be fine. You’ll need more time to prepare for the class, but otherwise, it’s even better than teaching what you excel at. Here’s why:</p>
+<ul>
+<li>Your explanations may actually be clearer, since you’ve literally just seen it explained.</li>
+<li>You get to learn something new, for free, with an excellent motivation of not having your students see you fail.</li>
+<li>The students won’t tell you from an expert working in the area his whole life. As long as you take your time to prepare and be an inch above the students, you’re delivering value.</li>
+<li>Less risk of falling into the “excessively detailed explanation” trap shown above. Not knowing that many obscure details is the best way not to get lost in them. Just take care and don’t converge to explaining the stuff you know instead of the original answer.</li>
+</ul>
+<p>Of course, this does not allow you to teach civil engineering instead of graphic design — that would be fraud. But learning a new library or framework, or linear regression instead of natural language processing should be fine. Don’t take my word on this — here’s a book called <a href="https://www.goodreads.com/book/show/7300305-teaching-what-you-don-t-know" target="_blank" rel="noopener">“Teaching What You Don’t Know”</a>. Motivational food for thought? Great — are football coaches the best footballers in their team (we probably have different ideas of “football”, but that’s not the point)? Not likely. Are school math teachers renowned mathematicians? Very unlikely.</p>
+<h1 id="You-don’t-have-to-know-everything"><a href="#You-don’t-have-to-know-everything" class="headerlink" title="You don’t have to know everything"></a>You don’t have to know everything</h1><p>Sometimes students will ask you a question, and you have no idea what the answer is. No need to worry — you’re just a person, not God Almighty, and (hopefully) you never pretended to be one. Just say you don’t know, then try to work out the answer together. If you’re concerned your student would lose respect for you over this incident — keep calm, they won’t. If anything, it’s the other way around — they’ll feel something’s off when you start evading the question using smart talk. Let me pull my answer-along trick again:</p>
+<ul>
+<li>How do I say “smartass” in Spanish? <em>good:</em> I have no idea. Why don’t you look it up and tell us the next time? <em>bad:</em> Literally, that would be “El culo inteligente”. You should refrain from using terms like that in all situations but the most informal ones. Now let’s move away from this unacceptable question.</li>
+<li>Why is my code not working? <em>good:</em> I don’t know — what does the error message say? <em>bad:</em> Because you wrote code that does not work. As a programmer, you will be routinely presented with cahlleneges like this, and if your code stops working in production, this may result in significant damage. To prevent this from happening, you should write unit tests, or, even better, use test-driven development.</li>
+<li>Can sum of squares be a prime number? <em>good:</em> Interesting! Maybe, but I’m not sure. I’ll check it out and tell you at the next lesson. <em>bad:</em> Gödel’s first incompleteness theorem states that no consistent system of axioms whose theorems can be listed by an effective procedure is capable of proving all truths about the arithmetic of the natural numbers. For any such consistent formal system, there will always be statements about the natural numbers that are true, but that are unprovable within the system. The second incompleteness theorem, an extension of the first, shows that the system cannot demonstrate its own consistency. Hope this clarifies the matter for those of you who are still capable of thinking for yourself.</li>
+</ul>
+<p>As you may see, the desire to look smart and all-knowing results in answers similar to the “excessively detailed” ones. Even worse, you haven’t answered the original question. If this teaches anything, that’s avoiding uncomfortable questions using big talk — not a useless life skill, but is that really what you were after? In the worst case, it teaches your students not to ask you any questions, which still sucks.</p>
+<hr>
+<p>Do you have any fun stories, or more “traps” like this to share? Be sure to drop them into the comments here or on reddit!</p>
+
+  </div>
+  <div class="call-to-action clearfix">
+    
+      <a class="call-to-action__item left" href="/2018/12/17/design-crash-course/">
+        <i class="fas fa-chevron-left fa-3x"></i>
+        <span class="call-to-action__item__name">10 Design Rules for Programmers</span>
+      </a>
+    
+    
+  </div>
+</article>
+<div class="sharethis-inline-share-buttons"></div>
+
+    
+        <div class="blog-post-comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the comments.</noscript>
+            </div>
+        </div>
+    
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Your-goal-is-to-teach"><span class="toc-number">1.</span> <span class="toc-text">Your goal is to teach</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-have-no-idea-what-is-obvious"><span class="toc-number">2.</span> <span class="toc-text">You have no idea what is obvious</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-have-to-lie-all-the-time"><span class="toc-number">3.</span> <span class="toc-text">You have to lie all the time</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Teaching-stuff-you-don’t-know-well-is-cool"><span class="toc-number">4.</span> <span class="toc-text">Teaching stuff you don’t know well is cool</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#You-don’t-have-to-know-everything"><span class="toc-number">5.</span> <span class="toc-text">You don’t have to know everything</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/12/25/teacher-notes/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&text=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&is_video=false&description=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=5 Traps Awaiting a Newbie Teacher&body=Check out this article: https://thoughtspile.github.io/2018/12/25/teacher-notes/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&title=5 Traps Awaiting a Newbie Teacher"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/12/25/teacher-notes/&name=5 Traps Awaiting a Newbie Teacher&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Vladimir Klepov
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/thoughtspile">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'thoughtspile';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
