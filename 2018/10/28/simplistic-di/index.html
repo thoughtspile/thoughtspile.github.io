@@ -55,67 +55,17 @@
 </head>
 
 <body class="max-width mx-auto px3">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/thoughtspile">Projects</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2018/11/05/react-extend-justified/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/10/22/typescript-derived-interface/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/10/28/simplistic-di/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&text=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&is_video=false&description=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=OOP for FP lovers: Simplistic Dependency Injection&body=Check out this article: https://thoughtspile.github.io/2018/10/28/simplistic-di/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&name=OOP for FP lovers: Simplistic Dependency Injection&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#We-Have-a-Problem"><span class="toc-number">1.</span> <span class="toc-text">We Have a Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STEP-Enter-DI"><span class="toc-number">2.</span> <span class="toc-text">STEP! Enter DI.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Are-We-Done-Yet"><span class="toc-number">3.</span> <span class="toc-text">Are We Done Yet?</span></a></li></ol>
-    </div>
-  </span>
-</div>
-
-    
     <div class="content index my4">
-        
+        <a href="/" id="header" class="header header--post">
+  
+    
+    <div id="logo" style="background-image: url(/images/logo.png);"></div>
+  
+  <header id="title">
+    <h1>Vladimir Klepov as a Coder</h1>
+  </header>
+</a>
+
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
     
@@ -126,9 +76,6 @@
 
 
     <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">Vladimir Klepov as a Coder</span>
-      </span>
       
     <div class="postdate">
         <time datetime="2018-10-28T11:28:01.000Z" itemprop="datePublished">28.10.2018</time>
@@ -137,7 +84,6 @@
 
       
     <div class="article-tag">
-        <i class="fas fa-tag"></i>
         <a class="tag-link" href="/tags/OOP/">OOP</a>, <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/programming/">programming</a>
     </div>
 
@@ -185,85 +131,13 @@
 </article>
 <div class="sharethis-inline-share-buttons"></div>
 
-    
-        <div class="blog-post-comments">
-            <div id="disqus_thread">
-                <noscript>Please enable JavaScript to view the comments.</noscript>
-            </div>
-        </div>
-    
-
 
 
     </div>
-    
-      <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/thoughtspile">Projects</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#We-Have-a-Problem"><span class="toc-number">1.</span> <span class="toc-text">We Have a Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STEP-Enter-DI"><span class="toc-number">2.</span> <span class="toc-text">STEP! Enter DI.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Are-We-Done-Yet"><span class="toc-number">3.</span> <span class="toc-text">Are We Done Yet?</span></a></li></ol>
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://thoughtspile.github.io/2018/10/28/simplistic-di/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&text=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&is_video=false&description=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=OOP for FP lovers: Simplistic Dependency Injection&body=Check out this article: https://thoughtspile.github.io/2018/10/28/simplistic-di/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&title=OOP for FP lovers: Simplistic Dependency Injection"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://thoughtspile.github.io/2018/10/28/simplistic-di/&name=OOP for FP lovers: Simplistic Dependency Injection&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
-  </div>
-</div>
-
-    
     <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2019 Vladimir Klepov
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="http://github.com/thoughtspile">Projects</a></li>
-        
-      </ul>
-    </nav>
-  </div>
+  <a href="/">
+    A blog by Vladimir Klepov
+  </a>
 </footer>
 
 </body>
@@ -292,17 +166,5 @@
 <!-- Baidu Analytics -->
 
 <!-- Disqus Comments -->
-
-    <script type="text/javascript">
-        var disqus_shortname = 'thoughtspile';
-
-        (function(){
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }());
-    </script>
 
 
