@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://thoughtspile.github.io/"/>
-  <updated>2019-01-06T09:05:34.000Z</updated>
+  <updated>2021-04-02T18:18:52.009Z</updated>
   <id>https://thoughtspile.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to timeout a promise</title>
+    <link href="https://thoughtspile.github.io/2021/04/02/promise-timeout/"/>
+    <id>https://thoughtspile.github.io/2021/04/02/promise-timeout/</id>
+    <published>2021-04-02T18:18:51.000Z</published>
+    <updated>2021-04-02T18:18:52.009Z</updated>
+    
+    <content type="html"><![CDATA[<p>Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request failed and fall back to plan B — try again, show an error message and let the user decide what to do next, or use cached data. This is a great remedy for all kinds of flaky-web trouble: slow networks, clogged backends, overloaded databases — your user will never have to watch a spinner forever.</p><p>Yet, a simple promise-based fetch has so little code and so few handles exposed that it’s not obvious if you can fit such a timeout in there, and if you can — where should it go:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json());</span><br></pre></td></tr></table></figure><p>I bet you can, and let me show you how! First things first, we need to pull a callback-based JS timeout into the promise world. Here’s how we do it:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(ok, <span class="number">5000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>Pretty basic stuff, and very useful. We use the promise constructor to set the timeout that resolves the promise created after 5 seconds.</p><p>The next bit we need is <code>Promise.race</code>, the little brother of the famous <code>Promise.all</code> that is useful for about one real world thing, so no one really cares about it. Quoting <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">MDN,</a> <em>Promise.race() returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise.</em> That’s exactly what we need!</p><ul><li>If load promise resolves before timeout — we’re good to go.</li><li>If load promise rejects — fall back to plan B.</li><li>If the timeout fires first — fall back to plan B, just as if loading failed.</li></ul><p>Putting it all together and tweaking our timeout-promise to make it <em>reject</em> (we’re <em>bad,</em> not <em>good,</em> if we hit it) gives us this wonderful snippet:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = <span class="built_in">Promise</span>.race([</span><br><span class="line">    fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()),</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">_, fail</span>) =&gt;</span> setTimeout(fail(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Timeout'</span>)), <span class="number">5000</span>))</span><br><span class="line">]).then(</span><br><span class="line">    (res) =&gt; &#123; <span class="comment">/* process as you wish */</span> &#125;,</span><br><span class="line">    (err) =&gt; &#123; <span class="comment">/* retry or display error */</span> &#125;);</span><br></pre></td></tr></table></figure><p>What’s even better, this technique works not only for <code>fetch</code>, but for any promise-based operation: just replace <code>fetch</code> call above with <code>yourApiLayer.load()</code>, <code>DBQuery.execute()</code>, <code>serviceMesh.callRPC()</code> or whatever async stuff you want to timeout, and you’re good to go.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does n
+      
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    
+      <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
+    
+  </entry>
   
   <entry>
     <title>Extravagantly fast rendering with React benders</title>
@@ -35,11 +62,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
-      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
     
@@ -66,9 +93,9 @@
     
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
-      <category term="design" scheme="https://thoughtspile.github.io/tags/design/"/>
-    
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    
+      <category term="design" scheme="https://thoughtspile.github.io/tags/design/"/>
     
   </entry>
   
@@ -91,11 +118,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
-      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
     
@@ -120,9 +147,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="performance" scheme="https://thoughtspile.github.io/tags/performance/"/>
     
@@ -147,11 +174,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
-      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
     
@@ -176,9 +203,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="OOP" scheme="https://thoughtspile.github.io/tags/OOP/"/>
     
@@ -204,11 +231,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
-      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
     
@@ -237,11 +264,11 @@
     </summary>
     
     
+      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
       <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
-      <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
     
@@ -266,11 +293,11 @@
     </summary>
     
     
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    
       <category term="life" scheme="https://thoughtspile.github.io/tags/life/"/>
     
       <category term="thoughtspile" scheme="https://thoughtspile.github.io/tags/thoughtspile/"/>
-    
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="happiness" scheme="https://thoughtspile.github.io/tags/happiness/"/>
     
@@ -295,11 +322,11 @@
     </summary>
     
     
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    
       <category term="life" scheme="https://thoughtspile.github.io/tags/life/"/>
     
       <category term="thoughtspile" scheme="https://thoughtspile.github.io/tags/thoughtspile/"/>
-    
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="depression" scheme="https://thoughtspile.github.io/tags/depression/"/>
     
@@ -324,9 +351,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
     
@@ -353,13 +380,13 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
-      <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
     
       <category term="angularjs" scheme="https://thoughtspile.github.io/tags/angularjs/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    
+      <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
     
       <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
     
@@ -428,9 +455,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
     
@@ -457,9 +484,9 @@
     </summary>
     
     
-      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
-    
       <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    
+      <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
     
       <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
     

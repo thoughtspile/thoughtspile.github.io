@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
+<meta name="keywords" content="javascript,programming,promises">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to timeout a promise">
+<meta property="og:url" content="https://thoughtspile.github.io/2021/04/02/promise-timeout/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-04-02T18:18:52.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to timeout a promise">
+<meta name="twitter:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>How to timeout a promise</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c1957fa423bba0012ec3bd1&product=inline-share-buttons'
+      async='async'></script>
+
+</head>
+
+<body class="max-width mx-auto px3">
+    <div class="content index my4">
+        <a href="/" id="header" class="header header--post">
+  
+    
+    <div id="logo" style="background-image: url(/images/logo.png);"></div>
+  
+  <header id="title">
+    <h1>Vladimir Klepov as a Coder</h1>
+  </header>
+</a>
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        How to timeout a promise
+    </h1>
+
+
+
+    <div class="meta">
+      
+    <div class="postdate">
+        <time datetime="2021-04-02T18:18:51.000Z" itemprop="datePublished">02.04.2021</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/programming/">programming</a>, <a class="tag-link" href="/tags/promises/">promises</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request failed and fall back to plan B — try again, show an error message and let the user decide what to do next, or use cached data. This is a great remedy for all kinds of flaky-web trouble: slow networks, clogged backends, overloaded databases — your user will never have to watch a spinner forever.</p>
+<p>Yet, a simple promise-based fetch has so little code and so few handles exposed that it’s not obvious if you can fit such a timeout in there, and if you can — where should it go:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json());</span><br></pre></td></tr></table></figure>
+<p>I bet you can, and let me show you how! First things first, we need to pull a callback-based JS timeout into the promise world. Here’s how we do it:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(ok, <span class="number">5000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Pretty basic stuff, and very useful. We use the promise constructor to set the timeout that resolves the promise created after 5 seconds.</p>
+<p>The next bit we need is <code>Promise.race</code>, the little brother of the famous <code>Promise.all</code> that is useful for about one real world thing, so no one really cares about it. Quoting <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">MDN,</a> <em>Promise.race() returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise.</em> That’s exactly what we need!</p>
+<ul>
+<li>If load promise resolves before timeout — we’re good to go.</li>
+<li>If load promise rejects — fall back to plan B.</li>
+<li>If the timeout fires first — fall back to plan B, just as if loading failed.</li>
+</ul>
+<p>Putting it all together and tweaking our timeout-promise to make it <em>reject</em> (we’re <em>bad,</em> not <em>good,</em> if we hit it) gives us this wonderful snippet:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = <span class="built_in">Promise</span>.race([</span><br><span class="line">    fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()),</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">_, fail</span>) =&gt;</span> setTimeout(fail(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Timeout'</span>)), <span class="number">5000</span>))</span><br><span class="line">]).then(</span><br><span class="line">    (res) =&gt; &#123; <span class="comment">/* process as you wish */</span> &#125;,</span><br><span class="line">    (err) =&gt; &#123; <span class="comment">/* retry or display error */</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>What’s even better, this technique works not only for <code>fetch</code>, but for any promise-based operation: just replace <code>fetch</code> call above with <code>yourApiLayer.load()</code>, <code>DBQuery.execute()</code>, <code>serviceMesh.callRPC()</code> or whatever async stuff you want to timeout, and you’re good to go.</p>
+
+  </div>
+  <div class="call-to-action clearfix">
+    
+      <a class="call-to-action__item left" href="/2019/01/06/vdom-bend-memo/">
+        <i class="fas fa-chevron-left fa-3x"></i>
+        <span class="call-to-action__item__name">Extravagantly fast rendering with React benders</span>
+      </a>
+    
+    
+  </div>
+</article>
+<div class="sharethis-inline-share-buttons"></div>
+
+
+
+    </div>
+    <footer id="footer">
+  <a href="/">
+    A blog by Vladimir Klepov
+  </a>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
