@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Vladimir Klepov as a Coder">
 <meta property="og:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-04-02T18:18:52.009Z">
+<meta property="og:updated_time" content="2021-04-03T09:41:27.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to timeout a promise">
 <meta name="twitter:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
@@ -94,9 +94,9 @@
 
   <div class="content" itemprop="articleBody">
     <p>Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request failed and fall back to plan B — try again, show an error message and let the user decide what to do next, or use cached data. This is a great remedy for all kinds of flaky-web trouble: slow networks, clogged backends, overloaded databases — your user will never have to watch a spinner forever.</p>
-<p>Yet, a simple promise-based fetch has so little code and so few handles exposed that it’s not obvious if you can fit such a timeout in there, and if you can — where should it go:</p>
+<p>Fetch API has a <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal" target="_blank">signal</a> option to abort the request, but I wondered if it could be done using promises only. So, starting with a simple fetch, let’s see if we can fit a timeout in there:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json());</span><br></pre></td></tr></table></figure>
-<p>I bet you can, and let me show you how! First things first, we need to pull a callback-based JS timeout into the promise world. Here’s how we do it:</p>
+<p>I bet we can, and let me show you how! First things first, we need to pull a callback-based JS timeout into the promise world. Here’s how we do it:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(ok, <span class="number">5000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>Pretty basic stuff, and very useful. We use the promise constructor to set the timeout that resolves the promise created after 5 seconds.</p>
 <p>The next bit we need is <code>Promise.race</code>, the little brother of the famous <code>Promise.all</code> that is useful for about one real world thing, so no one really cares about it. Quoting <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">MDN,</a> <em>Promise.race() returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or reason from that promise.</em> That’s exactly what we need!</p>
