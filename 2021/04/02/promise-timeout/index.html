@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Vladimir Klepov as a Coder">
 <meta property="og:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-04-03T09:42:43.302Z">
+<meta property="og:updated_time" content="2021-04-05T15:59:47.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to timeout a promise">
 <meta name="twitter:description" content="Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request fa">
@@ -106,7 +106,7 @@
 <li>If the timeout fires first — fall back to plan B, just as if loading failed.</li>
 </ul>
 <p>Putting it all together and tweaking our timeout-promise to make it <em>reject</em> (we’re <em>bad,</em> not <em>good,</em> if we hit it) gives us this wonderful snippet:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = <span class="built_in">Promise</span>.race([</span><br><span class="line">    fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()),</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">_, fail</span>) =&gt;</span> setTimeout(fail(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Timeout'</span>)), <span class="number">5000</span>))</span><br><span class="line">]).then(</span><br><span class="line">    (res) =&gt; &#123; <span class="comment">/* process as you wish */</span> &#125;,</span><br><span class="line">    (err) =&gt; &#123; <span class="comment">/* retry or display error */</span> &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> load = <span class="built_in">Promise</span>.race([</span><br><span class="line">    fetch(<span class="string">'/api'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> res.json()),</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">_, fail</span>) =&gt;</span> setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> fail(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Timeout'</span>)), <span class="number">5000</span>))</span><br><span class="line">]).then(</span><br><span class="line">    (res) =&gt; &#123; <span class="comment">/* process as you wish */</span> &#125;,</span><br><span class="line">    (err) =&gt; &#123; <span class="comment">/* retry or display error */</span> &#125;);</span><br></pre></td></tr></table></figure>
 <p>What’s even better, this technique, unlike <code>AbortSignal</code>, works not only for <code>fetch</code>, but for any promise-based operation: just replace <code>fetch</code> call above with <code>yourApiLayer.load()</code>, <code>DBQuery.execute()</code>, <code>serviceMesh.callRPC()</code> or whatever async stuff you want to timeout, and you’re good to go.</p>
 
   </div>
@@ -117,6 +117,11 @@
         <span class="call-to-action__item__name">Extravagantly fast rendering with React benders</span>
       </a>
     
+    
+      <a class="call-to-action__item right" href="/2021/04/05/useref-usememo/">
+        <span class="call-to-action__item__name">How useRef turned out to be useMemo's father</span>
+        <i class="fas fa-chevron-right fa-3x"></i>
+      </a>
     
   </div>
 </article>
