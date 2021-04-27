@@ -92,8 +92,6 @@
 
     </div>
   </header>
-  
-
   <div class="content" itemprop="articleBody">
     <p>It’s no secret that react’s <code>useCallback</code> is just sugar on top of <code>useMemo</code> that saves the children from having to see an arrow chain. As <a href="https://reactjs.org/docs/hooks-reference.html" target="_blank">the docs</a> go:</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useCallback(<span class="function">(<span class="params">e</span>) =&gt;</span> onChange(id, e.target.value), [onChange, id]);</span><br><span class="line"><span class="comment">// is equivalent to</span></span><br><span class="line">useMemo(<span class="function"><span class="params">()</span> =&gt;</span> (e) =&gt; onChange(id, e.target.value), [onChange, id]);</span><br></pre></td></tr></table></figure>
@@ -158,13 +156,6 @@
 </html>
 <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
 
 <!-- Google Analytics -->
 

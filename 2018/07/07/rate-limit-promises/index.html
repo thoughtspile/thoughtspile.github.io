@@ -90,8 +90,6 @@
 
     </div>
   </header>
-  
-
   <div class="content" itemprop="articleBody">
     <p>In the <a href="/2018/06/20/serialize-promises/">previous post</a> we learnt to serialize<br>and concurrecy-limit promise-based operations in js. This time we dive further<br>and handle rate limiting.</p>
 <h2 id="What-Exactly-to-Rate-Limit"><a href="#What-Exactly-to-Rate-Limit" class="headerlink" title="What Exactly to Rate Limit"></a>What Exactly to Rate Limit</h2><p>Let’s get terminological matters out of the way first. Promises represent operations<br>that last a certain amount of time, while rate limiting is applied to discrete events.<br>Over its life, a promise starts and terminates (with a success or a failure, not<br>important now). It makes most sense to rate limit promise creations (starts).<br>Rate limiting promise resolutions can be done by appending a start-rate-limited<br>promise onto the end of the running promise. We could also limit the gap<br>between operations, but I have no idea how that would be useful.</p>
@@ -166,13 +164,6 @@
 </html>
 <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
 
 <!-- Google Analytics -->
 

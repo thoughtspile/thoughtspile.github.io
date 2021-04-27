@@ -90,8 +90,6 @@
 
     </div>
   </header>
-  
-
   <div class="content" itemprop="articleBody">
     <p>Timeouts are one of the key building blocks to make your app stable. In short, if you send a request to an endpoint and a response does not, for whatever reason, come soon, we act as if the request failed and fall back to plan B — try again, show an error message and let the user decide what to do next, or use cached data. This is a great remedy for all kinds of flaky-web trouble: slow networks, clogged backends, overloaded databases — your user will never have to watch a spinner forever.</p>
 <p>Fetch API has a <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal" target="_blank">signal</a> option to abort the request, but I wondered if it could be done using promises only. So, starting with a simple fetch, let’s see if we can fit a timeout in there:</p>
@@ -140,13 +138,6 @@
 </html>
 <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
 
 <!-- Google Analytics -->
 
