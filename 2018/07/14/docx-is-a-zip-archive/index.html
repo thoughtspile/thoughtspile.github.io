@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+      <meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc" />
+    
+    <meta name="description" content="Microsof Office’s docx files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyone should know it! When I tell my colleagues, friends, or students about it,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quick Tip: docx is a zip Archive">
+<meta property="og:url" content="https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/index.html">
+<meta property="og:site_name" content="Vladimir Klepov as a Coder">
+<meta property="og:description" content="Microsof Office’s docx files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyone should know it! When I tell my colleagues, friends, or students about it,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://thoughtspile.github.io/images/unzipped-docx.png">
+<meta property="article:published_time" content="2018-07-14T11:33:41.000Z">
+<meta property="article:modified_time" content="2021-05-17T14:23:11.315Z">
+<meta property="article:author" content="Vladimir Klepov">
+<meta property="article:tag" content="microsoft, zip, tips">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://thoughtspile.github.io/images/unzipped-docx.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Quick Tip: docx is a zip Archive</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+    
+
+    <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c1957fa423bba0012ec3bd1&product=inline-share-buttons'
+      async='async'></script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="max-width mx-auto px3">
+    <div class="content index my4">
+        <a href="/" id="header" class="header header--post">
+  
+    
+    <div id="logo" style="background-image: url(/images/logo.png);"></div>
+  
+  <header id="title">
+    <h1>Vladimir Klepov as a Coder</h1>
+  </header>
+</a>
+
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Quick Tip: docx is a zip Archive
+    </h1>
+
+
+
+    <div class="meta">
+      
+    <div class="postdate">
+        <time datetime="2018-07-14T11:33:41.000Z" itemprop="datePublished">14.07.2018</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <a class="tag-link" href="/tags/microsoft-zip-tips/" rel="tag">microsoft, zip, tips</a>
+    </div>
+
+
+    </div>
+  </header>
+  <div class="content" itemprop="articleBody">
+    <p>Microsof Office’s <code>docx</code> files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyone should know it!</p>
+<p>When I tell my colleagues, friends, or students about it, they don’t take me seriously the first time. So, here we go again. If you have a docx (or xlsx, or pptx) file, you can unzip it with <code>unzip proj.docx -d proj</code> or any other unarchiver and get a folder with all the stuff that makes up the document:</p>
+<p><img src="/images/unzipped-docx.png" alt=""></p>
+<p>From here, you can:</p>
+<ul>
+<li>quickly grab all the media from  <code>word/media</code></li>
+<li>work with the document (<code>word/document</code>) via an XML parser (or grep / sed, but it’s a secret)</li>
+</ul>
+<p>And do all the other marvellous stuff — no Office or even GUI needed. Now go and spread the light of this newfound knowledge and never complain about docx again!</p>
+
+  </div>
+  <div class="call-to-action clearfix">
+    
+      <a class="call-to-action__item left" href="/2018/07/07/rate-limit-promises/">
+        <i class="fas fa-chevron-left fa-3x"></i>
+        <span class="call-to-action__item__name">Advanced Promise Coordination: Rate Limiting</span>
+      </a>
+    
+    
+      <a class="call-to-action__item right" href="/2018/09/19/Programming-is-like-writing/">
+        <span class="call-to-action__item__name">Programming is Like Writing</span>
+        <i class="fas fa-chevron-right fa-3x"></i>
+      </a>
+    
+  </div>
+</article>
+<div class="sharethis-inline-share-buttons"></div>
+
+
+
+    </div>
+    <footer id="footer">
+  <a href="/">
+    A blog by Vladimir Klepov
+  </a>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-121445688-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
