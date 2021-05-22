@@ -958,6 +958,10 @@ body {
     display: none;
   }
 }
+.share .icon {
+  display: block;
+  background: #2bbc8a;
+}
 .project-list {
   padding: 0;
   list-style: none;
