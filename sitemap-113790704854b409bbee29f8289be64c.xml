@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://thoughtspile.github.io/2021/06/04/eslint-workarounds/</loc>
+    
+    <lastmod>2021-06-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://thoughtspile.github.io/2021/06/02/eslint-restrict-syntax/</loc>
     
     <lastmod>2021-06-02</lastmod>
@@ -165,7 +172,7 @@
 
   <url>
     <loc>https://thoughtspile.github.io/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -173,154 +180,154 @@
   
   <url>
     <loc>https://thoughtspile.github.io/tags/life/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/thoughtspile/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/programming/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/depression/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/javascript/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/frontend/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/tips/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/design/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/react/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/hooks/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/microsoft-zip-tips/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/performance/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/happiness/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/promises/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/high-availability/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/OOP/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/typescript/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/angular/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/programming-testing/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://thoughtspile.github.io/tags/programming-javascript-eslint/</loc>
-    <lastmod>2021-06-02</lastmod>
+    <lastmod>2021-06-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
