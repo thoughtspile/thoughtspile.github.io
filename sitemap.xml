@@ -339,13 +339,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://thoughtspile.github.io/tags/programming-javascript-frontend/</loc>
-    <lastmod>2021-06-07</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
 </urlset>
