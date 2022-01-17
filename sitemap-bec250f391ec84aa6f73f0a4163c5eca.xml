@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2022/01/17/jsx-conditionals/</loc>
+    
+    <lastmod>2022-01-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2019/01/06/vdom-bend-memo/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/11/usestate-object-vs-multiple/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/09/27/usestate-tricks/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/04/05/useref-usememo/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/25/useref-no-current/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/06/20/serialize-promises/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/10/22/typescript-derived-interface/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/11/15/unintentional-layout-effect/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/09/21/useeffect-derived-state/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/12/02/react-keep-mounted/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/13/really-declarative/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/11/08/semver-challenges/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/07/07/rate-limit-promises/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/04/react-context-dangers/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/09/24/quick-size-check/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/04/02/promise-timeout/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/18/non-react-state/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/11/20/open-source-starter/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/09/29/lets-make-software-better/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/06/14/faster-pre-commit/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/11/30/lazy-useref/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/05/31/moar-coverage/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/05/17/everything-about-react-refs/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/06/04/eslint-workarounds/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/06/07/event-capture/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/06/11/cleaner-dynamic-arrays/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/09/22/dev-warnings/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/06/02/eslint-restrict-syntax/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/04/07/better-usecallback/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/27/better-react-context/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/09/23/bad-software-week/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2021/10/06/babel-runtime-version/</loc>
+    
+    <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/about/index.html</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/09/22/typescript-unsuck-guide/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/10/28/simplistic-di/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/11/05/react-extend-justified/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/11/24/garbage-producing-js/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/10/05/js-debug-logging/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/2018/12/17/design-crash-course/</loc>
+    
+    <lastmod>2021-04-09</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>https://thoughtspile.github.io/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/javascript/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/programming/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/frontend/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/life/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/thoughtspile/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/happiness/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/performance/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/promises/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/rant/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/tips/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/depression/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/react/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/hooks/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/design/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/high-availability/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/OOP/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/typescript/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/angular/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/babel/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/infra/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/open-source/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/developer-experience/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/microsoft/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/eslint/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://thoughtspile.github.io/tags/testing/</loc>
+    <lastmod>2022-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+</urlset>
