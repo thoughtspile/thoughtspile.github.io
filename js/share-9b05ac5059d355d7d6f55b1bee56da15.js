@@ -1,1 +1,0 @@
-!function(){var t=document.getElementById("share-button");navigator.share?t.addEventListener("click",function(t){t.preventDefault(),navigator.share({title:document.title,url:location.href})}):t.style.display="none"}();
