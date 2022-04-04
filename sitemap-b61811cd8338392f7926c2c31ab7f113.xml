@@ -431,6 +431,13 @@
   </url>
   
   <url>
+    <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
+    <lastmod>2022-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thoughtspile.tech/tags/react/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>daily</changefreq>
@@ -544,13 +551,6 @@
   
   <url>
     <loc>https://blog.thoughtspile.tech/tags/angular/</loc>
-    <lastmod>2022-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
