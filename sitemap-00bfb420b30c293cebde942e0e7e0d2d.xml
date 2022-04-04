@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.thoughtspile.tech/google7a3f184889e034e3.html</loc>
+    
+    <lastmod>2022-04-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.thoughtspile.tech/2022/03/28/interview-bad-habits/</loc>
     
     <lastmod>2022-03-28</lastmod>
@@ -254,14 +261,14 @@
   </url>
   
   <url>
-    <loc>https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/</loc>
+    <loc>https://blog.thoughtspile.tech/2021/06/02/eslint-restrict-syntax/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.thoughtspile.tech/2021/06/02/eslint-restrict-syntax/</loc>
+    <loc>https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/</loc>
     
     <lastmod>2022-01-14</lastmod>
     
@@ -459,6 +466,13 @@
   </url>
   
   <url>
+    <loc>https://blog.thoughtspile.tech/tags/developer-experience/</loc>
+    <lastmod>2022-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.thoughtspile.tech/tags/design/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>daily</changefreq>
@@ -466,7 +480,7 @@
   </url>
   
   <url>
-    <loc>https://blog.thoughtspile.tech/tags/developer-experience/</loc>
+    <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -481,13 +495,6 @@
   
   <url>
     <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
-    <lastmod>2022-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
     <lastmod>2022-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
