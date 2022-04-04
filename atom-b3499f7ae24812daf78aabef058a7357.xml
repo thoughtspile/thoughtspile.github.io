@@ -3,11 +3,11 @@
   <title>Vladimir Klepov as a Coder</title>
   
   
-  <link href="https://thoughtspile.github.io/atom.xml" rel="self"/>
+  <link href="https://blog.thoughtspile.tech/atom.xml" rel="self"/>
   
-  <link href="https://thoughtspile.github.io/"/>
+  <link href="https://blog.thoughtspile.tech/"/>
   <updated>2022-03-28T20:15:02.663Z</updated>
-  <id>https://thoughtspile.github.io/</id>
+  <id>https://blog.thoughtspile.tech/</id>
   
   <author>
     <name>Vladimir Klepov</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Seven habits of bad interviewers</title>
-    <link href="https://thoughtspile.github.io/2022/03/28/interview-bad-habits/"/>
-    <id>https://thoughtspile.github.io/2022/03/28/interview-bad-habits/</id>
+    <link href="https://blog.thoughtspile.tech/2022/03/28/interview-bad-habits/"/>
+    <id>https://blog.thoughtspile.tech/2022/03/28/interview-bad-habits/</id>
     <published>2022-03-28T12:11:56.000Z</published>
     <updated>2022-03-28T20:15:02.663Z</updated>
     
@@ -34,16 +34,16 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="interview" scheme="https://thoughtspile.github.io/tags/interview/"/>
+    <category term="interview" scheme="https://blog.thoughtspile.tech/tags/interview/"/>
     
   </entry>
   
   <entry>
     <title>5 coding interview questions I hate</title>
-    <link href="https://thoughtspile.github.io/2022/03/21/bad-tech-interview/"/>
-    <id>https://thoughtspile.github.io/2022/03/21/bad-tech-interview/</id>
+    <link href="https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/"/>
+    <id>https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/</id>
     <published>2022-03-21T16:26:29.000Z</published>
     <updated>2022-03-25T07:38:32.659Z</updated>
     
@@ -58,16 +58,16 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="interview" scheme="https://thoughtspile.github.io/tags/interview/"/>
+    <category term="interview" scheme="https://blog.thoughtspile.tech/tags/interview/"/>
     
   </entry>
   
   <entry>
     <title>Don&#39;t trust JS library size, min+gzip</title>
-    <link href="https://thoughtspile.github.io/2022/02/15/bundle-size-lies/"/>
-    <id>https://thoughtspile.github.io/2022/02/15/bundle-size-lies/</id>
+    <link href="https://blog.thoughtspile.tech/2022/02/15/bundle-size-lies/"/>
+    <id>https://blog.thoughtspile.tech/2022/02/15/bundle-size-lies/</id>
     <published>2022-02-15T16:05:43.000Z</published>
     <updated>2022-02-16T08:10:21.054Z</updated>
     
@@ -82,18 +82,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="open source" scheme="https://thoughtspile.github.io/tags/open-source/"/>
+    <category term="open source" scheme="https://blog.thoughtspile.tech/tags/open-source/"/>
     
   </entry>
   
   <entry>
     <title>Why I prefer JS for front-end build automation</title>
-    <link href="https://thoughtspile.github.io/2022/02/14/js-automation/"/>
-    <id>https://thoughtspile.github.io/2022/02/14/js-automation/</id>
+    <link href="https://blog.thoughtspile.tech/2022/02/14/js-automation/"/>
+    <id>https://blog.thoughtspile.tech/2022/02/14/js-automation/</id>
     <published>2022-02-14T16:06:24.000Z</published>
     <updated>2022-02-14T16:17:47.598Z</updated>
     
@@ -108,20 +108,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="developer experience" scheme="https://thoughtspile.github.io/tags/developer-experience/"/>
+    <category term="developer experience" scheme="https://blog.thoughtspile.tech/tags/developer-experience/"/>
     
   </entry>
   
   <entry>
     <title>Using global memoization in React</title>
-    <link href="https://thoughtspile.github.io/2022/02/09/react-global-memo/"/>
-    <id>https://thoughtspile.github.io/2022/02/09/react-global-memo/</id>
+    <link href="https://blog.thoughtspile.tech/2022/02/09/react-global-memo/"/>
+    <id>https://blog.thoughtspile.tech/2022/02/09/react-global-memo/</id>
     <published>2022-02-09T12:08:54.000Z</published>
     <updated>2022-02-17T09:36:07.872Z</updated>
     
@@ -136,16 +136,16 @@
     
     
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>What is a react component, anyways?</title>
-    <link href="https://thoughtspile.github.io/2022/01/25/what-is-react-component/"/>
-    <id>https://thoughtspile.github.io/2022/01/25/what-is-react-component/</id>
+    <link href="https://blog.thoughtspile.tech/2022/01/25/what-is-react-component/"/>
+    <id>https://blog.thoughtspile.tech/2022/01/25/what-is-react-component/</id>
     <published>2022-01-25T09:26:37.000Z</published>
     <updated>2022-01-25T10:28:07.641Z</updated>
     
@@ -160,16 +160,16 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
   </entry>
   
   <entry>
     <title>useState: 7 интересных фактов</title>
-    <link href="https://thoughtspile.github.io/2022/01/18/ru/usestate-tricks/"/>
-    <id>https://thoughtspile.github.io/2022/01/18/ru/usestate-tricks/</id>
+    <link href="https://blog.thoughtspile.tech/2022/01/18/ru/usestate-tricks/"/>
+    <id>https://blog.thoughtspile.tech/2022/01/18/ru/usestate-tricks/</id>
     <published>2022-01-18T10:36:44.000Z</published>
     <updated>2022-01-19T09:51:15.217Z</updated>
     
@@ -188,8 +188,8 @@
   
   <entry>
     <title>Good advice on JSX conditionals</title>
-    <link href="https://thoughtspile.github.io/2022/01/17/jsx-conditionals/"/>
-    <id>https://thoughtspile.github.io/2022/01/17/jsx-conditionals/</id>
+    <link href="https://blog.thoughtspile.tech/2022/01/17/jsx-conditionals/"/>
+    <id>https://blog.thoughtspile.tech/2022/01/17/jsx-conditionals/</id>
     <published>2022-01-17T15:58:03.000Z</published>
     <updated>2022-02-17T09:36:40.281Z</updated>
     
@@ -204,20 +204,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Make useRef lazy — 4 ways</title>
-    <link href="https://thoughtspile.github.io/2021/11/30/lazy-useref/"/>
-    <id>https://thoughtspile.github.io/2021/11/30/lazy-useref/</id>
+    <link href="https://blog.thoughtspile.tech/2021/11/30/lazy-useref/"/>
+    <id>https://blog.thoughtspile.tech/2021/11/30/lazy-useref/</id>
     <published>2021-11-30T11:52:33.000Z</published>
     <updated>2022-01-14T13:29:55.461Z</updated>
     
@@ -232,18 +232,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Open source starter pack for JS devs</title>
-    <link href="https://thoughtspile.github.io/2021/11/20/open-source-starter/"/>
-    <id>https://thoughtspile.github.io/2021/11/20/open-source-starter/</id>
+    <link href="https://blog.thoughtspile.tech/2021/11/20/open-source-starter/"/>
+    <id>https://blog.thoughtspile.tech/2021/11/20/open-source-starter/</id>
     <published>2021-11-20T13:25:25.000Z</published>
     <updated>2022-01-14T13:29:55.462Z</updated>
     
@@ -258,16 +258,16 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="open source" scheme="https://thoughtspile.github.io/tags/open-source/"/>
+    <category term="open source" scheme="https://blog.thoughtspile.tech/tags/open-source/"/>
     
   </entry>
   
   <entry>
     <title>useEffect sometimes fires before paint</title>
-    <link href="https://thoughtspile.github.io/2021/11/15/unintentional-layout-effect/"/>
-    <id>https://thoughtspile.github.io/2021/11/15/unintentional-layout-effect/</id>
+    <link href="https://blog.thoughtspile.tech/2021/11/15/unintentional-layout-effect/"/>
+    <id>https://blog.thoughtspile.tech/2021/11/15/unintentional-layout-effect/</id>
     <published>2021-11-15T12:09:54.000Z</published>
     <updated>2022-01-14T13:29:55.465Z</updated>
     
@@ -282,20 +282,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>SemVer: The Tricky Parts</title>
-    <link href="https://thoughtspile.github.io/2021/11/08/semver-challenges/"/>
-    <id>https://thoughtspile.github.io/2021/11/08/semver-challenges/</id>
+    <link href="https://blog.thoughtspile.tech/2021/11/08/semver-challenges/"/>
+    <id>https://blog.thoughtspile.tech/2021/11/08/semver-challenges/</id>
     <published>2021-11-08T13:56:30.000Z</published>
     <updated>2022-01-14T13:29:55.464Z</updated>
     
@@ -310,18 +310,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="open source" scheme="https://thoughtspile.github.io/tags/open-source/"/>
+    <category term="open source" scheme="https://blog.thoughtspile.tech/tags/open-source/"/>
     
   </entry>
   
   <entry>
     <title>Why I always wrap Context.Provider and useContext</title>
-    <link href="https://thoughtspile.github.io/2021/10/27/better-react-context/"/>
-    <id>https://thoughtspile.github.io/2021/10/27/better-react-context/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/27/better-react-context/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/27/better-react-context/</id>
     <published>2021-10-27T09:56:14.000Z</published>
     <updated>2022-01-14T13:29:55.453Z</updated>
     
@@ -336,20 +336,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Can we useRef, but without the .current? Let&#39;s try!</title>
-    <link href="https://thoughtspile.github.io/2021/10/25/useref-no-current/"/>
-    <id>https://thoughtspile.github.io/2021/10/25/useref-no-current/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/25/useref-no-current/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/25/useref-no-current/</id>
     <published>2021-10-25T17:19:07.000Z</published>
     <updated>2022-01-14T13:29:55.466Z</updated>
     
@@ -364,20 +364,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>How to replace useState with useRef and be a winner</title>
-    <link href="https://thoughtspile.github.io/2021/10/18/non-react-state/"/>
-    <id>https://thoughtspile.github.io/2021/10/18/non-react-state/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/18/non-react-state/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/18/non-react-state/</id>
     <published>2021-10-18T11:21:27.000Z</published>
     <updated>2022-01-18T14:02:26.565Z</updated>
     
@@ -392,18 +392,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Thanks React, I&#39;m fine with an imperative setInterval</title>
-    <link href="https://thoughtspile.github.io/2021/10/13/really-declarative/"/>
-    <id>https://thoughtspile.github.io/2021/10/13/really-declarative/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/13/really-declarative/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/13/really-declarative/</id>
     <published>2021-10-13T17:55:24.000Z</published>
     <updated>2022-01-14T13:29:55.464Z</updated>
     
@@ -418,20 +418,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Are many useStates better than useState(object)?</title>
-    <link href="https://thoughtspile.github.io/2021/10/11/usestate-object-vs-multiple/"/>
-    <id>https://thoughtspile.github.io/2021/10/11/usestate-object-vs-multiple/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/11/usestate-object-vs-multiple/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/11/usestate-object-vs-multiple/</id>
     <published>2021-10-11T16:52:18.000Z</published>
     <updated>2022-01-14T13:29:55.467Z</updated>
     
@@ -446,20 +446,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Is your babel&#39;s transform-runtime getting lazy? You better check.</title>
-    <link href="https://thoughtspile.github.io/2021/10/06/babel-runtime-version/"/>
-    <id>https://thoughtspile.github.io/2021/10/06/babel-runtime-version/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/06/babel-runtime-version/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/06/babel-runtime-version/</id>
     <published>2021-10-06T14:25:03.000Z</published>
     <updated>2022-01-14T13:29:55.452Z</updated>
     
@@ -474,18 +474,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="babel" scheme="https://thoughtspile.github.io/tags/babel/"/>
+    <category term="babel" scheme="https://blog.thoughtspile.tech/tags/babel/"/>
     
-    <category term="infra" scheme="https://thoughtspile.github.io/tags/infra/"/>
+    <category term="infra" scheme="https://blog.thoughtspile.tech/tags/infra/"/>
     
   </entry>
   
   <entry>
     <title>How to destroy your app performance using React contexts</title>
-    <link href="https://thoughtspile.github.io/2021/10/04/react-context-dangers/"/>
-    <id>https://thoughtspile.github.io/2021/10/04/react-context-dangers/</id>
+    <link href="https://blog.thoughtspile.tech/2021/10/04/react-context-dangers/"/>
+    <id>https://blog.thoughtspile.tech/2021/10/04/react-context-dangers/</id>
     <published>2021-10-04T11:20:49.000Z</published>
     <updated>2022-01-14T13:29:55.463Z</updated>
     
@@ -500,20 +500,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>7 things you may not know about useState</title>
-    <link href="https://thoughtspile.github.io/2021/09/27/usestate-tricks/"/>
-    <id>https://thoughtspile.github.io/2021/09/27/usestate-tricks/</id>
+    <link href="https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/"/>
+    <id>https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/</id>
     <published>2021-09-27T10:36:44.000Z</published>
     <updated>2022-01-14T13:29:55.467Z</updated>
     
@@ -528,20 +528,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Zero-setup bundle size checker</title>
-    <link href="https://thoughtspile.github.io/2021/09/24/quick-size-check/"/>
-    <id>https://thoughtspile.github.io/2021/09/24/quick-size-check/</id>
+    <link href="https://blog.thoughtspile.tech/2021/09/24/quick-size-check/"/>
+    <id>https://blog.thoughtspile.tech/2021/09/24/quick-size-check/</id>
     <published>2021-09-24T18:07:28.000Z</published>
     <updated>2022-01-14T13:29:55.463Z</updated>
     
@@ -556,16 +556,16 @@
     
     
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="infra" scheme="https://thoughtspile.github.io/tags/infra/"/>
+    <category term="infra" scheme="https://blog.thoughtspile.tech/tags/infra/"/>
     
   </entry>
   
   <entry>
     <title>Build better libraries, use dev warnings</title>
-    <link href="https://thoughtspile.github.io/2021/09/22/dev-warnings/"/>
-    <id>https://thoughtspile.github.io/2021/09/22/dev-warnings/</id>
+    <link href="https://blog.thoughtspile.tech/2021/09/22/dev-warnings/"/>
+    <id>https://blog.thoughtspile.tech/2021/09/22/dev-warnings/</id>
     <published>2021-09-22T15:43:11.000Z</published>
     <updated>2022-01-14T13:29:55.458Z</updated>
     
@@ -580,20 +580,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="open source" scheme="https://thoughtspile.github.io/tags/open-source/"/>
+    <category term="open source" scheme="https://blog.thoughtspile.tech/tags/open-source/"/>
     
-    <category term="developer experience" scheme="https://thoughtspile.github.io/tags/developer-experience/"/>
+    <category term="developer experience" scheme="https://blog.thoughtspile.tech/tags/developer-experience/"/>
     
   </entry>
   
   <entry>
     <title>useLayoutEffect is a bad place for deriving state</title>
-    <link href="https://thoughtspile.github.io/2021/09/21/useeffect-derived-state/"/>
-    <id>https://thoughtspile.github.io/2021/09/21/useeffect-derived-state/</id>
+    <link href="https://blog.thoughtspile.tech/2021/09/21/useeffect-derived-state/"/>
+    <id>https://blog.thoughtspile.tech/2021/09/21/useeffect-derived-state/</id>
     <published>2021-09-21T14:51:47.000Z</published>
     <updated>2022-01-14T13:29:55.465Z</updated>
     
@@ -608,20 +608,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>How we made our pre-commit check 7x faster</title>
-    <link href="https://thoughtspile.github.io/2021/06/14/faster-pre-commit/"/>
-    <id>https://thoughtspile.github.io/2021/06/14/faster-pre-commit/</id>
+    <link href="https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/"/>
+    <id>https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/</id>
     <published>2021-06-14T17:37:10.000Z</published>
     <updated>2022-01-14T13:29:55.461Z</updated>
     
@@ -636,22 +636,22 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="infra" scheme="https://thoughtspile.github.io/tags/infra/"/>
+    <category term="infra" scheme="https://blog.thoughtspile.tech/tags/infra/"/>
     
-    <category term="eslint" scheme="https://thoughtspile.github.io/tags/eslint/"/>
+    <category term="eslint" scheme="https://blog.thoughtspile.tech/tags/eslint/"/>
     
-    <category term="typescript" scheme="https://thoughtspile.github.io/tags/typescript/"/>
+    <category term="typescript" scheme="https://blog.thoughtspile.tech/tags/typescript/"/>
     
   </entry>
   
   <entry>
     <title>Cleaner ways to build dynamic JS arrays</title>
-    <link href="https://thoughtspile.github.io/2021/06/11/cleaner-dynamic-arrays/"/>
-    <id>https://thoughtspile.github.io/2021/06/11/cleaner-dynamic-arrays/</id>
+    <link href="https://blog.thoughtspile.tech/2021/06/11/cleaner-dynamic-arrays/"/>
+    <id>https://blog.thoughtspile.tech/2021/06/11/cleaner-dynamic-arrays/</id>
     <published>2021-06-11T14:51:51.000Z</published>
     <updated>2022-01-14T13:29:55.458Z</updated>
     
@@ -666,16 +666,16 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
   </entry>
   
   <entry>
     <title>Two practical uses for capture event listeners</title>
-    <link href="https://thoughtspile.github.io/2021/06/07/event-capture/"/>
-    <id>https://thoughtspile.github.io/2021/06/07/event-capture/</id>
+    <link href="https://blog.thoughtspile.tech/2021/06/07/event-capture/"/>
+    <id>https://blog.thoughtspile.tech/2021/06/07/event-capture/</id>
     <published>2021-06-07T14:34:38.000Z</published>
     <updated>2022-01-14T13:29:55.459Z</updated>
     
@@ -690,18 +690,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
   </entry>
   
   <entry>
     <title>Go beyond eslint limits with these 3 tricks</title>
-    <link href="https://thoughtspile.github.io/2021/06/04/eslint-workarounds/"/>
-    <id>https://thoughtspile.github.io/2021/06/04/eslint-workarounds/</id>
+    <link href="https://blog.thoughtspile.tech/2021/06/04/eslint-workarounds/"/>
+    <id>https://blog.thoughtspile.tech/2021/06/04/eslint-workarounds/</id>
     <published>2021-06-04T16:03:02.000Z</published>
     <updated>2022-01-14T13:29:55.459Z</updated>
     
@@ -716,20 +716,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="infra" scheme="https://thoughtspile.github.io/tags/infra/"/>
+    <category term="infra" scheme="https://blog.thoughtspile.tech/tags/infra/"/>
     
-    <category term="eslint" scheme="https://thoughtspile.github.io/tags/eslint/"/>
+    <category term="eslint" scheme="https://blog.thoughtspile.tech/tags/eslint/"/>
     
   </entry>
   
   <entry>
     <title>Become the master of your eslint with no-restricted-syntax</title>
-    <link href="https://thoughtspile.github.io/2021/06/02/eslint-restrict-syntax/"/>
-    <id>https://thoughtspile.github.io/2021/06/02/eslint-restrict-syntax/</id>
+    <link href="https://blog.thoughtspile.tech/2021/06/02/eslint-restrict-syntax/"/>
+    <id>https://blog.thoughtspile.tech/2021/06/02/eslint-restrict-syntax/</id>
     <published>2021-06-02T12:07:58.000Z</published>
     <updated>2022-01-14T13:29:55.458Z</updated>
     
@@ -744,20 +744,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="infra" scheme="https://thoughtspile.github.io/tags/infra/"/>
+    <category term="infra" scheme="https://blog.thoughtspile.tech/tags/infra/"/>
     
-    <category term="eslint" scheme="https://thoughtspile.github.io/tags/eslint/"/>
+    <category term="eslint" scheme="https://blog.thoughtspile.tech/tags/eslint/"/>
     
   </entry>
   
   <entry>
     <title>How to increase test coverage FAST</title>
-    <link href="https://thoughtspile.github.io/2021/05/31/moar-coverage/"/>
-    <id>https://thoughtspile.github.io/2021/05/31/moar-coverage/</id>
+    <link href="https://blog.thoughtspile.tech/2021/05/31/moar-coverage/"/>
+    <id>https://blog.thoughtspile.tech/2021/05/31/moar-coverage/</id>
     <published>2021-05-31T17:12:01.000Z</published>
     <updated>2022-01-14T13:29:55.461Z</updated>
     
@@ -772,16 +772,16 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="testing" scheme="https://thoughtspile.github.io/tags/testing/"/>
+    <category term="testing" scheme="https://blog.thoughtspile.tech/tags/testing/"/>
     
   </entry>
   
   <entry>
     <title>So you think you know everything about React refs</title>
-    <link href="https://thoughtspile.github.io/2021/05/17/everything-about-react-refs/"/>
-    <id>https://thoughtspile.github.io/2021/05/17/everything-about-react-refs/</id>
+    <link href="https://blog.thoughtspile.tech/2021/05/17/everything-about-react-refs/"/>
+    <id>https://blog.thoughtspile.tech/2021/05/17/everything-about-react-refs/</id>
     <published>2021-05-17T18:10:17.000Z</published>
     <updated>2022-01-14T13:29:55.460Z</updated>
     
@@ -796,20 +796,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>Did I just build a better useCallback?</title>
-    <link href="https://thoughtspile.github.io/2021/04/07/better-usecallback/"/>
-    <id>https://thoughtspile.github.io/2021/04/07/better-usecallback/</id>
+    <link href="https://blog.thoughtspile.tech/2021/04/07/better-usecallback/"/>
+    <id>https://blog.thoughtspile.tech/2021/04/07/better-usecallback/</id>
     <published>2021-04-07T18:07:46.000Z</published>
     <updated>2022-01-14T13:29:55.457Z</updated>
     
@@ -825,20 +825,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>How useRef turned out to be useMemo&#39;s father</title>
-    <link href="https://thoughtspile.github.io/2021/04/05/useref-usememo/"/>
-    <id>https://thoughtspile.github.io/2021/04/05/useref-usememo/</id>
+    <link href="https://blog.thoughtspile.tech/2021/04/05/useref-usememo/"/>
+    <id>https://blog.thoughtspile.tech/2021/04/05/useref-usememo/</id>
     <published>2021-04-05T15:59:25.000Z</published>
     <updated>2022-01-14T13:29:55.466Z</updated>
     
@@ -853,20 +853,20 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
-    <category term="hooks" scheme="https://thoughtspile.github.io/tags/hooks/"/>
+    <category term="hooks" scheme="https://blog.thoughtspile.tech/tags/hooks/"/>
     
   </entry>
   
   <entry>
     <title>How to timeout a promise</title>
-    <link href="https://thoughtspile.github.io/2021/04/02/promise-timeout/"/>
-    <id>https://thoughtspile.github.io/2021/04/02/promise-timeout/</id>
+    <link href="https://blog.thoughtspile.tech/2021/04/02/promise-timeout/"/>
+    <id>https://blog.thoughtspile.tech/2021/04/02/promise-timeout/</id>
     <published>2021-04-02T18:18:51.000Z</published>
     <updated>2022-01-14T13:29:55.462Z</updated>
     
@@ -881,18 +881,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
+    <category term="promises" scheme="https://blog.thoughtspile.tech/tags/promises/"/>
     
   </entry>
   
   <entry>
     <title>Extravagantly fast rendering with React benders</title>
-    <link href="https://thoughtspile.github.io/2019/01/06/vdom-bend-memo/"/>
-    <id>https://thoughtspile.github.io/2019/01/06/vdom-bend-memo/</id>
+    <link href="https://blog.thoughtspile.tech/2019/01/06/vdom-bend-memo/"/>
+    <id>https://blog.thoughtspile.tech/2019/01/06/vdom-bend-memo/</id>
     <published>2019-01-06T08:02:42.000Z</published>
     <updated>2022-01-14T13:29:55.467Z</updated>
     
@@ -907,20 +907,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
   </entry>
   
   <entry>
     <title>10 Design Rules for Programmers</title>
-    <link href="https://thoughtspile.github.io/2018/12/17/design-crash-course/"/>
-    <id>https://thoughtspile.github.io/2018/12/17/design-crash-course/</id>
+    <link href="https://blog.thoughtspile.tech/2018/12/17/design-crash-course/"/>
+    <id>https://blog.thoughtspile.tech/2018/12/17/design-crash-course/</id>
     <published>2018-12-17T14:10:23.000Z</published>
     <updated>2021-04-09T18:05:50.248Z</updated>
     
@@ -935,18 +935,18 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="design" scheme="https://thoughtspile.github.io/tags/design/"/>
+    <category term="design" scheme="https://blog.thoughtspile.tech/tags/design/"/>
     
   </entry>
   
   <entry>
     <title>Keep a React component mounted</title>
-    <link href="https://thoughtspile.github.io/2018/12/02/react-keep-mounted/"/>
-    <id>https://thoughtspile.github.io/2018/12/02/react-keep-mounted/</id>
+    <link href="https://blog.thoughtspile.tech/2018/12/02/react-keep-mounted/"/>
+    <id>https://blog.thoughtspile.tech/2018/12/02/react-keep-mounted/</id>
     <published>2018-12-02T14:04:51.000Z</published>
     <updated>2022-01-14T13:29:55.464Z</updated>
     
@@ -961,20 +961,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
   </entry>
   
   <entry>
     <title>Major Garbage Producers in JS</title>
-    <link href="https://thoughtspile.github.io/2018/11/24/garbage-producing-js/"/>
-    <id>https://thoughtspile.github.io/2018/11/24/garbage-producing-js/</id>
+    <link href="https://blog.thoughtspile.tech/2018/11/24/garbage-producing-js/"/>
+    <id>https://blog.thoughtspile.tech/2018/11/24/garbage-producing-js/</id>
     <published>2018-11-24T15:25:43.000Z</published>
     <updated>2022-03-28T18:07:39.527Z</updated>
     
@@ -989,18 +989,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="performance" scheme="https://thoughtspile.github.io/tags/performance/"/>
+    <category term="performance" scheme="https://blog.thoughtspile.tech/tags/performance/"/>
     
   </entry>
   
   <entry>
     <title>Why you Might Want to Extend React Components</title>
-    <link href="https://thoughtspile.github.io/2018/11/05/react-extend-justified/"/>
-    <id>https://thoughtspile.github.io/2018/11/05/react-extend-justified/</id>
+    <link href="https://blog.thoughtspile.tech/2018/11/05/react-extend-justified/"/>
+    <id>https://blog.thoughtspile.tech/2018/11/05/react-extend-justified/</id>
     <published>2018-11-05T11:38:29.000Z</published>
     <updated>2021-04-09T18:05:50.253Z</updated>
     
@@ -1015,20 +1015,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="react" scheme="https://thoughtspile.github.io/tags/react/"/>
+    <category term="react" scheme="https://blog.thoughtspile.tech/tags/react/"/>
     
   </entry>
   
   <entry>
     <title>OOP for FP lovers: Simplistic Dependency Injection</title>
-    <link href="https://thoughtspile.github.io/2018/10/28/simplistic-di/"/>
-    <id>https://thoughtspile.github.io/2018/10/28/simplistic-di/</id>
+    <link href="https://blog.thoughtspile.tech/2018/10/28/simplistic-di/"/>
+    <id>https://blog.thoughtspile.tech/2018/10/28/simplistic-di/</id>
     <published>2018-10-28T11:28:01.000Z</published>
     <updated>2021-04-09T18:05:50.255Z</updated>
     
@@ -1043,18 +1043,18 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="OOP" scheme="https://thoughtspile.github.io/tags/OOP/"/>
+    <category term="OOP" scheme="https://blog.thoughtspile.tech/tags/OOP/"/>
     
   </entry>
   
   <entry>
     <title>Angular Tip: Derived Interfaces in TypeScript</title>
-    <link href="https://thoughtspile.github.io/2018/10/22/typescript-derived-interface/"/>
-    <id>https://thoughtspile.github.io/2018/10/22/typescript-derived-interface/</id>
+    <link href="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/"/>
+    <id>https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/</id>
     <published>2018-10-22T08:21:34.000Z</published>
     <updated>2022-01-14T13:29:55.465Z</updated>
     
@@ -1070,24 +1070,24 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
+    <category term="tips" scheme="https://blog.thoughtspile.tech/tags/tips/"/>
     
-    <category term="typescript" scheme="https://thoughtspile.github.io/tags/typescript/"/>
+    <category term="typescript" scheme="https://blog.thoughtspile.tech/tags/typescript/"/>
     
-    <category term="angular" scheme="https://thoughtspile.github.io/tags/angular/"/>
+    <category term="angular" scheme="https://blog.thoughtspile.tech/tags/angular/"/>
     
   </entry>
   
   <entry>
     <title>Five Tricks for Debug-Logging in JavaScript</title>
-    <link href="https://thoughtspile.github.io/2018/10/05/js-debug-logging/"/>
-    <id>https://thoughtspile.github.io/2018/10/05/js-debug-logging/</id>
+    <link href="https://blog.thoughtspile.tech/2018/10/05/js-debug-logging/"/>
+    <id>https://blog.thoughtspile.tech/2018/10/05/js-debug-logging/</id>
     <published>2018-10-05T10:33:42.000Z</published>
     <updated>2021-04-09T18:05:50.250Z</updated>
     
@@ -1102,20 +1102,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
-    <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
+    <category term="tips" scheme="https://blog.thoughtspile.tech/tags/tips/"/>
     
   </entry>
   
   <entry>
     <title>Let&#39;s Make Software Better</title>
-    <link href="https://thoughtspile.github.io/2018/09/29/lets-make-software-better/"/>
-    <id>https://thoughtspile.github.io/2018/09/29/lets-make-software-better/</id>
+    <link href="https://blog.thoughtspile.tech/2018/09/29/lets-make-software-better/"/>
+    <id>https://blog.thoughtspile.tech/2018/09/29/lets-make-software-better/</id>
     <published>2018-09-29T14:10:00.000Z</published>
     <updated>2022-01-14T13:29:55.461Z</updated>
     
@@ -1130,22 +1130,22 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="rant" scheme="https://thoughtspile.github.io/tags/rant/"/>
+    <category term="rant" scheme="https://blog.thoughtspile.tech/tags/rant/"/>
     
-    <category term="life" scheme="https://thoughtspile.github.io/tags/life/"/>
+    <category term="life" scheme="https://blog.thoughtspile.tech/tags/life/"/>
     
-    <category term="thoughtspile" scheme="https://thoughtspile.github.io/tags/thoughtspile/"/>
+    <category term="thoughtspile" scheme="https://blog.thoughtspile.tech/tags/thoughtspile/"/>
     
-    <category term="happiness" scheme="https://thoughtspile.github.io/tags/happiness/"/>
+    <category term="happiness" scheme="https://blog.thoughtspile.tech/tags/happiness/"/>
     
   </entry>
   
   <entry>
     <title>Another Week with Bad Software</title>
-    <link href="https://thoughtspile.github.io/2018/09/23/bad-software-week/"/>
-    <id>https://thoughtspile.github.io/2018/09/23/bad-software-week/</id>
+    <link href="https://blog.thoughtspile.tech/2018/09/23/bad-software-week/"/>
+    <id>https://blog.thoughtspile.tech/2018/09/23/bad-software-week/</id>
     <published>2018-09-23T11:35:02.000Z</published>
     <updated>2022-01-14T13:29:55.452Z</updated>
     
@@ -1160,22 +1160,22 @@
     
     
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="rant" scheme="https://thoughtspile.github.io/tags/rant/"/>
+    <category term="rant" scheme="https://blog.thoughtspile.tech/tags/rant/"/>
     
-    <category term="life" scheme="https://thoughtspile.github.io/tags/life/"/>
+    <category term="life" scheme="https://blog.thoughtspile.tech/tags/life/"/>
     
-    <category term="thoughtspile" scheme="https://thoughtspile.github.io/tags/thoughtspile/"/>
+    <category term="thoughtspile" scheme="https://blog.thoughtspile.tech/tags/thoughtspile/"/>
     
-    <category term="depression" scheme="https://thoughtspile.github.io/tags/depression/"/>
+    <category term="depression" scheme="https://blog.thoughtspile.tech/tags/depression/"/>
     
   </entry>
   
   <entry>
     <title>Not Sucking at TypeScript: 3 Tips</title>
-    <link href="https://thoughtspile.github.io/2018/09/22/typescript-unsuck-guide/"/>
-    <id>https://thoughtspile.github.io/2018/09/22/typescript-unsuck-guide/</id>
+    <link href="https://blog.thoughtspile.tech/2018/09/22/typescript-unsuck-guide/"/>
+    <id>https://blog.thoughtspile.tech/2018/09/22/typescript-unsuck-guide/</id>
     <published>2018-09-22T13:37:41.000Z</published>
     <updated>2021-04-09T18:05:50.257Z</updated>
     
@@ -1190,20 +1190,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
+    <category term="tips" scheme="https://blog.thoughtspile.tech/tags/tips/"/>
     
-    <category term="typescript" scheme="https://thoughtspile.github.io/tags/typescript/"/>
+    <category term="typescript" scheme="https://blog.thoughtspile.tech/tags/typescript/"/>
     
   </entry>
   
   <entry>
     <title>Simpifying AngularJS controllers with ES5 get / set</title>
-    <link href="https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/"/>
-    <id>https://thoughtspile.github.io/2018/09/20/angularjs-service-property-getter/</id>
+    <link href="https://blog.thoughtspile.tech/2018/09/20/angularjs-service-property-getter/"/>
+    <id>https://blog.thoughtspile.tech/2018/09/20/angularjs-service-property-getter/</id>
     <published>2018-09-20T14:04:06.000Z</published>
     <updated>2022-01-14T13:29:55.452Z</updated>
     
@@ -1218,20 +1218,20 @@
     
     
     
-    <category term="angularjs" scheme="https://thoughtspile.github.io/tags/angularjs/"/>
+    <category term="angularjs" scheme="https://blog.thoughtspile.tech/tags/angularjs/"/>
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="frontend" scheme="https://thoughtspile.github.io/tags/frontend/"/>
+    <category term="frontend" scheme="https://blog.thoughtspile.tech/tags/frontend/"/>
     
   </entry>
   
   <entry>
     <title>Programming is Like Writing</title>
-    <link href="https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/"/>
-    <id>https://thoughtspile.github.io/2018/09/19/Programming-is-like-writing/</id>
+    <link href="https://blog.thoughtspile.tech/2018/09/19/Programming-is-like-writing/"/>
+    <id>https://blog.thoughtspile.tech/2018/09/19/Programming-is-like-writing/</id>
     <published>2018-09-19T18:07:46.000Z</published>
     <updated>2021-04-09T18:11:47.575Z</updated>
     
@@ -1250,8 +1250,8 @@
   
   <entry>
     <title>Quick Tip: docx is a zip Archive</title>
-    <link href="https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/"/>
-    <id>https://thoughtspile.github.io/2018/07/14/docx-is-a-zip-archive/</id>
+    <link href="https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/"/>
+    <id>https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/</id>
     <published>2018-07-14T11:33:41.000Z</published>
     <updated>2022-01-14T13:29:55.458Z</updated>
     
@@ -1266,16 +1266,16 @@
     
     
     
-    <category term="tips" scheme="https://thoughtspile.github.io/tags/tips/"/>
+    <category term="tips" scheme="https://blog.thoughtspile.tech/tags/tips/"/>
     
-    <category term="microsoft" scheme="https://thoughtspile.github.io/tags/microsoft/"/>
+    <category term="microsoft" scheme="https://blog.thoughtspile.tech/tags/microsoft/"/>
     
   </entry>
   
   <entry>
     <title>Advanced Promise Coordination: Rate Limiting</title>
-    <link href="https://thoughtspile.github.io/2018/07/07/rate-limit-promises/"/>
-    <id>https://thoughtspile.github.io/2018/07/07/rate-limit-promises/</id>
+    <link href="https://blog.thoughtspile.tech/2018/07/07/rate-limit-promises/"/>
+    <id>https://blog.thoughtspile.tech/2018/07/07/rate-limit-promises/</id>
     <published>2018-07-07T07:11:13.000Z</published>
     <updated>2022-01-14T13:29:55.463Z</updated>
     
@@ -1290,20 +1290,20 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
+    <category term="promises" scheme="https://blog.thoughtspile.tech/tags/promises/"/>
     
-    <category term="high availability" scheme="https://thoughtspile.github.io/tags/high-availability/"/>
+    <category term="high availability" scheme="https://blog.thoughtspile.tech/tags/high-availability/"/>
     
   </entry>
   
   <entry>
     <title>Advanced Promises Coordination: Serialization and Concurrency Limiting</title>
-    <link href="https://thoughtspile.github.io/2018/06/20/serialize-promises/"/>
-    <id>https://thoughtspile.github.io/2018/06/20/serialize-promises/</id>
+    <link href="https://blog.thoughtspile.tech/2018/06/20/serialize-promises/"/>
+    <id>https://blog.thoughtspile.tech/2018/06/20/serialize-promises/</id>
     <published>2018-06-20T09:42:08.000Z</published>
     <updated>2022-01-14T13:29:55.465Z</updated>
     
@@ -1318,13 +1318,13 @@
     
     
     
-    <category term="javascript" scheme="https://thoughtspile.github.io/tags/javascript/"/>
+    <category term="javascript" scheme="https://blog.thoughtspile.tech/tags/javascript/"/>
     
-    <category term="programming" scheme="https://thoughtspile.github.io/tags/programming/"/>
+    <category term="programming" scheme="https://blog.thoughtspile.tech/tags/programming/"/>
     
-    <category term="promises" scheme="https://thoughtspile.github.io/tags/promises/"/>
+    <category term="promises" scheme="https://blog.thoughtspile.tech/tags/promises/"/>
     
-    <category term="concurrency" scheme="https://thoughtspile.github.io/tags/concurrency/"/>
+    <category term="concurrency" scheme="https://blog.thoughtspile.tech/tags/concurrency/"/>
     
   </entry>
   
