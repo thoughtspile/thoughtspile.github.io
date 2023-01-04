@@ -1,0 +1,49 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <%- include('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
+  </header>
+  <div class="content" itemprop="articleBody">
+    <%- content %>
+  </div>
+
+  <span class="share">
+    <div>
+      <a href="https://twitter.com/share?url=<%= page.permalink %>&text=<%= page.title %> by @thoughtspile">
+        Tweet
+      </a>
+    </div>
+    <div id="share-button">
+      <a>Share</a>
+    </div>
+    <div>
+      <a href="https://twitter.com/search?q=<%= page.permalink %>">Discuss on Twitter</a>
+    </div>
+  </span>  
+  
+  <div class="post-related">
+    More?<%- include('_partial/post/tag') %>
+  </div>
+
+  <div class="post-actions">
+    Written in<%- include('_partial/post/date', { post: page, class_name: 'postdate' }) %> by&nbsp;your friend, <a href="/">Vladimir.</a>
+    Follow&nbsp;me on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank">Twitter</a> to&nbsp;get post updates.
+    I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc link--bare" href="https://buymeacoffee.com/thoughtspile">buy me a coffee!</a>
+  </div>
+
+  <div class="post-siblings">
+    <% var nextPost = collections.posts | getNextCollectionItem(page) %>
+    <% var previousPost = collections.posts | getPreviousCollectionItem(page) %>
+    <% if (nextPost) { %>
+      <a class="link--bare" href="">
+        <div class="post-siblings__direction">Older</div>
+        <span class="link__text"><%-nextPost.data.title%></span>
+      </a>
+    <% } %>
+    <% if (previousPost) { %>
+      <a class="link--bare" href="">
+        <div class="post-siblings__direction">Newer</div>
+        <span class="link__text"><%-previousPost.data.title%></span>
+      </a>
+    <% } %>
+  </div>
+</article>

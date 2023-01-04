@@ -1,0 +1,55 @@
+<section id="about">
+  <% if (config.description) { %>
+    <%- markdown(config.description) %>
+
+    Like my stuff? Follow me on
+    <a target="_blank" href="<%- url_for(theme.social_links.twitter) %>">twitter</a>
+    or
+    <a target="_blank" href="<%- url_for(theme.social_links.github) %>">guithub.</a>
+
+    You can even <a href="<%- url_for(config.bmc) %>">buy me a coffee.</a>
+  <% } %>
+</section>
+
+<% var primaryTag = ['angularjs', 'react', 'testing', 'eslint', 'design', 'typescript', 'rant', 'infra', 'open source', 'javascript'] %>
+<section id="writing">
+  <span class="h1"><%= __('index.articles') %></span>
+  <ul class="post-list">
+    <% if (theme.posts_overview.show_all_posts) { %>
+      <% var show_posts = page.posts.sort('date', 'desc') %>
+    <% } else { %>
+      <% var show_posts = site.posts.sort('date', 'desc').limit(theme.posts_overview.post_count || 5) %>
+    <% } %>
+    <% show_posts.each(function(post, i){ %>
+      <% if (i !== 0 && new Date(post.date).getFullYear() !== new Date(show_posts.data[i-1].date).getFullYear()) { %>
+        <li class="post-year"><%= new Date(post.date).getFullYear() %></li>
+      <% } %>
+      <li class="post-item">
+        <a href="<%- url_for(post.path) %>" class="post-item-link link--bare">
+          <span class="meta" style="width: 120px">
+            <%= primaryTag.find(pt => post.tags.toArray().find(t => t.name === pt)) || 'random' %>
+          </span>
+          <span><%- post.title %></span>
+        </a>
+      </li>
+    <% }); %>
+    <% if (!theme.posts_overview.show_all_posts && page.posts.length > (theme.posts_overview.post_count || 5)) { %>
+      <a href="<%= url_for(theme.nav.articles) %>" class="post-item-link post-item-link--more">
+        And <%= page.posts.length - (theme.posts_overview.post_count || 5) %> more
+      </a>
+    <% } %>
+  </ul>
+</section>
+
+<% if (site.data.projects && Object.keys(site.data.projects).length > 0) { %>
+<section id="projects">
+  <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
+  <ul class="project-list">
+    <% for(var obj in site.data.projects){ %>
+      <li class="project-item">
+        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%= site.data.projects[obj].desc %>
+      </li>
+    <% } %>
+  </ul>
+</section>
+<% } %>

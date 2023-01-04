@@ -1,0 +1,5 @@
+{
+  "layout": "post.ejs",
+  "permalink": "/<%= page.date.getFullYear() %>/<%= (page.date.getMonth() + 1).toString().padStart(2, '0') %>/<%= page.date.getDate().toString().padStart(2, '0') %>//<%= page.fileSlug %>/index.html",
+  "tags": ["posts"]
+}

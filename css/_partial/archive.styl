@@ -1,0 +1,49 @@
+.post-list
+  padding: 0
+
+  .post-item,
+  .post-year
+    list-style-type: none
+  .post-year
+    margin-left: 120px
+  .post-item-link
+    width: 100%
+    padding: 0.5rem 0
+    margin: 0
+    background: none
+    display: block
+
+    &:hover, &:active
+      background: none
+      color: $color-accent-1
+      .meta
+        color: $color-accent-2
+    &--more
+      padding-left: 1rem
+      padding-right: 1rem
+      width: auto
+      min-width: 0
+      display: inline-block
+      color: white
+      background-color: $color-accent-1
+      float: right
+
+    .meta
+      flex-shrink: 0
+      display: block
+      width: 120px
+      color: $color-meta
+      font-size: 16px
+
+@media (min-width: 480px)
+  .post-list
+    .post-item-link:not(.post-item-link--more)
+      display: flex
+      align-items: baseline
+      margin: 0
+      padding: 0.5rem 0
+
+      &-title
+        display: block
+      .meta
+        text-align: left
