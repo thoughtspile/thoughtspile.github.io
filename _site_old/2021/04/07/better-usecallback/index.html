@@ -1,4 +1,144 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="yandex-verification" content="635edef3908320be"><meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"><meta name="google-site-verification" content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"><meta name="description" content="Edit: the technique initially proposed in this post was not concurrent-mode safe. I’ve added a new section describing a fix to this problem. Thanks to the readers who noticed it!  useCallback has alw"><meta property="og:type" content="article"><meta property="og:title" content="Did I just build a better useCallback?"><meta property="og:url" content="https://blog.thoughtspile.tech/2021/04/07/better-usecallback/index.html"><meta property="og:site_name" content="Vladimir Klepov as a Coder"><meta property="og:description" content="Edit: the technique initially proposed in this post was not concurrent-mode safe. I’ve added a new section describing a fix to this problem. Thanks to the readers who noticed it!  useCallback has alw"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2021-04-07T18:07:46.000Z"><meta property="article:modified_time" content="2022-01-14T13:29:55.457Z"><meta property="article:author" content="Vladimir Klepov"><meta property="article:tag" content="programming"><meta property="article:tag" content="frontend"><meta property="article:tag" content="react"><meta property="article:tag" content="hooks"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@thoughtspile"><link rel="shortcut icon" href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"><title>Did I just build a better useCallback?</title><link rel="stylesheet" href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"><link rel="canonical" href="https://blog.thoughtspile.tech/2021/04/07/better-usecallback/"><link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml"><script src="https://storage.yandexcloud.net/thoughtspile/deadman.js" async></script><meta name="generator" content="Hexo 5.4.0"></head><body class="max-width mx-auto px3"><div class="content index"><a href="/" id="header" class="header header--post"><div id="logo"></div><header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">Did I just build a better useCallback?</h1></header><div class="content" itemprop="articleBody"><blockquote><p>Edit: the technique initially proposed in this post was not concurrent-mode safe. I’ve added a new section describing a fix to this problem. Thanks to the readers who noticed it!</p></blockquote><p><code>useCallback</code> has always been one of my least favorite hooks:</p><ul><li>it does not provide much value over <code>useMemo</code> (as we learnt in my previous post on hooks),</li><li>it weirdly treats function as <em>derived data,</em> recreating it on dependency changes, a pattern I haven’t seen anywhere else</li><li>it requires you to list the variables you reference within a closure, which is boring and flaky, and relies on imperfect static analysis to enforce this.</li></ul><p>Luckily, we can build a better <code>useCallback</code> ourselves using nothing but <code>useRef</code> and our JS ninja skills.</p><h2 id="A-working-example"><a href="#A-working-example" class="headerlink" title="A working example"></a>A working example</h2><pre class="language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">FormItem</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> onChange<span class="token punctuation">,</span> <span class="token operator">...</span>props <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <meta name="yandex-verification" content="635edef3908320be" />
+    <meta
+      name="google-site-verification"
+      content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"
+    />
+    <meta
+      name="google-site-verification"
+      content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"
+    />
+    <meta
+      name="description"
+      content="Edit: the technique initially proposed in this post was not concurrent-mode safe. I’ve added a new section describing a fix to this problem. Thanks to the readers who noticed it!  useCallback has alw"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Did I just build a better useCallback?"
+    />
+    <meta
+      property="og:url"
+      content="https://blog.thoughtspile.tech/2021/04/07/better-usecallback/index.html"
+    />
+    <meta property="og:site_name" content="Vladimir Klepov as a Coder" />
+    <meta
+      property="og:description"
+      content="Edit: the technique initially proposed in this post was not concurrent-mode safe. I’ve added a new section describing a fix to this problem. Thanks to the readers who noticed it!  useCallback has alw"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="article:published_time"
+      content="2021-04-07T18:07:46.000Z"
+    />
+    <meta property="article:modified_time" content="2022-01-14T13:29:55.457Z" />
+    <meta property="article:author" content="Vladimir Klepov" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="frontend" />
+    <meta property="article:tag" content="react" />
+    <meta property="article:tag" content="hooks" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@thoughtspile" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"
+    />
+    <title>Did I just build a better useCallback?</title>
+    <link
+      rel="stylesheet"
+      href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"
+    />
+    <link
+      rel="canonical"
+      href="https://blog.thoughtspile.tech/2021/04/07/better-usecallback/"
+    />
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="Vladimir Klepov as a Coder"
+      type="application/atom+xml"
+    />
+    <script
+      src="https://storage.yandexcloud.net/thoughtspile/deadman.js"
+      async
+    ></script>
+    <meta name="generator" content="Hexo 5.4.0" />
+  </head>
+  <body class="max-width mx-auto px3">
+    <div class="content index">
+      <a href="/" id="header" class="header header--post"
+        ><div id="logo"></div>
+        <header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a
+      >
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h1 class="posttitle" itemprop="name headline">
+            Did I just build a better useCallback?
+          </h1>
+        </header>
+        <div class="content" itemprop="articleBody">
+          <blockquote>
+            <p>
+              Edit: the technique initially proposed in this post was not
+              concurrent-mode safe. I’ve added a new section describing a fix to
+              this problem. Thanks to the readers who noticed it!
+            </p>
+          </blockquote>
+          <p>
+            <code>useCallback</code> has always been one of my least favorite
+            hooks:
+          </p>
+          <ul>
+            <li>
+              it does not provide much value over <code>useMemo</code> (as we
+              learnt in my previous post on hooks),
+            </li>
+            <li>
+              it weirdly treats function as <em>derived data,</em> recreating it
+              on dependency changes, a pattern I haven’t seen anywhere else
+            </li>
+            <li>
+              it requires you to list the variables you reference within a
+              closure, which is boring and flaky, and relies on imperfect static
+              analysis to enforce this.
+            </li>
+          </ul>
+          <p>
+            Luckily, we can build a better <code>useCallback</code> ourselves
+            using nothing but <code>useRef</code> and our JS ninja skills.
+          </p>
+          <h2 id="A-working-example">
+            <a
+              href="#A-working-example"
+              class="headerlink"
+              title="A working example"
+            ></a
+            >A working example
+          </h2>
+          <pre
+            class="language-jsx"
+            data-language="jsx"
+          ><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">FormItem</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> name<span class="token punctuation">,</span> value<span class="token punctuation">,</span> onChange<span class="token punctuation">,</span> <span class="token operator">...</span>props <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> onChange <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
         <span class="token function">onChange</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token operator">...</span>value<span class="token punctuation">,</span> <span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onChange<span class="token punctuation">,</span> name<span class="token punctuation">,</span> value<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -14,18 +154,165 @@
         </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormItem</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>formValue<span class="token punctuation">&#125;</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>setFormValue<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
         </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">FormItem</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>formValue<span class="token punctuation">&#125;</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>setFormValue<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span><span class="token plain-text">
     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span></span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre><p>This example perfectly summarizes the downsides of <code>useCallback</code>. Not only did we duplicate all the props we used in a closure, but also consider what happens when we update the password field:</p><ol><li>Password <code>HeavyInput</code> triggers <code>setFormValue(&#123; password: &#39;123&#39;, username: &#39;&#39; &#125;)</code></li><li><code>formValue</code> reference updates</li><li><em>Both</em> <code>FormItem</code>s re-render, which is fair enough</li><li><code>onChange</code> in username <code>FormItem</code> updates, too, since value reference updated</li><li><code>HeavyInput</code> in username <code>FormItem</code> re-renders, because <code>FormItem</code>‘s <code>onChange</code> has a new reference</li></ol><p>This may be OK with 2 fields, but what about a hundred? What about when your callback has so many dependencies something updates on every render? You might argue that the components should have been modeled some other way, but there is nothing conceptually wrong with this one that can’t be fixed with a better <code>useCallback</code>.</p><h2 id="The-classic-solution"><a href="#The-classic-solution" class="headerlink" title="The classic solution"></a>The classic solution</h2><p>Back with class components we had no hooks, but changes in callback prop reference did trigger useless child component update, just as it does now (hence <a target="_blank" rel="noopener" href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md"><code>react/jsx-no-bind</code> eslint rule</a>). The solution was simple: you create a class method (or, lately, into a property initializer) to wrap all the <code>props</code> references you need, and pass this method as a prop instead of an arrow:</p><pre class="language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">FormItem</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+          <p>
+            This example perfectly summarizes the downsides of
+            <code>useCallback</code>. Not only did we duplicate all the props we
+            used in a closure, but also consider what happens when we update the
+            password field:
+          </p>
+          <ol>
+            <li>
+              Password <code>HeavyInput</code> triggers
+              <code
+                >setFormValue(&#123; password: &#39;123&#39;, username:
+                &#39;&#39; &#125;)</code
+              >
+            </li>
+            <li><code>formValue</code> reference updates</li>
+            <li>
+              <em>Both</em> <code>FormItem</code>s re-render, which is fair
+              enough
+            </li>
+            <li>
+              <code>onChange</code> in username <code>FormItem</code> updates,
+              too, since value reference updated
+            </li>
+            <li>
+              <code>HeavyInput</code> in username
+              <code>FormItem</code> re-renders, because <code>FormItem</code>‘s
+              <code>onChange</code> has a new reference
+            </li>
+          </ol>
+          <p>
+            This may be OK with 2 fields, but what about a hundred? What about
+            when your callback has so many dependencies something updates on
+            every render? You might argue that the components should have been
+            modeled some other way, but there is nothing conceptually wrong with
+            this one that can’t be fixed with a better <code>useCallback</code>.
+          </p>
+          <h2 id="The-classic-solution">
+            <a
+              href="#The-classic-solution"
+              class="headerlink"
+              title="The classic solution"
+            ></a
+            >The classic solution
+          </h2>
+          <p>
+            Back with class components we had no hooks, but changes in callback
+            prop reference did trigger useless child component update, just as
+            it does now (hence
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md"
+              ><code>react/jsx-no-bind</code> eslint rule</a
+            >). The solution was simple: you create a class method (or, lately,
+            into a property initializer) to wrap all the
+            <code>props</code> references you need, and pass this method as a
+            prop instead of an arrow:
+          </p>
+          <pre
+            class="language-jsx"
+            data-language="jsx"
+          ><code class="language-jsx"><span class="token keyword">class</span> <span class="token class-name">FormItem</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">&#123;</span>
     <span class="token function-variable function">onChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">onChange</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>value<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
         <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">HeavyInput</span></span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>onChange<span class="token punctuation">&#125;</span></span> <span class="token punctuation">/></span></span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span></code></pre><p><code>onChange</code> method is created in constructor and has a stable reference throughout the lifetime of the class, yet accesses fresh props when called. What if we just applied this same technique, just without the class?</p><h2 id="The-proposal"><a href="#The-proposal" class="headerlink" title="The proposal"></a>The proposal</h2><p>So, without further adue, let me show you an improved <code>useCallback</code>:</p><pre class="language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">useStableCallback</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+          <p>
+            <code>onChange</code> method is created in constructor and has a
+            stable reference throughout the lifetime of the class, yet accesses
+            fresh props when called. What if we just applied this same
+            technique, just without the class?
+          </p>
+          <h2 id="The-proposal">
+            <a href="#The-proposal" class="headerlink" title="The proposal"></a
+            >The proposal
+          </h2>
+          <p>
+            So, without further adue, let me show you an improved
+            <code>useCallback</code>:
+          </p>
+          <pre
+            class="language-jsx"
+            data-language="jsx"
+          ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">useStableCallback</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> onChangeInner <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     onChangeInner<span class="token punctuation">.</span>current <span class="token operator">=</span> callback<span class="token punctuation">;</span>
     <span class="token keyword">const</span> stable <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=></span> onChangeInner<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> stable<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre><p>Watch closely:</p><ol><li><code>onChangeInner</code> is a <em>box</em> that always holds the fresh value of our <code>callback</code>, with all the scope it has.</li><li>Old <code>callback</code> is thrown away on each render, so I’m pretty sure it does not leak.</li><li><code>stable</code> is a callback that never changes and only references <code>onChangeInner</code>, which is a stable <em>box</em>.</li></ol><p>Now we can just swap <code>useCallback</code> for <code>useStableCallback</code> in our working example. The dependency array, <code>[onChange, name, value]</code>, can be safely removed — we don’t need it any more. The unnecessary re-renders of <code>HeavyInput</code> magically disappear. Life is wonderful once again.</p><p><strong>There is one problem left: this breaks in concurrent mode!</strong></p><h2 id="Concurrent-mode"><a href="#Concurrent-mode" class="headerlink" title="Concurrent mode"></a>Concurrent mode</h2><p>While React’s <a href="https://reactjs.org/docs/concurrent-mode-intro.html" target="_blank">concurrent mode</a> is still experimental and this code is completely safe when used outside it, it’s good to be future-proff when you can. A concurrent-mode call to render function does not guarantee the DOM will update right away, so by changing the value of <code>onChangeInner.current</code> we’re essentially making future <code>props</code> available to the currently mounted DOM, which may give you surprising and unpleasant bugs.</p><p>Following in the footsteps of an exciting <a href="https://github.com/facebook/react/issues/14099#issuecomment-440013892" target="_blank">github issue in react repo,</a> we can fix this:</p><pre class="language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">useStableCallback</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+          <p>Watch closely:</p>
+          <ol>
+            <li>
+              <code>onChangeInner</code> is a <em>box</em> that always holds the
+              fresh value of our <code>callback</code>, with all the scope it
+              has.
+            </li>
+            <li>
+              Old <code>callback</code> is thrown away on each render, so I’m
+              pretty sure it does not leak.
+            </li>
+            <li>
+              <code>stable</code> is a callback that never changes and only
+              references <code>onChangeInner</code>, which is a stable
+              <em>box</em>.
+            </li>
+          </ol>
+          <p>
+            Now we can just swap <code>useCallback</code> for
+            <code>useStableCallback</code> in our working example. The
+            dependency array, <code>[onChange, name, value]</code>, can be
+            safely removed — we don’t need it any more. The unnecessary
+            re-renders of <code>HeavyInput</code> magically disappear. Life is
+            wonderful once again.
+          </p>
+          <p>
+            <strong
+              >There is one problem left: this breaks in concurrent
+              mode!</strong
+            >
+          </p>
+          <h2 id="Concurrent-mode">
+            <a
+              href="#Concurrent-mode"
+              class="headerlink"
+              title="Concurrent mode"
+            ></a
+            >Concurrent mode
+          </h2>
+          <p>
+            While React’s
+            <a
+              href="https://reactjs.org/docs/concurrent-mode-intro.html"
+              target="_blank"
+              >concurrent mode</a
+            >
+            is still experimental and this code is completely safe when used
+            outside it, it’s good to be future-proff when you can. A
+            concurrent-mode call to render function does not guarantee the DOM
+            will update right away, so by changing the value of
+            <code>onChangeInner.current</code> we’re essentially making future
+            <code>props</code> available to the currently mounted DOM, which may
+            give you surprising and unpleasant bugs.
+          </p>
+          <p>
+            Following in the footsteps of an exciting
+            <a
+              href="https://github.com/facebook/react/issues/14099#issuecomment-440013892"
+              target="_blank"
+              >github issue in react repo,</a
+            >
+            we can fix this:
+          </p>
+          <pre
+            class="language-jsx"
+            data-language="jsx"
+          ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">useStableCallback</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">callback</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">const</span> onChangeInner <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment">// Added useLayoutEffect here</span>
     <span class="token function">useLayoutEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -33,7 +320,135 @@
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> stable <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=></span> onChangeInner<span class="token punctuation">.</span><span class="token function">current</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> stable<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre><p>The only thing we’ve changed was wrapping the update of <code>onChangeInner</code> in a <code>useLayoutEffect</code>. This way, the callback will update <em>immediately after</em> the DOM has been updated, fixing our problem. Also note that <code>useEffect</code> would not cut it — since it’s not called right away, the user might get a shot at calling a stale callback.</p><p>One drawback of this solution is that now we can’t use the function returned inside the render function since it has not been updated yet. Specifically:</p><pre class="language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">const</span> logValue <span class="token operator">=</span> <span class="token function">useStableCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+          <p>
+            The only thing we’ve changed was wrapping the update of
+            <code>onChangeInner</code> in a <code>useLayoutEffect</code>. This
+            way, the callback will update <em>immediately after</em> the DOM has
+            been updated, fixing our problem. Also note that
+            <code>useEffect</code> would not cut it — since it’s not called
+            right away, the user might get a shot at calling a stale callback.
+          </p>
+          <p>
+            One drawback of this solution is that now we can’t use the function
+            returned inside the render function since it has not been updated
+            yet. Specifically:
+          </p>
+          <pre
+            class="language-jsx"
+            data-language="jsx"
+          ><code class="language-jsx"><span class="token keyword">const</span> logValue <span class="token operator">=</span> <span class="token function">useStableCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// will log previous value</span>
 <span class="token function">logValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>logValue<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">What is the value?</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre><p>We don’t need a stable function reference to call it during render, so that works for me.</p><h2 id="Wrapping-up"><a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a>Wrapping up</h2><p>When compared to React’s default <code>useCallback</code>, our proposal with a totally stable output:</p><ul><li>Simplifies the code by removing explicit dependency listing.</li><li>Eliminated useless updates of child components.</li><li>Obtained a totally stable wrapper for callback props that can be used in <code>setTimeout</code> or as a native event listener.</li></ul><p>At a cost of not being able to call it during render. For me, this sounds like a fair deal.</p></div><span class="share"><div id="share-twitter"><a target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2021/04/07/better-usecallback/&text=Did I just build a better useCallback? by @thoughtspile">Tweet</a></div><div id="share-button"><a>Share</a></div><div><a target="_blank" rel="noopener" href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2021/04/07/better-usecallback/">Discuss on Twitter</a></div></span><div class="post-related">More? <a class="tag-link-link" href="/">All articles ever</a> <a class="tag-link-link" href="/tags/frontend/" rel="tag">frontend</a> <a class="tag-link-link" href="/tags/hooks/" rel="tag">hooks</a> <a class="tag-link-link" href="/tags/programming/" rel="tag">programming</a> <a class="tag-link-link" href="/tags/react/" rel="tag">react</a></div><div class="post-actions">Written in <time datetime="2021-04-07T18:07:46.000Z" itemprop="datePublished">2021</time> by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank">Twitter</a> to&nbsp;get post updates. I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc go-bmc link--bare" target="_blank" rel="noopener" href="https://buymeacoffee.com/thoughtspile">buy me a coffee!</a></div><div class="post-siblings"><a class="link--bare" href="/2021/04/05/useref-usememo/"><div class="post-siblings__direction">Older</div><span class="link__text">How useRef turned out to be useMemo's father</span> </a><a class="link--bare" href="/2021/05/17/everything-about-react-refs/"><div class="post-siblings__direction">Newer</div><span class="link__text">So you think you know everything about React refs</span></a></div></article></div></body></html><script type="text/javascript">!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-121445688-1","auto"),ga("send","pageview")</script><script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script><script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>
+<span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>logValue<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">What is the value?</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+          <p>
+            We don’t need a stable function reference to call it during render,
+            so that works for me.
+          </p>
+          <h2 id="Wrapping-up">
+            <a href="#Wrapping-up" class="headerlink" title="Wrapping up"></a
+            >Wrapping up
+          </h2>
+          <p>
+            When compared to React’s default <code>useCallback</code>, our
+            proposal with a totally stable output:
+          </p>
+          <ul>
+            <li>
+              Simplifies the code by removing explicit dependency listing.
+            </li>
+            <li>Eliminated useless updates of child components.</li>
+            <li>
+              Obtained a totally stable wrapper for callback props that can be
+              used in <code>setTimeout</code> or as a native event listener.
+            </li>
+          </ul>
+          <p>
+            At a cost of not being able to call it during render. For me, this
+            sounds like a fair deal.
+          </p>
+        </div>
+        <span class="share"
+          ><div id="share-twitter">
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2021/04/07/better-usecallback/&text=Did I just build a better useCallback? by @thoughtspile"
+              >Tweet</a
+            >
+          </div>
+          <div id="share-button"><a>Share</a></div>
+          <div>
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2021/04/07/better-usecallback/"
+              >Discuss on Twitter</a
+            >
+          </div></span
+        >
+        <div class="post-related">
+          More? <a class="tag-link-link" href="/">All articles ever</a>
+          <a class="tag-link-link" href="/tags/frontend/" rel="tag">frontend</a>
+          <a class="tag-link-link" href="/tags/hooks/" rel="tag">hooks</a>
+          <a class="tag-link-link" href="/tags/programming/" rel="tag"
+            >programming</a
+          >
+          <a class="tag-link-link" href="/tags/react/" rel="tag">react</a>
+        </div>
+        <div class="post-actions">
+          Written in
+          <time datetime="2021-04-07T18:07:46.000Z" itemprop="datePublished"
+            >2021</time
+          >
+          by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me
+          on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank"
+            >Twitter</a
+          >
+          to&nbsp;get post updates. I&nbsp;have
+          <a href="/atom.xml">RSS,</a> too. And you can
+          <a
+            class="bmc go-bmc link--bare"
+            target="_blank"
+            rel="noopener"
+            href="https://buymeacoffee.com/thoughtspile"
+            >buy me a coffee!</a
+          >
+        </div>
+        <div class="post-siblings">
+          <a class="link--bare" href="/2021/04/05/useref-usememo/"
+            ><div class="post-siblings__direction">Older</div>
+            <span class="link__text"
+              >How useRef turned out to be useMemo's father</span
+            > </a
+          ><a class="link--bare" href="/2021/05/17/everything-about-react-refs/"
+            ><div class="post-siblings__direction">Newer</div>
+            <span class="link__text"
+              >So you think you know everything about React refs</span
+            ></a
+          >
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  !(function (e, a, t, n, g, c) {
+    (e.GoogleAnalyticsObject = n),
+      (e.ga =
+        e.ga ||
+        function () {
+          (e.ga.q = e.ga.q || []).push(arguments);
+        }),
+      (e.ga.l = +new Date()),
+      (g = a.createElement(t)),
+      (c = a.getElementsByTagName(t)[0]),
+      (g.async = 1),
+      (g.src = "//www.google-analytics.com/analytics.js"),
+      c.parentNode.insertBefore(g, c);
+  })(window, document, "script", "ga"),
+    ga("create", "UA-121445688-1", "auto"),
+    ga("send", "pageview");
+</script>
+<script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script>
+<script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>

@@ -1,10 +1,544 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="yandex-verification" content="635edef3908320be"><meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"><meta name="google-site-verification" content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"><meta name="description" content="I’ve taken part in well over a hundred tech interviews now, on both sides. Some were fun, and some were pure cringe. I’ve been asked if I have kids (supposedly, people with children won’t have time to"><meta property="og:type" content="article"><meta property="og:title" content="5 coding interview questions I hate"><meta property="og:url" content="https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/index.html"><meta property="og:site_name" content="Vladimir Klepov as a Coder"><meta property="og:description" content="I’ve taken part in well over a hundred tech interviews now, on both sides. Some were fun, and some were pure cringe. I’ve been asked if I have kids (supposedly, people with children won’t have time to"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://blog.thoughtspile.tech/images/interview-guide.png"><meta property="article:published_time" content="2022-03-21T16:26:29.000Z"><meta property="article:modified_time" content="2022-03-25T07:38:32.659Z"><meta property="article:author" content="Vladimir Klepov"><meta property="article:tag" content="javascript"><meta property="article:tag" content="interview"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://blog.thoughtspile.tech/images/interview-guide.png"><meta name="twitter:creator" content="@thoughtspile"><link rel="shortcut icon" href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"><title>5 coding interview questions I hate</title><link rel="stylesheet" href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"><link rel="canonical" href="https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/"><link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml"><script src="https://storage.yandexcloud.net/thoughtspile/deadman.js" async></script><meta name="generator" content="Hexo 5.4.0"></head><body class="max-width mx-auto px3"><div class="content index"><a href="/" id="header" class="header header--post"><div id="logo"></div><header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">5 coding interview questions I hate</h1></header><div class="content" itemprop="articleBody"><p>I’ve taken part in well over a hundred tech interviews now, on both sides. Some were fun, and some were pure cringe. I’ve been asked if I have kids (supposedly, people with children won’t have time to job hop), and if “I bet my ass I cost that much”. Fun times.</p><p>But today I’d like to talk about cringe tech interview question posing as valid ones. They’re on topic, but they do nothing but annoy and frustrate the candidate. Some are beyond saving, while some are fine, but often mishandled by the interviewer. Here are the main offenders:</p><ul><li>What happens if you build a circular prototype chain? And other intervew trivia.</li><li>How to migrate from webpack 3 to webpack 5? And other specifics.</li><li>What’s the difference between a number and an array? And other questions obfuscated with fuzzy wording.</li><li>What’s the fastest way to convert a string to number? And other unspecified behavior.</li><li>How to make this code sample <em>better</em>? And other questions with missing context.</li></ul><p>I’ll share tips both for the interviewers to spend their time better, and for the candidates who hit some of these. Beware, I’m using examples in JavaScript, but you’ll easily find parallels in your preferred language. Let’s go!</p><h2 id="Trivia"><a href="#Trivia" class="headerlink" title="Trivia"></a>Trivia</h2><p>This first category comprises questions that are popular in interviews, but rarely arise in practice. What happens when we run the following code?</p><pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <meta name="yandex-verification" content="635edef3908320be" />
+    <meta
+      name="google-site-verification"
+      content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"
+    />
+    <meta
+      name="google-site-verification"
+      content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"
+    />
+    <meta
+      name="description"
+      content="I’ve taken part in well over a hundred tech interviews now, on both sides. Some were fun, and some were pure cringe. I’ve been asked if I have kids (supposedly, people with children won’t have time to"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="5 coding interview questions I hate" />
+    <meta
+      property="og:url"
+      content="https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/index.html"
+    />
+    <meta property="og:site_name" content="Vladimir Klepov as a Coder" />
+    <meta
+      property="og:description"
+      content="I’ve taken part in well over a hundred tech interviews now, on both sides. Some were fun, and some were pure cringe. I’ve been asked if I have kids (supposedly, people with children won’t have time to"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://blog.thoughtspile.tech/images/interview-guide.png"
+    />
+    <meta
+      property="article:published_time"
+      content="2022-03-21T16:26:29.000Z"
+    />
+    <meta property="article:modified_time" content="2022-03-25T07:38:32.659Z" />
+    <meta property="article:author" content="Vladimir Klepov" />
+    <meta property="article:tag" content="javascript" />
+    <meta property="article:tag" content="interview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://blog.thoughtspile.tech/images/interview-guide.png"
+    />
+    <meta name="twitter:creator" content="@thoughtspile" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"
+    />
+    <title>5 coding interview questions I hate</title>
+    <link
+      rel="stylesheet"
+      href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"
+    />
+    <link
+      rel="canonical"
+      href="https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/"
+    />
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="Vladimir Klepov as a Coder"
+      type="application/atom+xml"
+    />
+    <script
+      src="https://storage.yandexcloud.net/thoughtspile/deadman.js"
+      async
+    ></script>
+    <meta name="generator" content="Hexo 5.4.0" />
+  </head>
+  <body class="max-width mx-auto px3">
+    <div class="content index">
+      <a href="/" id="header" class="header header--post"
+        ><div id="logo"></div>
+        <header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a
+      >
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h1 class="posttitle" itemprop="name headline">
+            5 coding interview questions I hate
+          </h1>
+        </header>
+        <div class="content" itemprop="articleBody">
+          <p>
+            I’ve taken part in well over a hundred tech interviews now, on both
+            sides. Some were fun, and some were pure cringe. I’ve been asked if
+            I have kids (supposedly, people with children won’t have time to job
+            hop), and if “I bet my ass I cost that much”. Fun times.
+          </p>
+          <p>
+            But today I’d like to talk about cringe tech interview question
+            posing as valid ones. They’re on topic, but they do nothing but
+            annoy and frustrate the candidate. Some are beyond saving, while
+            some are fine, but often mishandled by the interviewer. Here are the
+            main offenders:
+          </p>
+          <ul>
+            <li>
+              What happens if you build a circular prototype chain? And other
+              intervew trivia.
+            </li>
+            <li>
+              How to migrate from webpack 3 to webpack 5? And other specifics.
+            </li>
+            <li>
+              What’s the difference between a number and an array? And other
+              questions obfuscated with fuzzy wording.
+            </li>
+            <li>
+              What’s the fastest way to convert a string to number? And other
+              unspecified behavior.
+            </li>
+            <li>
+              How to make this code sample <em>better</em>? And other questions
+              with missing context.
+            </li>
+          </ul>
+          <p>
+            I’ll share tips both for the interviewers to spend their time
+            better, and for the candidates who hit some of these. Beware, I’m
+            using examples in JavaScript, but you’ll easily find parallels in
+            your preferred language. Let’s go!
+          </p>
+          <h2 id="Trivia">
+            <a href="#Trivia" class="headerlink" title="Trivia"></a>Trivia
+          </h2>
+          <p>
+            This first category comprises questions that are popular in
+            interviews, but rarely arise in practice. What happens when we run
+            the following code?
+          </p>
+          <pre
+            class="language-js"
+            data-language="js"
+          ><code class="language-js"><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 x<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> y<span class="token punctuation">;</span>
 y<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> x<span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>field<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>We modify the prototype chain in runtime to make it circular. You’ve probably guessed the answer is “nothing good”. You’d never write code like this in production. What a maniac would use <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto">the ad-hoc standardized and since deprecated <code>__proto__</code> property?</a>) Of course, the “correct” answer is that <code>y.__proto__ = x</code> throws <code>TypeError: Cyclic __proto__ value</code>, thanks, that’s good to know.</p><p>These questions only show how many interviews the candidate has been in, and it’s in case you’ve picked a popular question. If you’ve just come up with a “tricky question that’s not on the web” yourself, it’s just a dice roll of spec momorization.</p><p>Old-style JS questions are a notable sub-category of trivia. Yes, those of us who started programming back before 2015 know how <code>var</code> hoisting works, and how to declare (and even extend) a class with <code>.prototype</code> Here, you’re effectively testing when the developer started learning JS (or if he’s worked on a legacy codebase), which is already on the CV. <em>Maybe</em> worth it if you have a legacy project yourself.</p><p>As an interviewer, avoid questions that have nothing to do with the real-life development. The biggest fans of these questions are non-technical people (CEOs, founders, PMs) trying to conduct coding interviews by going over a question list found online. Bad news — it doesn’t work like that. Either hire / borrow a real developer just for the interviews, or stick to soft-skill topics and experience anecdotes.</p><p>The only way to answer these is, sadly, to participate in many interviews — or, as a cheap substitute, to browse lists of “TOP JS questions ever, guaranteed”. No one can realistically know every corner case of the language and the libraries.</p><h2 id="Specifics"><a href="#Specifics" class="headerlink" title="Specifics"></a>Specifics</h2><p>What issues does migrating to webpack 6 have? How do you check browser support for server-sent events? What <code>aria-role</code> should a modal page have? I don’t know. I usually google for this kind of things, and I’m pretty good at it.</p><p>This is what happens when you take my advice on using <em>real-life programming</em> questions a bit too seriously, and drop random problems you recently solved into an interview. Obviously, you’ve made your research, figured out the answer, and are pleased with yourself. But I’m not you, we have different experience to complement each other — and isn’t that even better? Don’t label me as an <em>idiot</em> just because I’ve never touched a certain area of web development.</p><p>Instead, ask the candidate about a challenging problem <em>she</em> recently solved — it’s going to be far more entertaining and valuable for both of you.</p><p>If you’re asked this question, and have never faced the problem yourself, you’re in trouble. Try to access all the background knowledge around the topic you might have, and <em>maybe</em> you can even figure this out based on common sense.</p><h2 id="Obfuscated-questions"><a href="#Obfuscated-questions" class="headerlink" title="Obfuscated questions"></a>Obfuscated questions</h2><p>“What’s the difference between a number and an object” is the most surprising question ever — double the surprise every time I hear it yet again. Come on, what’s the difference between your head and a sweet potato fresh out of oven? Excuse me, am I interviewing for a comedian?</p><p>The problem here is that a very concrete answer is expected (I figured out it’s “number is immutable”), but asking it directly is “too simple”, so you dress it up by presenting it as open-ended, and add some fuzziness, but in the end it just becomes impossible to decipher what you were trying to ask in the first place.</p><p>The worst part is that you can’t even give a hint, because the hint is the answer, so you’re bound to circle around confusing everyone further. “What can you do with numbers that you can’t with objects?” (Add them? Coerce to <code>false</code>?). “Think again, do numbers have properties?” (in <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">a way,</a> they do). What a waste of time!</p><p>Again, interview experience is key here. Once you wrap your head around the <a target="_blank" rel="noopener" href="https://dev.to/macmacky/70-javascript-interview-questions-5gfi">common JS interview questions</a> and topics, you’ll get better at recognizing them whatever costume they’re dressed in.</p><p>As an interviewer, prefer direct questions (“Which JS types are immutable?”) or at least make sure your wording points in the intended direction, not all over the place (“What’s the difference between primitive types and objects?”).</p><h2 id="Unspecified-behavior"><a href="#Unspecified-behavior" class="headerlink" title="Unspecified behavior"></a>Unspecified behavior</h2><p>Will <code>console.log(Object.keys(&#123; x: 0, y: 0 &#125;).join())</code> log <code>x,y</code> or <code>y,x</code>? Is <code>x[key]</code> faster than <code>x.find(e =&gt; e.key === key)</code>? Under normal circumstances I know the answers are <code>x,y</code> (addition order) and <em>yes,</em> but it’s not on the spec, so I wouldn’t over-rely on it.</p><p>Performance-related questions are the most popular of this bunch. JS runtimes change fast, and even if you’ve seen some code perform better a few years ago, it might not be the case any more. The fact that built-in data structures in JS do not specify operation complexity does not help either. We reasonably <em>assume</em> object access <code>obj[key]</code> to take <em>O(1),</em> but in reality this depends on many factors — object size, insert / remove frequency, whether the keys are string literals (see <a target="_blank" rel="noopener" href="https://esbench.com/bench/62385aeb6c89f600a57016a7">benchmark</a>). And even when the difference does exist, it’s usually abysmal and irrelevant to actual front-end development.</p><p>Overall, these questions are good for assessing both the practical knowledge of the common-case performance, the difference between runtimes, <em>and</em> how it applies to everyday development. As an interviewer, you only need two things to handle this well: be aware of the implementation-dependence yourself and have an open mind when it comes to unexpected answers. These questions are certainly <em>not</em> suitable for a non-interactive interview, such as a single-choice online survey (Pick the fastest method: a) <code>a.pop()</code> b) <code>a.shift()</code> c) <code>a.length -= 1</code>), because there’s no one right answer here.</p><h2 id="Missing-context-questions"><a href="#Missing-context-questions" class="headerlink" title="Missing-context questions"></a>Missing-context questions</h2><p>Open-ended questions are among the best you can ask in an interview — they’re challenging, and reveal both the candidate’s problem-solving skills and real-world experience. However, these questions are unforgiving to lazy interviewers — both sides should put in some effort to make them work. The two prime ways to mess these up are being uncollaborative and locking in to one possible solution.</p><p>For example, what’s wrong with this function?</p><pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>field<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+          <p>
+            We modify the prototype chain in runtime to make it circular. You’ve
+            probably guessed the answer is “nothing good”. You’d never write
+            code like this in production. What a maniac would use
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto"
+              >the ad-hoc standardized and since deprecated
+              <code>__proto__</code> property?</a
+            >) Of course, the “correct” answer is that
+            <code>y.__proto__ = x</code> throws
+            <code>TypeError: Cyclic __proto__ value</code>, thanks, that’s good
+            to know.
+          </p>
+          <p>
+            These questions only show how many interviews the candidate has been
+            in, and it’s in case you’ve picked a popular question. If you’ve
+            just come up with a “tricky question that’s not on the web”
+            yourself, it’s just a dice roll of spec momorization.
+          </p>
+          <p>
+            Old-style JS questions are a notable sub-category of trivia. Yes,
+            those of us who started programming back before 2015 know how
+            <code>var</code> hoisting works, and how to declare (and even
+            extend) a class with <code>.prototype</code> Here, you’re
+            effectively testing when the developer started learning JS (or if
+            he’s worked on a legacy codebase), which is already on the CV.
+            <em>Maybe</em> worth it if you have a legacy project yourself.
+          </p>
+          <p>
+            As an interviewer, avoid questions that have nothing to do with the
+            real-life development. The biggest fans of these questions are
+            non-technical people (CEOs, founders, PMs) trying to conduct coding
+            interviews by going over a question list found online. Bad news — it
+            doesn’t work like that. Either hire / borrow a real developer just
+            for the interviews, or stick to soft-skill topics and experience
+            anecdotes.
+          </p>
+          <p>
+            The only way to answer these is, sadly, to participate in many
+            interviews — or, as a cheap substitute, to browse lists of “TOP JS
+            questions ever, guaranteed”. No one can realistically know every
+            corner case of the language and the libraries.
+          </p>
+          <h2 id="Specifics">
+            <a href="#Specifics" class="headerlink" title="Specifics"></a
+            >Specifics
+          </h2>
+          <p>
+            What issues does migrating to webpack 6 have? How do you check
+            browser support for server-sent events? What
+            <code>aria-role</code> should a modal page have? I don’t know. I
+            usually google for this kind of things, and I’m pretty good at it.
+          </p>
+          <p>
+            This is what happens when you take my advice on using
+            <em>real-life programming</em> questions a bit too seriously, and
+            drop random problems you recently solved into an interview.
+            Obviously, you’ve made your research, figured out the answer, and
+            are pleased with yourself. But I’m not you, we have different
+            experience to complement each other — and isn’t that even better?
+            Don’t label me as an <em>idiot</em> just because I’ve never touched
+            a certain area of web development.
+          </p>
+          <p>
+            Instead, ask the candidate about a challenging problem
+            <em>she</em> recently solved — it’s going to be far more
+            entertaining and valuable for both of you.
+          </p>
+          <p>
+            If you’re asked this question, and have never faced the problem
+            yourself, you’re in trouble. Try to access all the background
+            knowledge around the topic you might have, and <em>maybe</em> you
+            can even figure this out based on common sense.
+          </p>
+          <h2 id="Obfuscated-questions">
+            <a
+              href="#Obfuscated-questions"
+              class="headerlink"
+              title="Obfuscated questions"
+            ></a
+            >Obfuscated questions
+          </h2>
+          <p>
+            “What’s the difference between a number and an object” is the most
+            surprising question ever — double the surprise every time I hear it
+            yet again. Come on, what’s the difference between your head and a
+            sweet potato fresh out of oven? Excuse me, am I interviewing for a
+            comedian?
+          </p>
+          <p>
+            The problem here is that a very concrete answer is expected (I
+            figured out it’s “number is immutable”), but asking it directly is
+            “too simple”, so you dress it up by presenting it as open-ended, and
+            add some fuzziness, but in the end it just becomes impossible to
+            decipher what you were trying to ask in the first place.
+          </p>
+          <p>
+            The worst part is that you can’t even give a hint, because the hint
+            is the answer, so you’re bound to circle around confusing everyone
+            further. “What can you do with numbers that you can’t with objects?”
+            (Add them? Coerce to <code>false</code>?). “Think again, do numbers
+            have properties?” (in
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number"
+              >a way,</a
+            >
+            they do). What a waste of time!
+          </p>
+          <p>
+            Again, interview experience is key here. Once you wrap your head
+            around the
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://dev.to/macmacky/70-javascript-interview-questions-5gfi"
+              >common JS interview questions</a
+            >
+            and topics, you’ll get better at recognizing them whatever costume
+            they’re dressed in.
+          </p>
+          <p>
+            As an interviewer, prefer direct questions (“Which JS types are
+            immutable?”) or at least make sure your wording points in the
+            intended direction, not all over the place (“What’s the difference
+            between primitive types and objects?”).
+          </p>
+          <h2 id="Unspecified-behavior">
+            <a
+              href="#Unspecified-behavior"
+              class="headerlink"
+              title="Unspecified behavior"
+            ></a
+            >Unspecified behavior
+          </h2>
+          <p>
+            Will
+            <code
+              >console.log(Object.keys(&#123; x: 0, y: 0 &#125;).join())</code
+            >
+            log <code>x,y</code> or <code>y,x</code>? Is
+            <code>x[key]</code> faster than
+            <code>x.find(e =&gt; e.key === key)</code>? Under normal
+            circumstances I know the answers are <code>x,y</code> (addition
+            order) and <em>yes,</em> but it’s not on the spec, so I wouldn’t
+            over-rely on it.
+          </p>
+          <p>
+            Performance-related questions are the most popular of this bunch. JS
+            runtimes change fast, and even if you’ve seen some code perform
+            better a few years ago, it might not be the case any more. The fact
+            that built-in data structures in JS do not specify operation
+            complexity does not help either. We reasonably
+            <em>assume</em> object access <code>obj[key]</code> to take
+            <em>O(1),</em> but in reality this depends on many factors — object
+            size, insert / remove frequency, whether the keys are string
+            literals (see
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://esbench.com/bench/62385aeb6c89f600a57016a7"
+              >benchmark</a
+            >). And even when the difference does exist, it’s usually abysmal
+            and irrelevant to actual front-end development.
+          </p>
+          <p>
+            Overall, these questions are good for assessing both the practical
+            knowledge of the common-case performance, the difference between
+            runtimes, <em>and</em> how it applies to everyday development. As an
+            interviewer, you only need two things to handle this well: be aware
+            of the implementation-dependence yourself and have an open mind when
+            it comes to unexpected answers. These questions are certainly
+            <em>not</em> suitable for a non-interactive interview, such as a
+            single-choice online survey (Pick the fastest method: a)
+            <code>a.pop()</code> b) <code>a.shift()</code> c)
+            <code>a.length -= 1</code>), because there’s no one right answer
+            here.
+          </p>
+          <h2 id="Missing-context-questions">
+            <a
+              href="#Missing-context-questions"
+              class="headerlink"
+              title="Missing-context questions"
+            ></a
+            >Missing-context questions
+          </h2>
+          <p>
+            Open-ended questions are among the best you can ask in an interview
+            — they’re challenging, and reveal both the candidate’s
+            problem-solving skills and real-world experience. However, these
+            questions are unforgiving to lazy interviewers — both sides should
+            put in some effort to make them work. The two prime ways to mess
+            these up are being uncollaborative and locking in to one possible
+            solution.
+          </p>
+          <p>For example, what’s wrong with this function?</p>
+          <pre
+            class="language-js"
+            data-language="js"
+          ><code class="language-js"><span class="token keyword">function</span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span> fn</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
   <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span></code></pre><p>Why, looks perfectly fine to me. Or maybe not. Depends on what you’re trying to achieve. The code is rarely “right” or “wrong” by itself. Yes, mutating <code>arr</code> is non-idiomatic lately, but maybe it works in-place as an optimization. Yes, the use of <code>var</code> is frowned upon, but maybe it’s a library that’s supposed to work in IE6. Yes, we could replace the <code>for (;;)</code> with a <code>.map</code> or a <code>for..of</code>, but then we’d lose support for all array-likes. See, it all depends on the context. I can endlessly produce variations of this code, but I’d rather not if it’s not causing any trouble.</p><p>This question is often presented as “refactor this code to make it BETTER” — sure to excite any junior developer. Good thing grumpy old Vladimir is here to tell you that “refactoring” with no clear goal is the greatest waste of time out there.</p><p>To illustrate the solution lock-in problem, suppose you give me a slider gallery implemented with a horrendous mess of jQuery and ask to <em>improve</em> it. Problem is, you believe the best way to spend an hour on this is to write unit tests and convert to React. I think I should change jQuery to vanilla DOM and improve UX with better overscroll handling. Neither of us is right or wrong. In real life, the project goals and technical direction sets the context — how many jQuery dependencies we have across the codebase, if we intend on migrating to React, manual QA availability.</p><p>When asking an open-ended question, either let go of your expected answer and focus on the problem-solving process, or introduce the missing requirements to guide towards your desired solution.</p><hr><p>So, here are the five types of interview questions that I hate, most hopeless to nice-but-dangerous:</p><ul><li>Trivia: questions that often arise in interview, but never in real life, e.g. “what happens if you create a circular prototype chain”. These test for interview experience, not development skills. Avoid.</li><li>Specifics: solutions to unique real-life problems. Example: “how to migrate webpack 3 to webpack 5”. <em>Might</em> work if the answer can be from the expected background knowledge or if the area is super critical to your product. Instead, ask about a challenging problem the candidate recently solved.</li><li>Obfuscated questions: simple questions made <em>harder</em> by fuzzy wording, such as “what’s the difference between a number and an object?” instead of “are JS numbers mutable?”. Avoid.</li><li>Implementation questions: the answer depends on a specific JS runtime, e.g. “what’s the fastest way to loop over a list”. Avoid strong wordings and don’t bikeshed if the answer is not what you expected.</li><li>Missing context: answer requires additional details, e.g. “how to improve this code”. Amazing question as long as you’re ready to problem-solve together, provide the missing constraints and give credit for noting the distinct possibilities. Worst question if you expect a specific question while many objectively good alternatives exist.</li></ul><p>Here’s my advice on improving interview questions, as a nice flowchart:</p><p><img src="/images/interview-guide-464c7dad46bec92ed2e0139f9fce5dd3.png"></p><p>For candidates, I’m afraid, I have fewer actionable tips. Sure, practice makes perfect, and skimming the common interview questions won’t hurt even if you’re a hot shot lead senior, but other than that it’s hard to escape a bad question with an bad interviewer. You can’t convince the interviewer to change the question or his approach on the fly (if you can, apply for a top-tier sales representative position instead). Tough luck, but be ready to admit you don’t know some things, and try to work from the knowledge you have around the topic.</p><p>Good luck with your interviews, and see you later!</p></div><span class="share"><div id="share-twitter"><a target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/&text=5 coding interview questions I hate by @thoughtspile">Tweet</a></div><div id="share-button"><a>Share</a></div><div><a target="_blank" rel="noopener" href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/">Discuss on Twitter</a></div></span><div class="post-related">More? <a class="tag-link-link" href="/">All articles ever</a> <a class="tag-link-link" href="/tags/interview/" rel="tag">interview</a> <a class="tag-link-link" href="/tags/javascript/" rel="tag">javascript</a></div><div class="post-actions">Written in <time datetime="2022-03-21T16:26:29.000Z" itemprop="datePublished">2022</time> by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank">Twitter</a> to&nbsp;get post updates. I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc go-bmc link--bare" target="_blank" rel="noopener" href="https://buymeacoffee.com/thoughtspile">buy me a coffee!</a></div><div class="post-siblings"><a class="link--bare" href="/2022/02/15/bundle-size-lies/"><div class="post-siblings__direction">Older</div><span class="link__text">Don't trust JS library size, min+gzip</span> </a><a class="link--bare" href="/2022/03/28/interview-bad-habits/"><div class="post-siblings__direction">Newer</div><span class="link__text">Seven habits of bad interviewers</span></a></div></article></div></body></html><script type="text/javascript">!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-121445688-1","auto"),ga("send","pageview")</script><script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script><script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>
+<span class="token punctuation">&#125;</span></code></pre>
+          <p>
+            Why, looks perfectly fine to me. Or maybe not. Depends on what
+            you’re trying to achieve. The code is rarely “right” or “wrong” by
+            itself. Yes, mutating <code>arr</code> is non-idiomatic lately, but
+            maybe it works in-place as an optimization. Yes, the use of
+            <code>var</code> is frowned upon, but maybe it’s a library that’s
+            supposed to work in IE6. Yes, we could replace the
+            <code>for (;;)</code> with a <code>.map</code> or a
+            <code>for..of</code>, but then we’d lose support for all
+            array-likes. See, it all depends on the context. I can endlessly
+            produce variations of this code, but I’d rather not if it’s not
+            causing any trouble.
+          </p>
+          <p>
+            This question is often presented as “refactor this code to make it
+            BETTER” — sure to excite any junior developer. Good thing grumpy old
+            Vladimir is here to tell you that “refactoring” with no clear goal
+            is the greatest waste of time out there.
+          </p>
+          <p>
+            To illustrate the solution lock-in problem, suppose you give me a
+            slider gallery implemented with a horrendous mess of jQuery and ask
+            to <em>improve</em> it. Problem is, you believe the best way to
+            spend an hour on this is to write unit tests and convert to React. I
+            think I should change jQuery to vanilla DOM and improve UX with
+            better overscroll handling. Neither of us is right or wrong. In real
+            life, the project goals and technical direction sets the context —
+            how many jQuery dependencies we have across the codebase, if we
+            intend on migrating to React, manual QA availability.
+          </p>
+          <p>
+            When asking an open-ended question, either let go of your expected
+            answer and focus on the problem-solving process, or introduce the
+            missing requirements to guide towards your desired solution.
+          </p>
+          <hr />
+          <p>
+            So, here are the five types of interview questions that I hate, most
+            hopeless to nice-but-dangerous:
+          </p>
+          <ul>
+            <li>
+              Trivia: questions that often arise in interview, but never in real
+              life, e.g. “what happens if you create a circular prototype
+              chain”. These test for interview experience, not development
+              skills. Avoid.
+            </li>
+            <li>
+              Specifics: solutions to unique real-life problems. Example: “how
+              to migrate webpack 3 to webpack 5”. <em>Might</em> work if the
+              answer can be from the expected background knowledge or if the
+              area is super critical to your product. Instead, ask about a
+              challenging problem the candidate recently solved.
+            </li>
+            <li>
+              Obfuscated questions: simple questions made <em>harder</em> by
+              fuzzy wording, such as “what’s the difference between a number and
+              an object?” instead of “are JS numbers mutable?”. Avoid.
+            </li>
+            <li>
+              Implementation questions: the answer depends on a specific JS
+              runtime, e.g. “what’s the fastest way to loop over a list”. Avoid
+              strong wordings and don’t bikeshed if the answer is not what you
+              expected.
+            </li>
+            <li>
+              Missing context: answer requires additional details, e.g. “how to
+              improve this code”. Amazing question as long as you’re ready to
+              problem-solve together, provide the missing constraints and give
+              credit for noting the distinct possibilities. Worst question if
+              you expect a specific question while many objectively good
+              alternatives exist.
+            </li>
+          </ul>
+          <p>
+            Here’s my advice on improving interview questions, as a nice
+            flowchart:
+          </p>
+          <p>
+            <img
+              src="/images/interview-guide-464c7dad46bec92ed2e0139f9fce5dd3.png"
+            />
+          </p>
+          <p>
+            For candidates, I’m afraid, I have fewer actionable tips. Sure,
+            practice makes perfect, and skimming the common interview questions
+            won’t hurt even if you’re a hot shot lead senior, but other than
+            that it’s hard to escape a bad question with an bad interviewer. You
+            can’t convince the interviewer to change the question or his
+            approach on the fly (if you can, apply for a top-tier sales
+            representative position instead). Tough luck, but be ready to admit
+            you don’t know some things, and try to work from the knowledge you
+            have around the topic.
+          </p>
+          <p>Good luck with your interviews, and see you later!</p>
+        </div>
+        <span class="share"
+          ><div id="share-twitter">
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/&text=5 coding interview questions I hate by @thoughtspile"
+              >Tweet</a
+            >
+          </div>
+          <div id="share-button"><a>Share</a></div>
+          <div>
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/"
+              >Discuss on Twitter</a
+            >
+          </div></span
+        >
+        <div class="post-related">
+          More? <a class="tag-link-link" href="/">All articles ever</a>
+          <a class="tag-link-link" href="/tags/interview/" rel="tag"
+            >interview</a
+          >
+          <a class="tag-link-link" href="/tags/javascript/" rel="tag"
+            >javascript</a
+          >
+        </div>
+        <div class="post-actions">
+          Written in
+          <time datetime="2022-03-21T16:26:29.000Z" itemprop="datePublished"
+            >2022</time
+          >
+          by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me
+          on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank"
+            >Twitter</a
+          >
+          to&nbsp;get post updates. I&nbsp;have
+          <a href="/atom.xml">RSS,</a> too. And you can
+          <a
+            class="bmc go-bmc link--bare"
+            target="_blank"
+            rel="noopener"
+            href="https://buymeacoffee.com/thoughtspile"
+            >buy me a coffee!</a
+          >
+        </div>
+        <div class="post-siblings">
+          <a class="link--bare" href="/2022/02/15/bundle-size-lies/"
+            ><div class="post-siblings__direction">Older</div>
+            <span class="link__text"
+              >Don't trust JS library size, min+gzip</span
+            > </a
+          ><a class="link--bare" href="/2022/03/28/interview-bad-habits/"
+            ><div class="post-siblings__direction">Newer</div>
+            <span class="link__text">Seven habits of bad interviewers</span></a
+          >
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  !(function (e, a, t, n, g, c) {
+    (e.GoogleAnalyticsObject = n),
+      (e.ga =
+        e.ga ||
+        function () {
+          (e.ga.q = e.ga.q || []).push(arguments);
+        }),
+      (e.ga.l = +new Date()),
+      (g = a.createElement(t)),
+      (c = a.getElementsByTagName(t)[0]),
+      (g.async = 1),
+      (g.src = "//www.google-analytics.com/analytics.js"),
+      c.parentNode.insertBefore(g, c);
+  })(window, document, "script", "ga"),
+    ga("create", "UA-121445688-1", "auto"),
+    ga("send", "pageview");
+</script>
+<script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script>
+<script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>

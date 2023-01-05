@@ -6,7 +6,7 @@ tags:
     - javascript
     - typescript
     - eslint
-date: 2021-06-14 20:37:10
+date: 2021-06-14
 ---
 
 

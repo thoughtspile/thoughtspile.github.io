@@ -4,7 +4,7 @@ tags:
   - babel
   - javascript
   - infra
-date: 2021-10-06 17:25:03
+date: 2021-10-06
 ---
 
 

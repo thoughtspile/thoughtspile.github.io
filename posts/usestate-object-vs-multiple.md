@@ -5,7 +5,7 @@ tags:
   - hooks
   - javascript
   - frontend
-date: 2021-10-11 19:52:18
+date: 2021-10-11
 ---
 
 

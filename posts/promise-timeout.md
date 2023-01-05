@@ -4,7 +4,7 @@ tags:
   - promises
   - javascript
   - programming
-date: 2021-04-02 21:18:51
+date: 2021-04-02
 ---
 
 

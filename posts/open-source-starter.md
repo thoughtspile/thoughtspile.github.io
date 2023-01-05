@@ -3,7 +3,7 @@ title: Open source starter pack for JS devs
 tags:
   - open source
   - javascript
-date: 2021-11-20 16:25:25
+date: 2021-11-20
 ---
 
 

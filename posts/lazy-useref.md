@@ -4,7 +4,7 @@ tags:
   - react
   - javascript
   - hooks
-date: 2021-11-30 14:52:33
+date: 2021-11-30
 ---
 
 

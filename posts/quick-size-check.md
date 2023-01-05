@@ -1,6 +1,6 @@
 ---
 title: Zero-setup bundle size checker
-date: 2021-09-24 21:07:28
+date: 2021-09-24
 tags:
     - infra
     - frontend

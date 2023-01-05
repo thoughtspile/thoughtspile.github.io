@@ -4,7 +4,7 @@ tags:
     - javascript
     - programming
     - frontend
-date: 2021-06-07 17:34:38
+date: 2021-06-07
 ---
 
 Normally, JS event are handled while _bubbling_ up the DOM tree, and we've all had the pleasure to catch an event from a child node on its parent. You'd even be excused for thinking that's the only way DOM events move. Many also know there's something else — events start at the document root, then go down to the affected element in a phase called "capture", and only then "bubble" back up (not all do — more on this in a minute). See [MDN article on events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture) for more details on this mechanism.

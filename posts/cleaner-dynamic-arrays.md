@@ -3,7 +3,7 @@ title: Cleaner ways to build dynamic JS arrays
 tags:
     - javascript
     - programming
-date: 2021-06-11 17:51:51
+date: 2021-06-11
 ---
 
 

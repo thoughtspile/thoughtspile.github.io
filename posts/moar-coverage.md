@@ -3,7 +3,7 @@ title: How to increase test coverage FAST
 tags:
     - testing
     - programming
-date: 2021-05-31 20:12:01
+date: 2021-05-31
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Did I just build a better useCallback?
-date: 2021-04-07 21:07:46
+date: 2021-04-07
 tags:
     - react
     - programming

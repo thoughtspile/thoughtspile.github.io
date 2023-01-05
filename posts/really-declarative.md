@@ -5,7 +5,7 @@ tags:
   - hooks
   - javascript
   - frontend
-date: 2021-10-13 20:55:24
+date: 2021-10-13
 ---
 
 Like many of you, I've read Dan Abramov's excellent article, [making setInterval declarative with React hooks.](https://overreacted.io/making-setinterval-declarative-with-react-hooks) It's a great introduction to hook thinking and gotchas, highly recommended to any react dev. But by now the insistence on being declarative in every hook ever has gone too far, and it's starting to annoy me. Hook libraries that don't expose imperative handles at all are less useful, and using them comes with a real performance cost. How so? Let me show.

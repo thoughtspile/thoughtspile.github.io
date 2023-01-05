@@ -5,7 +5,7 @@ tags:
   - programming
   - frontend
   - hooks
-date: 2021-10-04 14:20:49
+date: 2021-10-04
 ---
 
 `useContext` hook has made React Context API so pleasant to work with that many people are even [suggesting](https://www.sitepoint.com/replace-redux-react-hooks-context-api/) that we drop external state management solutions and rely on the built-in _alternative_ instead. This is dangerous thinking that can easily push your app's performance down the drain if you're not careful. In this article, I explore the perils of using contexts, and provide several tips to help you optimize context usage. Let's go!

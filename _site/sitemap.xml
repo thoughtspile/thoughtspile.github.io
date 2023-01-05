@@ -2,352 +2,382 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>/2018/06/20/serialize-promises/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/06/20/serialize-promises/</loc>
             <lastmod>2018-06-20T12:42:08.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/07/07/rate-limit-promises/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/07/07/rate-limit-promises/</loc>
             <lastmod>2018-07-07T10:11:13.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/07/14/docx-is-a-zip-archive/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/</loc>
             <lastmod>2018-07-14T14:33:41.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/09/20/angularjs-service-property-getter/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/09/20/angularjs-service-property-getter/</loc>
             <lastmod>2018-09-20T17:04:06.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/09/22/typescript-unsuck-guide/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/09/22/typescript-unsuck-guide/</loc>
             <lastmod>2018-09-22T16:37:41.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/09/23/bad-software-week/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/09/23/bad-software-week/</loc>
             <lastmod>2018-09-23T14:35:02.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/09/29/lets-make-software-better/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/09/29/lets-make-software-better/</loc>
             <lastmod>2018-09-29T17:10:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/10/05/js-debug-logging/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/10/05/js-debug-logging/</loc>
             <lastmod>2018-10-05T13:33:42.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/10/22/typescript-derived-interface/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/</loc>
             <lastmod>2018-10-22T11:21:34.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/10/28/simplistic-di/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/10/28/simplistic-di/</loc>
             <lastmod>2018-10-28T14:28:01.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/11/05/react-extend-justified/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/11/05/react-extend-justified/</loc>
             <lastmod>2018-11-05T14:38:29.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/11/24/garbage-producing-js/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/11/24/garbage-producing-js/</loc>
             <lastmod>2018-11-24T18:25:43.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/12/02/react-keep-mounted/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/12/02/react-keep-mounted/</loc>
             <lastmod>2018-12-02T17:04:51.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2018/12/17/design-crash-course/</loc>
+            <loc>https://blog.thoughtspile.tech/2018/12/17/design-crash-course/</loc>
             <lastmod>2018-12-17T17:10:23.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2019/01/06/vdom-bend-memo/</loc>
+            <loc>https://blog.thoughtspile.tech/2019/01/06/vdom-bend-memo/</loc>
             <lastmod>2019-01-06T11:02:42.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/04/03/promise-timeout/</loc>
-            <lastmod>2021-04-02T21:18:51.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/04/02/promise-timeout/</loc>
+            <lastmod>2021-04-02T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/04/05/useref-usememo/</loc>
-            <lastmod>2021-04-05T18:59:25.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/04/05/useref-usememo/</loc>
+            <lastmod>2021-04-05T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/04/08/better-usecallback/</loc>
-            <lastmod>2021-04-07T21:07:46.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/04/07/better-usecallback/</loc>
+            <lastmod>2021-04-07T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/05/18/everything-about-react-refs/</loc>
-            <lastmod>2021-05-17T21:10:17.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/05/17/everything-about-react-refs/</loc>
+            <lastmod>2021-05-17T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/05/31/moar-coverage/</loc>
-            <lastmod>2021-05-31T20:12:01.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/05/31/moar-coverage/</loc>
+            <lastmod>2021-05-31T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/06/02/eslint-restrict-syntax/</loc>
-            <lastmod>2021-06-02T15:07:58.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/06/02/eslint-restrict-syntax/</loc>
+            <lastmod>2021-06-02T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/06/04/eslint-workarounds/</loc>
-            <lastmod>2021-06-04T19:03:02.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/06/04/eslint-workarounds/</loc>
+            <lastmod>2021-06-04T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/06/07/event-capture/</loc>
-            <lastmod>2021-06-07T17:34:38.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/06/07/event-capture/</loc>
+            <lastmod>2021-06-07T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/06/11/cleaner-dynamic-arrays/</loc>
-            <lastmod>2021-06-11T17:51:51.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/06/11/cleaner-dynamic-arrays/</loc>
+            <lastmod>2021-06-11T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/06/14/faster-pre-commit/</loc>
-            <lastmod>2021-06-14T20:37:10.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/06/14/faster-pre-commit/</loc>
+            <lastmod>2021-06-14T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/09/21/useeffect-derived-state/</loc>
-            <lastmod>2021-09-21T17:51:47.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/09/21/useeffect-derived-state/</loc>
+            <lastmod>2021-09-21T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/09/22/dev-warnings/</loc>
-            <lastmod>2021-09-22T18:43:11.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/09/22/dev-warnings/</loc>
+            <lastmod>2021-09-22T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/09/25/quick-size-check/</loc>
-            <lastmod>2021-09-24T21:07:28.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/09/24/quick-size-check/</loc>
+            <lastmod>2021-09-24T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/09/27/usestate-tricks/</loc>
-            <lastmod>2021-09-27T13:36:44.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/</loc>
+            <lastmod>2021-09-27T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/04/react-context-dangers/</loc>
-            <lastmod>2021-10-04T14:20:49.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/04/react-context-dangers/</loc>
+            <lastmod>2021-10-04T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/06/babel-runtime-version/</loc>
-            <lastmod>2021-10-06T17:25:03.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/06/babel-runtime-version/</loc>
+            <lastmod>2021-10-06T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/11/usestate-object-vs-multiple/</loc>
-            <lastmod>2021-10-11T19:52:18.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/11/usestate-object-vs-multiple/</loc>
+            <lastmod>2021-10-11T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/13/really-declarative/</loc>
-            <lastmod>2021-10-13T20:55:24.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/13/really-declarative/</loc>
+            <lastmod>2021-10-13T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/18/non-react-state/</loc>
-            <lastmod>2021-10-18T14:21:27.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/18/non-react-state/</loc>
+            <lastmod>2021-10-18T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/25/useref-no-current/</loc>
-            <lastmod>2021-10-25T20:19:07.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/25/useref-no-current/</loc>
+            <lastmod>2021-10-25T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/10/27/better-react-context/</loc>
-            <lastmod>2021-10-27T12:56:14.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/10/27/better-react-context/</loc>
+            <lastmod>2021-10-27T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/11/08/semver-challenges/</loc>
-            <lastmod>2021-11-08T16:56:30.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/11/08/semver-challenges/</loc>
+            <lastmod>2021-11-08T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/11/15/unintentional-layout-effect/</loc>
-            <lastmod>2021-11-15T15:09:54.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/11/15/unintentional-layout-effect/</loc>
+            <lastmod>2021-11-15T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/11/20/open-source-starter/</loc>
-            <lastmod>2021-11-20T16:25:25.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/11/20/open-source-starter/</loc>
+            <lastmod>2021-11-20T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/2021/11/30/lazy-useref/</loc>
-            <lastmod>2021-11-30T14:52:33.000Z</lastmod>
+            <loc>https://blog.thoughtspile.tech/2021/11/30/lazy-useref/</loc>
+            <lastmod>2021-11-30T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>/</loc>
+            <loc>https://blog.thoughtspile.tech/2022/01/17/jsx-conditionals/</loc>
+            <lastmod>2022-01-17T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/01/25/what-is-react-component/</loc>
+            <lastmod>2022-01-25T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/02/09/react-global-memo/</loc>
+            <lastmod>2022-02-09T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/02/14/js-automation/</loc>
+            <lastmod>2022-02-14T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/02/15/bundle-size-lies/</loc>
+            <lastmod>2022-02-15T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/03/21/bad-tech-interview/</loc>
+            <lastmod>2022-03-21T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2022/03/28/interview-bad-habits/</loc>
+            <lastmod>2022-03-28T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/</loc>
             <lastmod>2023-01-05T11:06:46.744Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/all/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/rant/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/javascript/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/life/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/infra/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/thoughtspile/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/programming/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/react/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/depression/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/programming/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/babel/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/frontend/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/javascript/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/infra/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/react/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/open%20source/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/frontend/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/developer%20experience/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/hooks/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/design/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/design/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/tips/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/eslint/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/tips/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/microsoft/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/rant/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/open source/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/life/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/developer experience/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/thoughtspile/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/typescript/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/happiness/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/happiness/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/testing/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/testing/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/depression/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/promises/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/performance/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/high availability/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/promises/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/angularjs/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/concurrency/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/angular/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/OOP/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/performance/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/OOP/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/high%20availability/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     
         <url>
-            <loc>/tags/concurrency/</loc>
-            <lastmod>2023-01-05T11:06:46.755Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>/tags/tagList/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/angular/</loc>
             <lastmod>2023-01-05T11:06:46.755Z</lastmod>
         </url>
     

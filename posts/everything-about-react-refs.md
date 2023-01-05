@@ -1,6 +1,6 @@
 ---
 title: So you think you know everything about React refs
-date: 2021-05-17 21:10:17
+date: 2021-05-17
 tags:
   - react
   - programming

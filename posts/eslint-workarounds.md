@@ -1,6 +1,6 @@
 ---
 title: Go beyond eslint limits with these 3 tricks
-date: 2021-06-04 19:03:02
+date: 2021-06-04
 tags:
     - eslint
     - infra

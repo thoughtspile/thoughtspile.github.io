@@ -1,4 +1,112 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="yandex-verification" content="635edef3908320be"><meta name="google-site-verification" content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"><meta name="google-site-verification" content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"><meta name="description" content="If you use Angular DI, you probably declare your service classes twice, like this: export interface IUserService &amp;#123;   getUsers(): IUser[]; &amp;#125;  export class UserService implements IUserService"><meta property="og:type" content="article"><meta property="og:title" content="Angular Tip: Derived Interfaces in TypeScript"><meta property="og:url" content="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/index.html"><meta property="og:site_name" content="Vladimir Klepov as a Coder"><meta property="og:description" content="If you use Angular DI, you probably declare your service classes twice, like this: export interface IUserService &amp;#123;   getUsers(): IUser[]; &amp;#125;  export class UserService implements IUserService"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2018-10-22T08:21:34.000Z"><meta property="article:modified_time" content="2022-01-14T13:29:55.465Z"><meta property="article:author" content="Vladimir Klepov"><meta property="article:tag" content="javascript"><meta property="article:tag" content="programming"><meta property="article:tag" content="frontend"><meta property="article:tag" content="tips"><meta property="article:tag" content="typescript"><meta property="article:tag" content="angular"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@thoughtspile"><link rel="shortcut icon" href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"><title>Angular Tip: Derived Interfaces in TypeScript</title><link rel="stylesheet" href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"><link rel="canonical" href="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/"><link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml"><script src="https://storage.yandexcloud.net/thoughtspile/deadman.js" async></script><meta name="generator" content="Hexo 5.4.0"></head><body class="max-width mx-auto px3"><div class="content index"><a href="/" id="header" class="header header--post"><div id="logo"></div><header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">Angular Tip: Derived Interfaces in TypeScript</h1></header><div class="content" itemprop="articleBody"><p>If you use Angular DI, you probably declare your service classes twice, like this:</p><pre class="language-ts" data-language="ts"><code class="language-ts">export interface IUserService &#123;
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <meta name="yandex-verification" content="635edef3908320be" />
+    <meta
+      name="google-site-verification"
+      content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"
+    />
+    <meta
+      name="google-site-verification"
+      content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw"
+    />
+    <meta
+      name="description"
+      content="If you use Angular DI, you probably declare your service classes twice, like this: export interface IUserService &amp;#123;   getUsers(): IUser[]; &amp;#125;  export class UserService implements IUserService"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Angular Tip: Derived Interfaces in TypeScript"
+    />
+    <meta
+      property="og:url"
+      content="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/index.html"
+    />
+    <meta property="og:site_name" content="Vladimir Klepov as a Coder" />
+    <meta
+      property="og:description"
+      content="If you use Angular DI, you probably declare your service classes twice, like this: export interface IUserService &amp;#123;   getUsers(): IUser[]; &amp;#125;  export class UserService implements IUserService"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="article:published_time"
+      content="2018-10-22T08:21:34.000Z"
+    />
+    <meta property="article:modified_time" content="2022-01-14T13:29:55.465Z" />
+    <meta property="article:author" content="Vladimir Klepov" />
+    <meta property="article:tag" content="javascript" />
+    <meta property="article:tag" content="programming" />
+    <meta property="article:tag" content="frontend" />
+    <meta property="article:tag" content="tips" />
+    <meta property="article:tag" content="typescript" />
+    <meta property="article:tag" content="angular" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@thoughtspile" />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon-6e00c3b618952d5cd6e8942e95a692e1.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon-192x192-8b6cc8287c442b221bad9ed73e85331f.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"
+    />
+    <title>Angular Tip: Derived Interfaces in TypeScript</title>
+    <link
+      rel="stylesheet"
+      href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"
+    />
+    <link
+      rel="canonical"
+      href="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/"
+    />
+    <link
+      rel="alternate"
+      href="/atom.xml"
+      title="Vladimir Klepov as a Coder"
+      type="application/atom+xml"
+    />
+    <script
+      src="https://storage.yandexcloud.net/thoughtspile/deadman.js"
+      async
+    ></script>
+    <meta name="generator" content="Hexo 5.4.0" />
+  </head>
+  <body class="max-width mx-auto px3">
+    <div class="content index">
+      <a href="/" id="header" class="header header--post"
+        ><div id="logo"></div>
+        <header id="title"><h1>Vladimir Klepov as a Coder</h1></header></a
+      >
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h1 class="posttitle" itemprop="name headline">
+            Angular Tip: Derived Interfaces in TypeScript
+          </h1>
+        </header>
+        <div class="content" itemprop="articleBody">
+          <p>
+            If you use Angular DI, you probably declare your service classes
+            twice, like this:
+          </p>
+          <pre
+            class="language-ts"
+            data-language="ts"
+          ><code class="language-ts">export interface IUserService &#123;
   getUsers(): IUser[];
 &#125;
 
@@ -6,10 +114,122 @@ export class UserService implements IUserService &#123;
   getUsers() &#123;
     return fetch&lt;IUser[]&gt;(&#39;&#x2F;users&#39;);
   &#125;
-&#125;</code></pre><p>Declaring classes like this is horrible. You describe your logic twice for no good reason. You get no extra error protection, no better code completion, no benefits whatsoever. You just edit twice on every change.</p><p>You don’t normally share an interface between classes. The language, unlike C++, does not require you to declare the signature before the implementation for technical reasons. You write twice as much code because the framework wants you to. Why chose to live like that?</p><p>Luckily, in TS you can just write:</p><pre class="language-ts" data-language="ts"><code class="language-ts">export class UserService &#123;
+&#125;</code></pre>
+          <p>
+            Declaring classes like this is horrible. You describe your logic
+            twice for no good reason. You get no extra error protection, no
+            better code completion, no benefits whatsoever. You just edit twice
+            on every change.
+          </p>
+          <p>
+            You don’t normally share an interface between classes. The language,
+            unlike C++, does not require you to declare the signature before the
+            implementation for technical reasons. You write twice as much code
+            because the framework wants you to. Why chose to live like that?
+          </p>
+          <p>Luckily, in TS you can just write:</p>
+          <pre
+            class="language-ts"
+            data-language="ts"
+          ><code class="language-ts">export class UserService &#123;
   getUsers() &#123;
     return fetch&lt;IUser[]&gt;(&#39;&#x2F;users&#39;);
   &#125;
 &#125;
 
-export type IUserService &#x3D; UserService;</code></pre><p>You get proper type inference in methods, and the interface is then itself inferred from the implementation. You’re welcome!</p></div><span class="share"><div id="share-twitter"><a target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/&text=Angular Tip: Derived Interfaces in TypeScript by @thoughtspile">Tweet</a></div><div id="share-button"><a>Share</a></div><div><a target="_blank" rel="noopener" href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/">Discuss on Twitter</a></div></span><div class="post-related">More? <a class="tag-link-link" href="/">All articles ever</a> <a class="tag-link-link" href="/tags/angular/" rel="tag">angular</a> <a class="tag-link-link" href="/tags/frontend/" rel="tag">frontend</a> <a class="tag-link-link" href="/tags/javascript/" rel="tag">javascript</a> <a class="tag-link-link" href="/tags/programming/" rel="tag">programming</a> <a class="tag-link-link" href="/tags/tips/" rel="tag">tips</a> <a class="tag-link-link" href="/tags/typescript/" rel="tag">typescript</a></div><div class="post-actions">Written in <time datetime="2018-10-22T08:21:34.000Z" itemprop="datePublished">2018</time> by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank">Twitter</a> to&nbsp;get post updates. I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc go-bmc link--bare" target="_blank" rel="noopener" href="https://buymeacoffee.com/thoughtspile">buy me a coffee!</a></div><div class="post-siblings"><a class="link--bare" href="/2018/10/05/js-debug-logging/"><div class="post-siblings__direction">Older</div><span class="link__text">Five Tricks for Debug-Logging in JavaScript</span> </a><a class="link--bare" href="/2018/10/28/simplistic-di/"><div class="post-siblings__direction">Newer</div><span class="link__text">OOP for FP lovers: Simplistic Dependency Injection</span></a></div></article></div></body></html><script type="text/javascript">!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="//www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","UA-121445688-1","auto"),ga("send","pageview")</script><script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script><script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>
+export type IUserService &#x3D; UserService;</code></pre>
+          <p>
+            You get proper type inference in methods, and the interface is then
+            itself inferred from the implementation. You’re welcome!
+          </p>
+        </div>
+        <span class="share"
+          ><div id="share-twitter">
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/&text=Angular Tip: Derived Interfaces in TypeScript by @thoughtspile"
+              >Tweet</a
+            >
+          </div>
+          <div id="share-button"><a>Share</a></div>
+          <div>
+            <a
+              target="_blank"
+              rel="noopener"
+              href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/"
+              >Discuss on Twitter</a
+            >
+          </div></span
+        >
+        <div class="post-related">
+          More? <a class="tag-link-link" href="/">All articles ever</a>
+          <a class="tag-link-link" href="/tags/angular/" rel="tag">angular</a>
+          <a class="tag-link-link" href="/tags/frontend/" rel="tag">frontend</a>
+          <a class="tag-link-link" href="/tags/javascript/" rel="tag"
+            >javascript</a
+          >
+          <a class="tag-link-link" href="/tags/programming/" rel="tag"
+            >programming</a
+          >
+          <a class="tag-link-link" href="/tags/tips/" rel="tag">tips</a>
+          <a class="tag-link-link" href="/tags/typescript/" rel="tag"
+            >typescript</a
+          >
+        </div>
+        <div class="post-actions">
+          Written in
+          <time datetime="2018-10-22T08:21:34.000Z" itemprop="datePublished"
+            >2018</time
+          >
+          by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me
+          on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank"
+            >Twitter</a
+          >
+          to&nbsp;get post updates. I&nbsp;have
+          <a href="/atom.xml">RSS,</a> too. And you can
+          <a
+            class="bmc go-bmc link--bare"
+            target="_blank"
+            rel="noopener"
+            href="https://buymeacoffee.com/thoughtspile"
+            >buy me a coffee!</a
+          >
+        </div>
+        <div class="post-siblings">
+          <a class="link--bare" href="/2018/10/05/js-debug-logging/"
+            ><div class="post-siblings__direction">Older</div>
+            <span class="link__text"
+              >Five Tricks for Debug-Logging in JavaScript</span
+            > </a
+          ><a class="link--bare" href="/2018/10/28/simplistic-di/"
+            ><div class="post-siblings__direction">Newer</div>
+            <span class="link__text"
+              >OOP for FP lovers: Simplistic Dependency Injection</span
+            ></a
+          >
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  !(function (e, a, t, n, g, c) {
+    (e.GoogleAnalyticsObject = n),
+      (e.ga =
+        e.ga ||
+        function () {
+          (e.ga.q = e.ga.q || []).push(arguments);
+        }),
+      (e.ga.l = +new Date()),
+      (g = a.createElement(t)),
+      (c = a.getElementsByTagName(t)[0]),
+      (g.async = 1),
+      (g.src = "//www.google-analytics.com/analytics.js"),
+      c.parentNode.insertBefore(g, c);
+  })(window, document, "script", "ga"),
+    ga("create", "UA-121445688-1", "auto"),
+    ga("send", "pageview");
+</script>
+<script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script>
+<script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>

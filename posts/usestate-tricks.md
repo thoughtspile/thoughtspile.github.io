@@ -1,6 +1,6 @@
 ---
 title: 7 things you may not know about useState
-date: 2021-09-27 13:36:44
+date: 2021-09-27
 tags:
     - react
     - programming

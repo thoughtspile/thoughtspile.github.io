@@ -1,6 +1,6 @@
 ---
 title: useEffect sometimes fires before paint
-date: 2021-11-15 15:09:54
+date: 2021-11-15
 tags:
   - react
   - hooks

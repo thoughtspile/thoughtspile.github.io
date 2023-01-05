@@ -1,6 +1,6 @@
 ---
 title: useLayoutEffect is a bad place for deriving state
-date: 2021-09-21 17:51:47
+date: 2021-09-21
 tags:
   - react
   - programming
