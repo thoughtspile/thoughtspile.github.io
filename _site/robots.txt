@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.thoughtspile.tech/sitemap.xml
+Host: https://blog.thoughtspile.tech

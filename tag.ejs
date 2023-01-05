@@ -1,0 +1,16 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - posts
+  addAllPagesToCollections: true
+layout: layout.ejs
+eleventyComputed:
+  title: Vladimir Klepov on <%= tag %>
+permalink: /tags/<%= tag %>/
+---
+<%- include('layout/_partial/header', { is_post: false }) %>
+
+<%- include('layout/_partial/post-list', { posts: collections[tag].slice().reverse(), tags: false }) %>

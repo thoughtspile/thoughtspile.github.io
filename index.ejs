@@ -1,0 +1,33 @@
+---
+layout: layout.ejs
+title: Vladimir Klepov as a Coder
+---
+
+<%- include('layout/_partial/header', { is_post: false }) %>
+<section id="about">
+  <p>
+    My name is Vladimir, and I do frontend tricks for money. 
+    <a href="/ru/">По-русски</a>
+  </p>
+
+  Like my stuff? Follow me on
+  <a target="_blank" href="<%- config.twitter %>">twitter</a>
+  or
+  <a target="_blank" href="<%- config.github %>">github.</a>
+
+  You can even <a href="<%- config.bmc %>">buy me a coffee.</a>
+</section>
+
+<section id="writing">
+  <span class="h1">Writing</span>
+  <%- include('layout/_partial/post-list', { posts: collections.posts.slice().reverse(), tags: true }) %>
+</section>
+
+<section id="projects">
+  <span class="h1"><a href="<%- config.github %>">Projects</a></span>
+  <ul class="project-list">
+    <li class="project-item">
+      <a target="_blank" rel="noopener" href="https://thoughtspile.github.io/grafar/#/">Grafar</a>: Reactive multidimensional math &amp; data visualization for the web.
+    </li>
+  </ul>
+</section>

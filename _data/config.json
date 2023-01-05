@@ -1,0 +1,16 @@
+{
+  "title": "Vladimir Klepov as a Coder",
+  "base": "https://blog.thoughtspile.tech",
+  "twitter": "https://twitter.com/thoughtspile",
+  "github": "https://github.com/thoughtspile",
+  "bmc": "https://buymeacoffee.com/thoughtspile",
+  "primaryTags": ["react", "testing", "eslint", "design", "typescript", "rant", "infra", "open source", "javascript"],
+  "author": {
+    "name": "Vladimir Klepov",
+    "email": "v.klepov@gmail.com"
+  },
+  "feed": {
+    "path": "/atom.xml",
+    "id": "https://blog.thoughtspile.tech/"
+  }
+}

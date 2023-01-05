@@ -1,2 +1,4 @@
  <a class="tag-link-link" href="/">All posts ever</a>
-<%- /* list_tags(page.tags, { show_count: false, style: 'link', separator: ' ' }) */ %>
+<% tags.filter(tag => tag !== 'posts').forEach(tag => { %>
+  <a class="tag-link-link" href="/tags/<%= tag %>" rel="tag"><%= tag %></a>
+<% }) %>

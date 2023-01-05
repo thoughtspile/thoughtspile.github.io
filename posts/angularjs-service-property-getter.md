@@ -1,6 +1,5 @@
 ---
 title: Simpifying AngularJS controllers with ES5 get / set
-permalink: "/{{ page.date | date: '%Y/%m/%d' }}/{{ slug }}/index.html"
 tags:
   - angularjs
   - javascript

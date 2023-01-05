@@ -1,8 +1,6 @@
-<a href="<%- url_for("/") %>" id="header" class="header <%= is_post() ? 'header--post' : '' %>">
-  <% if (theme.logo && theme.logo.enabled) { %>
-    <div id="logo"></div>
-  <% } %>
+<a href="/" id="header" class="header <%= is_post ? 'header--post' : '' %>">
+  <div id="logo"></div>
   <header id="title">
-    <h1><%= config.title %></h1>
+    <h1><%= title %></h1>
   </header>
 </a>

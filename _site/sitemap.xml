@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+        <url>
+            <loc>/2018/06/20/serialize-promises/</loc>
+            <lastmod>2018-06-20T12:42:08.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/07/07/rate-limit-promises/</loc>
+            <lastmod>2018-07-07T10:11:13.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/07/14/docx-is-a-zip-archive/</loc>
+            <lastmod>2018-07-14T14:33:41.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/09/20/angularjs-service-property-getter/</loc>
+            <lastmod>2018-09-20T17:04:06.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/09/22/typescript-unsuck-guide/</loc>
+            <lastmod>2018-09-22T16:37:41.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/09/23/bad-software-week/</loc>
+            <lastmod>2018-09-23T14:35:02.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/09/29/lets-make-software-better/</loc>
+            <lastmod>2018-09-29T17:10:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/10/05/js-debug-logging/</loc>
+            <lastmod>2018-10-05T13:33:42.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/10/22/typescript-derived-interface/</loc>
+            <lastmod>2018-10-22T11:21:34.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/10/28/simplistic-di/</loc>
+            <lastmod>2018-10-28T14:28:01.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/11/05/react-extend-justified/</loc>
+            <lastmod>2018-11-05T14:38:29.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/11/24/garbage-producing-js/</loc>
+            <lastmod>2018-11-24T18:25:43.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/12/02/react-keep-mounted/</loc>
+            <lastmod>2018-12-02T17:04:51.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2018/12/17/design-crash-course/</loc>
+            <lastmod>2018-12-17T17:10:23.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2019/01/06/vdom-bend-memo/</loc>
+            <lastmod>2019-01-06T11:02:42.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/04/03/promise-timeout/</loc>
+            <lastmod>2021-04-02T21:18:51.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/04/05/useref-usememo/</loc>
+            <lastmod>2021-04-05T18:59:25.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/04/08/better-usecallback/</loc>
+            <lastmod>2021-04-07T21:07:46.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/05/18/everything-about-react-refs/</loc>
+            <lastmod>2021-05-17T21:10:17.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/05/31/moar-coverage/</loc>
+            <lastmod>2021-05-31T20:12:01.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/06/02/eslint-restrict-syntax/</loc>
+            <lastmod>2021-06-02T15:07:58.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/06/04/eslint-workarounds/</loc>
+            <lastmod>2021-06-04T19:03:02.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/06/07/event-capture/</loc>
+            <lastmod>2021-06-07T17:34:38.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/06/11/cleaner-dynamic-arrays/</loc>
+            <lastmod>2021-06-11T17:51:51.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/06/14/faster-pre-commit/</loc>
+            <lastmod>2021-06-14T20:37:10.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/09/21/useeffect-derived-state/</loc>
+            <lastmod>2021-09-21T17:51:47.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/09/22/dev-warnings/</loc>
+            <lastmod>2021-09-22T18:43:11.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/09/25/quick-size-check/</loc>
+            <lastmod>2021-09-24T21:07:28.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/09/27/usestate-tricks/</loc>
+            <lastmod>2021-09-27T13:36:44.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/04/react-context-dangers/</loc>
+            <lastmod>2021-10-04T14:20:49.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/06/babel-runtime-version/</loc>
+            <lastmod>2021-10-06T17:25:03.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/11/usestate-object-vs-multiple/</loc>
+            <lastmod>2021-10-11T19:52:18.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/13/really-declarative/</loc>
+            <lastmod>2021-10-13T20:55:24.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/18/non-react-state/</loc>
+            <lastmod>2021-10-18T14:21:27.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/25/useref-no-current/</loc>
+            <lastmod>2021-10-25T20:19:07.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/10/27/better-react-context/</loc>
+            <lastmod>2021-10-27T12:56:14.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/11/08/semver-challenges/</loc>
+            <lastmod>2021-11-08T16:56:30.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/11/15/unintentional-layout-effect/</loc>
+            <lastmod>2021-11-15T15:09:54.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/11/20/open-source-starter/</loc>
+            <lastmod>2021-11-20T16:25:25.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/2021/11/30/lazy-useref/</loc>
+            <lastmod>2021-11-30T14:52:33.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/</loc>
+            <lastmod>2023-01-05T09:40:57.801Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/all/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/react/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/programming/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/frontend/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/hooks/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/angularjs/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/javascript/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/babel/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/infra/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/rant/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/life/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/thoughtspile/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/depression/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/design/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/open source/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/developer experience/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/tips/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/microsoft/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/eslint/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/performance/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/typescript/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/happiness/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/promises/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/high availability/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/concurrency/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/testing/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/OOP/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/angular/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>/tags/tagList/</loc>
+            <lastmod>2023-01-05T10:24:59.183Z</lastmod>
+        </url>
+    
+</urlset>

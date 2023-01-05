@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="yandex-verification" content="635edef3908320be" />
+    <meta name="google-site-verification" content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw" />
+    <!-- title -->
+    <title>7 things you may not know about useState</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="canonical" href="https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/" />
+    <link rel="alternate" href="/atom.xml" title="Vladimir Klepov as a Coder" type="application/atom+xml" />
+</head>
+
+<body class="max-width mx-auto px3">
+  <div class="content index">
+    <a href="/" id="header" class="header header--post">
+  <div id="logo"></div>
+  <header id="title">
+    <h1>7 things you may not know about useState</h1>
+  </header>
+</a>
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        
+    </h1>
+
+
+
+  </header>
+  <div class="content" itemprop="articleBody">
+    <p>Doing code reviews for our hook-based project, I often see fellow developers not aware of some awesome features (and nasty pitfalls) <code>useState</code> offers. Since it's one of my favourite hooks, I decided to help spread a word. Don't expect any huge revelations, but here're the 7 facts about <code>useState</code> that are essential for anyone working with hooks.</p>
+<h2>Update handle has constant reference</h2>
+<p>To get the obvious out of the way: the update handle (second array item) is the same function on every render. You don't need to include it in array dependencies, no matter what <a href="https://reactjs.org/docs/hooks-rules.html#eslint-plugin">eslint-plugin-react-hooks</a> has to say about this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> setCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> onChange <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// setCount never changes, onChange doesn't have to either</span><br>    <span class="token function">setCount</span><span class="token punctuation">(</span><span class="token function">Number</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2>Setting state to the same value does nothing</h2>
+<p><code>useState</code> is pure by default. Calling the update handle with a value that's equal (by reference) to the current value does nothing — no DOM updates, no wasted renders, nothing. Doing this yourself is useless:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>isOpen<span class="token punctuation">,</span> setOpen<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>initOpen<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// useState already does this for us</span><br>    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>isOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>This doesn't work with shallow-equal objects, though:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> isOpen <span class="token punctuation">}</span><span class="token punctuation">,</span> setState<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">isOpen</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// always triggers an update, since object reference is new</span><br>    <span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">isOpen</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2>State update handle returns undefined</h2>
+<p>This means setState can be returned from effect arrows without triggering <em>Warning: An effect function must not return anything besides a function, which is used for clean-up.</em> These code snippets work the same:</p>
+<pre class="language-js"><code class="language-js"><span class="token function">useLayoutEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token function">useLayoutEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setOpen</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2>useState <em>is</em> useReducer</h2>
+<p>In fact, <code>useState</code> is implemented in React code like a <code>useReducer</code>, just with a pre-defined reducer, at least as of 17.0 — ooh yes I actually did check <a href="https://github.com/facebook/react/blob/82c8fa90be86fc0afcbff2dc39486579cff1ac9a/packages/react-reconciler/src/ReactFiberHooks.new.js#L1464">react source</a>. If anyone claims <code>useReducer</code> has a hard technical advantage over <code>useState</code> (reference identity, transaction safety, no-op updates, etc) — call him a liar.</p>
+<h2>You can initialize state with a callback</h2>
+<p>If creating a new state-initializer object on every render just to throw away is concerning to you, feel free to use the initializer function:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>style<span class="token punctuation">,</span> setStyle<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">transform</span><span class="token operator">:</span> props<span class="token punctuation">.</span>isOpen <span class="token operator">?</span> <span class="token keyword">null</span> <span class="token operator">:</span> <span class="token string">'translateX(-100%)'</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">0</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>You can access props (or anything from the scope, really) in the initializer. Frankly, it looks like over-optimization to me — you're about to create a bunch of vDOM, why worry about one object? This may help with <em>heavy</em> initialization logic, but I have yet to see such case.</p>
+<p>On a side note, if you want to put a function in your state (it's not forbidden, is it?), you have to wrap it in an extra function to bypass the lazy initializer logic: <code>useState(() =&gt; () =&gt; console.log('gotcha!'))</code></p>
+<h2>You can update state with a callback</h2>
+<p>Callbacks can also be used for updating state — like a mini-reducer, sans the action. This is useful since the <em>current state value</em> in your closure may not be the value if you've updated the state since rendering / memoizing. Better seen by example:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>clicks<span class="token punctuation">,</span> setClicks<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">onMouseDown</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// this won't work, since clicks does not change while we're here</span><br>    <span class="token function">setClicks</span><span class="token punctuation">(</span>clicks <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token function">setClicks</span><span class="token punctuation">(</span>clicks <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">onMouseUp</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token comment">// this will</span><br>    <span class="token function">setClicks</span><span class="token punctuation">(</span>clicks <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token comment">// see, we read current clicks here</span><br>    <span class="token function">setClicks</span><span class="token punctuation">(</span><span class="token parameter">clicks</span> <span class="token operator">=></span> clicks <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Creating constant-reference callbacks is more practical:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>isDown<span class="token punctuation">,</span> setIsDown<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// bad, updating on every isDown change</span><br><span class="token keyword">const</span> onClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setIsDown</span><span class="token punctuation">(</span><span class="token operator">!</span>isDown<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isDown<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token comment">// nice, never changes!</span><br><span class="token keyword">const</span> onClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setIsDown</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> <span class="token operator">!</span>v<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2>One state update = one render in async code</h2>
+<p>React has a feature called <em>batching,</em> that forces multiple setState calls to cause <em>one</em> render, but is's not always on. Consider the following code:</p>
+<pre class="language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'render'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token punctuation">[</span>clicks<span class="token punctuation">,</span> setClicks<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token punctuation">[</span>isDown<span class="token punctuation">,</span> setIsDown<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>    <span class="token function">setClicks</span><span class="token punctuation">(</span>clicks <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token function">setIsDown</span><span class="token punctuation">(</span><span class="token operator">!</span>isDown<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>When you call <code>onClick</code>, the number of times you <code>render</code> depends on how, exactly, <code>onClick</code> is called (see <a href="https://codesandbox.io/s/setstate-multi-29z2u?file=/src/App.js">sandbox</a>):</p>
+<ul>
+<li><code>&lt;button onClick={onClick}&gt;</code> is batched as a React event handler</li>
+<li><code>useEffect(onClick, [])</code> is batched, too</li>
+<li><code>setTimeout(onClick, 100)</code> is <em>not</em> batched and causes an extra render</li>
+<li><code>el.addEventListener('click', onClick)</code> is <em>not</em> batched</li>
+</ul>
+<p>This <a href="https://github.com/reactwg/react-18/discussions/21">should change</a> in React 18, and in the meantime you can use, ahem, <code>unstable_batchedUpdates</code> to force batching.</p>
+<hr>
+<p>To recap (as of v17.0):</p>
+<ul>
+<li><code>setState</code> in <code>[state, setState] = useState()</code> is the same function on every render</li>
+<li><code>setState(currentValue)</code> does nothing, you can throw <code>if (value !== currentValue)</code> away</li>
+<li><code>useEffect(() =&gt; setState(true))</code> does not break the effect cleanup function</li>
+<li><code>useState</code> is implemented as a pre-defined reducer in react code</li>
+<li>State initializer can be a calback: <code>useState(() =&gt; initialValue)</code></li>
+<li>State update callback gets current state as an argument: <code>setState(v =&gt; !v)</code>. Useful for <code>useCallback</code>.</li>
+<li>React <em>batches</em> multiple setState calls in React event listeners and effects, but not in DOM listeners or async code.</li>
+</ul>
+<p>Hope you've learnt something useful today! If exploring obscure react corners is your thing, see if there's <a href="/2021/05/17/everything-about-react-refs">something about DOM refs you didn't know</a> or <a href="/2021/04/05/useref-usememo">what useRef and useMemo have in common.</a></p>
+
+  </div>
+
+  <span class="share">
+    <div>
+      <a href="https://twitter.com/share?url=&text= by @thoughtspile">
+        Tweet
+      </a>
+    </div>
+    <div id="share-button">
+      <a>Share</a>
+    </div>
+    <div>
+      <a href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/">Discuss on Twitter</a>
+    </div>
+  </span>  
+  
+  <div class="post-related">
+    More? <a class="tag-link-link" href="/">All posts ever</a>
+
+  <a class="tag-link-link" href="/tags/react" rel="tag">react</a>
+
+  <a class="tag-link-link" href="/tags/programming" rel="tag">programming</a>
+
+  <a class="tag-link-link" href="/tags/frontend" rel="tag">frontend</a>
+
+  <a class="tag-link-link" href="/tags/hooks" rel="tag">hooks</a>
+
+
+  </div>
+
+  <div class="post-actions">
+    Written in
+    <time>2021</time>
+
+ by&nbsp;your friend, <a href="/">Vladimir.</a>
+    Follow&nbsp;me on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank">Twitter</a> to&nbsp;get post updates.
+    I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc link--bare" href="https://buymeacoffee.com/thoughtspile">buy me a coffee!</a>
+  </div>
+
+  <div class="post-siblings">
+    
+    
+      <a class="link--bare" href="/2021/09/25/quick-size-check/">
+        <div class="post-siblings__direction">Older</div>
+        <span class="link__text">Zero-setup bundle size checker</span>
+      </a>
+    
+    
+    
+      <a class="link--bare" href="/2021/10/04/react-context-dangers/">
+        <div class="post-siblings__direction">Newer</div>
+        <span class="link__text">How to destroy your app performance using React contexts</span>
+      </a>
+    
+  </div>
+</article>
+  </div>
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-121445688-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script src="/js/share.js"></script>
+</body>
+</html>

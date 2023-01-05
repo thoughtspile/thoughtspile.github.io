@@ -1,0 +1,18 @@
+<ul class="post-list">
+  <% posts.map((post, i) => { %>
+    <% const year = new Date(post.date).getFullYear() %>
+    <% if (i !== 0 && year !== new Date(posts[i-1].date).getFullYear()) { %>
+      <li class="post-year"><%= year %></li>
+    <% } %>
+    <li class="post-item">
+      <a href="<%- post.url %>" class="post-item-link link--bare">
+        <% if (tags) { %>
+          <span class="meta" style="width: 120px">
+            <%= config.primaryTags.find(pt => post.data.tags.find(t => t === pt)) || 'random' %>
+          </span>
+        <% } %>
+        <span><%- post.data ? post.data.title : post %></span>
+      </a>
+    </li>
+  <% }); %>
+</ul>

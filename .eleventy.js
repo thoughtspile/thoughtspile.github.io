@@ -8,7 +8,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
-  eleventyConfig.addPassthroughCopy("image");
+  eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("css");
 
   // Add plugins
@@ -23,23 +23,6 @@ module.exports = function(eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
-
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if(!Array.isArray(array) || array.length === 0) {
-      return [];
-    }
-    if( n < 0 ) {
-      return array.slice(n);
-    }
-
-    return array.slice(0, n);
-  });
-
-  // Return the smallest number argument
-  eleventyConfig.addFilter("min", (...numbers) => {
-    return Math.min.apply(null, numbers);
   });
 
   function filterTagList(tags) {
@@ -78,37 +61,18 @@ module.exports = function(eleventyConfig) {
     ui: false,
     ghostMode: false
   });
+  
+  js = eleventyConfig.javascriptFunctions;
 
   return {
-    // Control which files Eleventy will process
-    // e.g.: *.md, *.njk, *.html, *.liquid
     templateFormats: [
       "md",
       "ejs",
+      "njk",
       "html",
     ],
-
-    // Pre-process *.md files with: (default: `liquid`)
     markdownTemplateEngine: 'ejs',
-
-    // Pre-process *.html files with: (default: `liquid`)
     htmlTemplateEngine: "ejs",
-
-    // -----------------------------------------------------------------
-    // If your site deploys to a subdirectory, change `pathPrefix`.
-    // Don’t worry about leading and trailing slashes, we normalize these.
-
-    // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
-    // This is only used for link URLs (it does not affect your file structure)
-    // Best paired with the `url` filter: https://www.11ty.dev/docs/filters/url/
-
-    // You can also pass this in on the command line using `--pathprefix`
-
-    // Optional (default is shown)
-    pathPrefix: "/",
-    // -----------------------------------------------------------------
-
-    // These are all optional (defaults are shown):
     dir: {
       input: ".",
       includes: "layout",
