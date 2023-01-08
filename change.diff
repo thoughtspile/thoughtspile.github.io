@@ -1,6 +1,8 @@
-2c2
+1,2c1,2
+< <!DOCTYPE html>
 < <html>
 ---
+> <!DOCTYPE html><!DOCTYPE html>
 > <html lang="en">
 14,17d13
 <       content="5nfOA5k_QcuAP9zbAASIV24DlAZG7BWxRVYoNlKCAoc"
@@ -55,78 +57,40 @@
 <       async
 <     ></script>
 <     <meta name="generator" content="Hexo 5.4.0" />
-88,93c42
-<         <a
+84c38,43
+<         <a target="_blank" href="https://twitter.com/thoughtspile">twitter</a>
+---
+>         <a
+>           target="_blank"
+>           href="https://twitter.com/thoughtspile"
+>           rel="noopener"
+>           >twitter</a
+>         >
+86c45,47
+<         <a target="_blank" href="https://github.com/thoughtspile">github.</a>
+---
+>         <a target="_blank" href="https://github.com/thoughtspile" rel="noopener"
+>           >github.</a
+>         >
+89,90d49
 <           target="_blank"
 <           class="go-bmc"
-<           href="https://buymeacoffee.com/thoughtspile"
-<           >buy me a coffee.</a
-<         >
----
->         <a href="https://buymeacoffee.com/thoughtspile">buy me a coffee.</a>
-99,155d47
-<             <a
-<               href="/2022/03/28/interview-bad-habits/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">random </span
-<               ><span>Seven habits of bad interviewers</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/03/21/bad-tech-interview/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">javascript </span
-<               ><span>5 coding interview questions I hate</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/02/15/bundle-size-lies/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">open source </span
+91a51,52
+>           target="_blank"
+>           rel="noopener"
+119c80
 <               ><span>Don't trust JS library size, min+gzip</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/02/14/js-automation/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">javascript </span
-<               ><span>Why I prefer JS for front-end build automation</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/02/09/react-global-memo/"
-<               class="post-item-link link--bare"
+---
+>               ><span>Don&#39;t trust JS library size, min+gzip</span></a
+150c111
 <               ><span class="meta" style="width: 120px">react </span
-<               ><span>Using global memoization in React</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/01/25/what-is-react-component/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">react </span
-<               ><span>What is a react component, anyways?</span></a
-<             >
-<           </li>
-<           <li class="post-item">
-<             <a
-<               href="/2022/01/17/jsx-conditionals/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">react </span
-<               ><span>Good advice on JSX conditionals</span></a
-<             >
-<           </li>
-<           <li class="post-year">2021</li>
-<           <li class="post-item">
-463c355
+---
+>               ><span class="meta" style="width: 120px">random </span
+463c424
 <               ><span class="meta" style="width: 120px">angularjs </span
 ---
 >               ><span class="meta" style="width: 120px">javascript </span
-471,478d362
+471,478d431
 <               href="/2018/09/19/Programming-is-like-writing/"
 <               class="post-item-link link--bare"
 <               ><span class="meta" style="width: 120px">random </span
@@ -135,16 +99,11 @@
 <           </li>
 <           <li class="post-item">
 <             <a
-508,513c392
-<           ><a
-<             target="_blank"
-<             rel="noopener"
+508a462
+>             href="https://github.com/thoughtspile"
+511d464
 <             href="http://github.com/thoughtspile"
-<             >Projects</a
-<           ></span
----
->           ><a href="https://github.com/thoughtspile">Projects</a></span
-531,546c410,430
+531,546c484,504
 <   !(function (e, a, t, n, g, c) {
 <     (e.GoogleAnalyticsObject = n),
 <       (e.ga =
@@ -183,7 +142,7 @@
 >   );
 >   ga("create", "UA-121445688-1", "auto");
 >   ga("send", "pageview");
-548,549c432
+548,549c506
 < <script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script>
 < <script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>
 ---
