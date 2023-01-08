@@ -1,5 +1,6 @@
 const htmlMinifier = require ('html-minifier')
 const { DateTime } = require("luxon");
+const { parse } = require('node-html-parser')
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const externalLinks = require('eleventy-plugin-external-links');
@@ -35,6 +36,10 @@ module.exports = function(eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+  
+  eleventyConfig.addFilter('getImages', (content) => {
+    return parse(content).querySelectorAll('img').map(img => img.getAttribute('src'));
   });
 
   function filterTagList(tags) {

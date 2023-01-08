@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="yandex-verification" content="635edef3908320be" />
     <meta name="google-site-verification" content="1-m0w7Up8df1sn0230jxfTKKZ4jLeln_Em1tcyfU0qw" />
+    
+    <meta property="og:type" content="<%= tags.includes('posts') ? 'article' : 'website' %>">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:url" content="<%= config.base %><%= page.url %>">
+    <meta property="og:site_name" content="Vladimir Klepov as a Coder">
+    <meta property="og:locale" content="en_US">
+    <% const images = js.getImages(content); %>
+    <% for (const img of images) { %>
+        <meta property="og:image" content="<%= img %>">
+    <% } %>
+    <% if (tags.includes('posts')) { %>
+        <meta property="article:published_time" content="<%= page.date.toISOString() %>">
+        <meta property="article:author" content="Vladimir Klepov">
+        <% for (const tag of (tags || []).filter(tag => tag !== 'all' & tag !== 'posts')) { %>
+            <meta property="article:tag" content="<%= tag %>">
+        <% } %>
+    <% } %>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@thoughtspile">
+    <% if (images.length) { %>
+        <meta name="twitter:image" content="<%= images[0] %>">
+    <% } %>
+
     <!-- title -->
     <title><%= title %></title>
     <!-- styles -->
