@@ -94,7 +94,7 @@ module.exports = function(eleventyConfig) {
       input: ".",
       includes: "layout",
       data: "_data",
-      output: "_site"
+      output: "docs"
     }
   };
 };
