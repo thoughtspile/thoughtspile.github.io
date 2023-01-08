@@ -9,25 +9,29 @@
 <     />
 <     <meta
 <       name="google-site-verification"
-20,53d15
+20,23d15
 <     <meta
 <       name="description"
-<       content="My name is Vladimir, and I do frontend tricks for money. [По-русски](&#x2F;ru&#x2F;)"
+<       content="When our React apps get slow, we usually turn to useMemo to avoid useless job on re-render. It’s a hammer that often works well, and makes it hard to shoot yourself in the foot. But useMemo is not a s"
 <     />
-<     <meta property="og:type" content="website" />
-<     <meta property="og:title" content="Vladimir Klepov as a Coder" />
-<     <meta
-<       property="og:url"
-<       content="https://blog.thoughtspile.tech/index.html"
-<     />
-<     <meta property="og:site_name" content="Vladimir Klepov as a Coder" />
+28c20
+<       content="https://blog.thoughtspile.tech/2022/02/09/react-global-memo/index.html"
+---
+>       content="https://blog.thoughtspile.tech/2022/02/09/react-global-memo/"
+31,34d22
 <     <meta
 <       property="og:description"
-<       content="My name is Vladimir, and I do frontend tricks for money. [По-русски](&#x2F;ru&#x2F;)"
+<       content="When our React apps get slow, we usually turn to useMemo to avoid useless job on re-render. It’s a hammer that often works well, and makes it hard to shoot yourself in the foot. But useMemo is not a s"
 <     />
-<     <meta property="og:locale" content="en_US" />
-<     <meta property="article:author" content="Vladimir Klepov" />
-<     <meta name="twitter:card" content="summary_large_image" />
+42c30
+<       content="2022-02-09T12:08:54.000Z"
+---
+>       content="2022-02-09T00:00:00.000Z"
+44d31
+<     <meta property="article:modified_time" content="2022-02-17T09:36:07.872Z" />
+48a36
+>     <meta name="twitter:creator" content="@thoughtspile" />
+53,68d40
 <     <meta name="twitter:creator" content="@thoughtspile" />
 <     <link
 <       rel="shortcut icon"
@@ -44,66 +48,290 @@
 <       sizes="180x180"
 <       href="/images/apple-touch-icon-53bb79233c939b7e4a27b36cab6aec28.png"
 <     />
-55,58c17
+70,73c42
 <     <link
 <       rel="stylesheet"
 <       href="/css/style-6e9addb688f39c95eacb80fa9a450361.css"
 <     />
 ---
 >     <link rel="stylesheet" href="/css/style.css" />
-66,70d24
+84,88d52
 <     <script
 <       src="https://storage.yandexcloud.net/thoughtspile/deadman.js"
 <       async
 <     ></script>
 <     <meta name="generator" content="Hexo 5.4.0" />
-84c38,43
-<         <a target="_blank" href="https://twitter.com/thoughtspile">twitter</a>
----
->         <a
->           target="_blank"
->           href="https://twitter.com/thoughtspile"
->           rel="noopener"
->           >twitter</a
->         >
-86c45,47
-<         <a target="_blank" href="https://github.com/thoughtspile">github.</a>
----
->         <a target="_blank" href="https://github.com/thoughtspile" rel="noopener"
->           >github.</a
->         >
-89,90d49
-<           target="_blank"
-<           class="go-bmc"
-91a51,52
->           target="_blank"
->           rel="noopener"
-119c80
-<               ><span>Don't trust JS library size, min+gzip</span></a
----
->               ><span>Don&#39;t trust JS library size, min+gzip</span></a
-150c111
-<               ><span class="meta" style="width: 120px">react </span
----
->               ><span class="meta" style="width: 120px">random </span
-463c424
-<               ><span class="meta" style="width: 120px">angularjs </span
----
->               ><span class="meta" style="width: 120px">javascript </span
-471,478d431
-<               href="/2018/09/19/Programming-is-like-writing/"
-<               class="post-item-link link--bare"
-<               ><span class="meta" style="width: 120px">random </span
-<               ><span>Programming is Like Writing</span></a
-<             >
-<           </li>
-<           <li class="post-item">
+133,140c97
+<           <h2 id="Inside-useMemo">
 <             <a
-508a462
->             href="https://github.com/thoughtspile"
-511d464
-<             href="http://github.com/thoughtspile"
-531,546c484,504
+<               href="#Inside-useMemo"
+<               class="headerlink"
+<               title="Inside useMemo"
+<             ></a
+<             >Inside useMemo
+<           </h2>
+---
+>           <h2>Inside useMemo</h2>
+144a102
+>               href="https://reactjs.org/docs/hooks-reference.html#usememo"
+147d104
+<               href="https://reactjs.org/docs/hooks-reference.html#usememo"
+155a113
+>               href="https://github.com/facebook/react/blob/9d4e8e84f7fb782385d81ffcdcda73822acf4ad1/packages/react-reconciler/src/ReactFiberHooks.new.js#L1906"
+158d115
+<               href="https://github.com/facebook/react/blob/9d4e8e84f7fb782385d81ffcdcda73822acf4ad1/packages/react-reconciler/src/ReactFiberHooks.new.js#L1906"
+180,185c137,138
+<             class="language-js"
+<             data-language="js"
+<           ><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token function">onClick</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onClick<span class="token punctuation">,</span> props<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+---
+>             class="language-jsx"
+>           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">onClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token function">onClick</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onClick<span class="token punctuation">,</span> props<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+202,207c155,156
+<             class="language-js"
+<             data-language="js"
+<           ><code class="language-js"><span class="token keyword">const</span> <span class="token punctuation">[</span>clicks<span class="token punctuation">,</span> setClicks<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token function">setClicks</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+---
+>             class="language-jsx"
+>           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token punctuation">[</span>clicks<span class="token punctuation">,</span> setClicks<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> handleClick <span class="token operator">=</span> <span class="token function">useCallback</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token function">setClicks</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> c <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+218,225c167
+<           <h2 id="useMemo-pitfalls">
+<             <a
+<               href="#useMemo-pitfalls"
+<               class="headerlink"
+<               title="useMemo pitfalls"
+<             ></a
+<             >useMemo pitfalls
+<           </h2>
+---
+>           <h2>useMemo pitfalls</h2>
+233,243c175
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span>
+<     <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<     <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<     <span class="token comment">// 1000 more cities</span>
+<   <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span>cities<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>value<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>label<span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <br>    <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'MOW'</span> <br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <br>    <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'LED'</span> <br>  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// 1000 more cities], []); </span><br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span>cities<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><br>    <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text"> <br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+255,268c187
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">SchemePicker</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">const</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">,</span> setDark<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<   <span class="token keyword">const</span> colors <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+<     background<span class="token operator">:</span> isDark <span class="token operator">?</span> <span class="token string">'black'</span> <span class="token operator">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span>
+<     color<span class="token operator">:</span> isDark <span class="token operator">?</span> <span class="token string">'white'</span> <span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+<   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>colors<span class="token punctuation">&#125;</span></span> <span class="token spread"><span class="token punctuation">&#123;</span><span class="token operator">...</span>props<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setDark</span><span class="token punctuation">(</span><span class="token operator">!</span>isDark<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+<       toggle theme
+<     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span>props<span class="token punctuation">.</span>children<span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">SchemePicker</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">,</span> setDark<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <br>  <span class="token keyword">const</span> colors <span class="token operator">=</span> <span class="token function">useMemo</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span> <br>    <span class="token literal-property property">background</span><span class="token operator">:</span> isDark <span class="token operator">?</span> <span class="token string">'black'</span> <span class="token operator">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> <br>    <span class="token literal-property property">color</span><span class="token operator">:</span> isDark <span class="token operator">?</span> <span class="token string">'white'</span> <span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span> <br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>colors<span class="token punctuation">}</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setDark</span><span class="token punctuation">(</span><span class="token operator">!</span>isDark<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text"> <br>      toggle theme <br>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span><span class="token plain-text"> <br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+284,287c203
+<           <h2 id="Global-memo">
+<             <a href="#Global-memo" class="headerlink" title="Global memo"></a
+<             >Global memo
+<           </h2>
+---
+>           <h2>Global memo</h2>
+296,310c212,213
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token comment">// this is shared between all components</span>
+< <span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token comment">/* some cache */</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">Component</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token comment">// cache is always the same object</span>
+<   <span class="token keyword">const</span> value <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>deps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span></code></pre>
+<           <h3 id="Precomputed-global-constant">
+<             <a
+<               href="#Precomputed-global-constant"
+<               class="headerlink"
+<               title="Precomputed global constant"
+<             ></a
+<             >Precomputed global constant
+<           </h3>
+---
+>           ><code class="language-jsx"><span class="token comment">// this is shared between all components</span><br><span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token comment">/* some cache */</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">Component</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token comment">// cache is always the same object </span><br>  <span class="token keyword">const</span> value <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>deps<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+>           <h3>Precomputed global constant</h3>
+318,329c221
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token punctuation">[</span>
+<   <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<   <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<   <span class="token comment">// 1000 more cities</span>
+< <span class="token punctuation">]</span><span class="token punctuation">;</span>
+< <span class="token comment">// yay, every RouteItem refers to the same cities</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span>cities<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>value<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>label<span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token punctuation">[</span><br>  <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>  <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>  <span class="token comment">// 1000 more cities</span><br><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token comment">// yay, every RouteItem refers to the same cities</span><br><span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span>cities<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><br>    <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text"> <br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+337,352c229
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">const</span> schemes <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+<   dark<span class="token operator">:</span> <span class="token punctuation">&#123;</span> background<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'white'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<   light<span class="token operator">:</span> <span class="token punctuation">&#123;</span> background<span class="token operator">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> color<span class="token operator">:</span> <span class="token string">'black'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">SchemePicker</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">const</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">,</span> setDark<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<   <span class="token comment">// we only have 2 values, each one is stable</span>
+<   <span class="token keyword">const</span> colors <span class="token operator">=</span> schemes<span class="token punctuation">[</span>isDark <span class="token operator">?</span> <span class="token string">'dark'</span> <span class="token operator">:</span> <span class="token string">'light'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></span> <span class="token spread"><span class="token punctuation">&#123;</span><span class="token operator">...</span>props<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setDark</span><span class="token punctuation">(</span><span class="token operator">!</span>isDark<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+<       toggle theme
+<     </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span>props<span class="token punctuation">.</span>children<span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">const</span> schemes <span class="token operator">=</span> <span class="token punctuation">{</span> <br>  <span class="token literal-property property">dark</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">background</span><span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">'white'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>  <span class="token literal-property property">light</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">background</span><span class="token operator">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">'black'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">SchemePicker</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>isDark<span class="token punctuation">,</span> setDark<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <br>  <span class="token comment">// we only have 2 values, each one is stable </span><br>  <span class="token keyword">const</span> colors <span class="token operator">=</span> schemes<span class="token punctuation">[</span>isDark <span class="token operator">?</span> <span class="token string">'dark'</span> <span class="token operator">:</span> <span class="token string">'light'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">style</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>colors<span class="token punctuation">}</span></span> <span class="token spread"><span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">setDark</span><span class="token punctuation">(</span><span class="token operator">!</span>isDark<span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text"> <br>      toggle theme <br>    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span><span class="token plain-text"> <br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+361,368c238
+<           <h3 id="Lazy-global-constant">
+<             <a
+<               href="#Lazy-global-constant"
+<               class="headerlink"
+<               title="Lazy global constant"
+<             ></a
+<             >Lazy global constant
+<           </h3>
+---
+>           <h3>Lazy global constant</h3>
+376,396c246
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">let</span> citiesCache<span class="token punctuation">;</span>
+< <span class="token comment">// getCities intercepts accessing cities</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">getCities</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token comment">// use cached value if it exists</span>
+<   <span class="token keyword">if</span> <span class="token punctuation">(</span>citiesCache<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<     <span class="token keyword">return</span> citiesCache<span class="token punctuation">;</span>
+<   <span class="token punctuation">&#125;</span>
+<   <span class="token comment">//  otherwise put the array into the cache</span>
+<   citiesCache <span class="token operator">=</span> <span class="token punctuation">[</span>
+<     <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<     <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<     <span class="token comment">// 1000 more cities</span>
+<   <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<   <span class="token keyword">return</span> citiesCache<span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span><span class="token function">getCities</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>value<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>label<span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">let</span> citiesCache<span class="token punctuation">;</span><br><span class="token comment">// getCities intercepts accessing cities</span><br><span class="token keyword">const</span> <span class="token function-variable function">getCities</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token comment">// use cached value if it exists </span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>citiesCache<span class="token punctuation">)</span> <span class="token punctuation">{</span> <br>    <span class="token keyword">return</span> citiesCache<span class="token punctuation">;</span> <br>  <span class="token punctuation">}</span> <br>  <span class="token comment">// otherwise put the array into the cache </span><br>  citiesCache <span class="token operator">=</span> <span class="token punctuation">[</span><br>    <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>    <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>    <span class="token comment">// 1000 more cities</span><br>  <span class="token punctuation">]</span><span class="token punctuation">;</span> <br>  <span class="token keyword">return</span> citiesCache<span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span><span class="token function">getCities</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><br>    <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text"><br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+408,411c258
+<           <h3 id="True-memo">
+<             <a href="#True-memo" class="headerlink" title="True memo"></a>True
+<             memo
+<           </h3>
+---
+>           <h3>True memo</h3>
+419,440c266
+<             data-language="jsx"
+<           ><code class="language-jsx"><span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token punctuation">[</span>
+<   <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<   <span class="token punctuation">&#123;</span> label<span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<   <span class="token comment">// 1000 more cities</span>
+< <span class="token punctuation">]</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> filterCache <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">getCitiesExcept</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">exclude</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token comment">// use cached value if it exists</span>
+<   <span class="token keyword">if</span> <span class="token punctuation">(</span>filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<     <span class="token keyword">return</span> filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<   <span class="token punctuation">&#125;</span>
+<   <span class="token comment">// otherwise put the filtered array into the cache</span>
+<   filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span> <span class="token operator">=</span> cities<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> c<span class="token punctuation">.</span>value <span class="token operator">!==</span> exclude<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<   <span class="token keyword">return</span> filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+< <span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span> value <span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+<   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text">
+<     </span><span class="token punctuation">&#123;</span><span class="token function">getCitiesExcept</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+<       <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>value<span class="token punctuation">&#125;</span></span><span class="token punctuation">></span></span><span class="token punctuation">&#123;</span>c<span class="token punctuation">.</span>label<span class="token punctuation">&#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token plain-text">
+<   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+< <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></code></pre>
+---
+>           ><code class="language-jsx"><span class="token keyword">const</span> cities <span class="token operator">=</span> <span class="token punctuation">[</span><br>  <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Moscow'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'MOW'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>  <span class="token punctuation">{</span> <span class="token literal-property property">label</span><span class="token operator">:</span> <span class="token string">'Saint Petersburg'</span><span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">'LED'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <br>  <span class="token comment">// 1000 more cities</span><br><span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> filterCache <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">getCitiesExcept</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">exclude</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token comment">// use cached value if it exists </span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <br>    <span class="token keyword">return</span> filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">;</span> <br>  <span class="token punctuation">}</span> <br>  <span class="token comment">// otherwise put the filtered array into the cache</span><br>  filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span> <span class="token operator">=</span> cities<br>    <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> c<span class="token punctuation">.</span>value <span class="token operator">!==</span> exclude<span class="token punctuation">)</span><span class="token punctuation">;</span> <br>  <span class="token keyword">return</span> filterCache<span class="token punctuation">[</span>exclude<span class="token punctuation">]</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">RouteItem</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <br>  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span><span class="token punctuation">></span></span><span class="token plain-text"> <br>    </span><span class="token punctuation">{</span><span class="token function">getCitiesExcept</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <br>      <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">c</span> <span class="token operator">=></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>value<span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token punctuation">{</span>c<span class="token punctuation">.</span>label<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text"><br>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+448,451c274
+<           <h3 id="LRU-cache">
+<             <a href="#LRU-cache" class="headerlink" title="LRU cache"></a>LRU
+<             cache
+<           </h3>
+---
+>           <h3>LRU cache</h3>
+455a279
+>               href="https://en.wikipedia.org/wiki/Cache_replacement_policies"
+458d281
+<               href="https://en.wikipedia.org/wiki/Cache_replacement_policies"
+470a294
+>               href="https://github.com/lukeed/flru/blob/master/src/index.js"
+473d296
+<               href="https://github.com/lukeed/flru/blob/master/src/index.js"
+563c386,387
+<               src="/images/global-memo-cheatsheet-f7793d0fbdd8a83447a6776d3384afb3.png"
+---
+>               src="https://blog.thoughtspile.tech/images/global-memo-cheatsheet.png"
+>               alt=""
+575c399
+<           ><div id="share-twitter">
+---
+>           ><div>
+576a401
+>               href="https://twitter.com/share?url=&text= by @thoughtspile"
+579d403
+<               href="https://twitter.com/share?url=https://blog.thoughtspile.tech/2022/02/09/react-global-memo/&text=Using global memoization in React by @thoughtspile"
+585a410
+>               href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2022/02/09/react-global-memo/"
+588d412
+<               href="https://twitter.com/search?q=https://blog.thoughtspile.tech/2022/02/09/react-global-memo/"
+594,596c418,420
+<           More? <a class="tag-link-link" href="/">All articles ever</a>
+<           <a class="tag-link-link" href="/tags/hooks/" rel="tag">hooks</a>
+<           <a class="tag-link-link" href="/tags/react/" rel="tag">react</a>
+---
+>           More? <a class="tag-link-link" href="/">All posts ever</a>
+>           <a class="tag-link-link" href="/tags/react" rel="tag">react</a>
+>           <a class="tag-link-link" href="/tags/hooks" rel="tag">hooks</a>
+599,604c423,427
+<           Written in
+<           <time datetime="2022-02-09T12:08:54.000Z" itemprop="datePublished"
+<             >2022</time
+<           >
+<           by&nbsp;your friend, <a href="/">Vladimir.</a> Follow&nbsp;me
+<           on&nbsp;<a href="https://twitter.com/thoughtspile" target="_blank"
+---
+>           Written in <time>2022</time> by&nbsp;your friend,
+>           <a href="/">Vladimir.</a> Follow&nbsp;me on&nbsp;<a
+>             href="https://twitter.com/thoughtspile"
+>             target="_blank"
+>             rel="noopener"
+610c433,434
+<             class="bmc go-bmc link--bare"
+---
+>             class="bmc link--bare"
+>             href="https://buymeacoffee.com/thoughtspile"
+613d436
+<             href="https://buymeacoffee.com/thoughtspile"
+630a454
+>       <script async src="/js/share.js"></script>
+635,650c459,479
 <   !(function (e, a, t, n, g, c) {
 <     (e.GoogleAnalyticsObject = n),
 <       (e.ga =
@@ -142,8 +370,6 @@
 >   );
 >   ga("create", "UA-121445688-1", "auto");
 >   ga("send", "pageview");
-548,549c506
+652,653d480
 < <script src="/js/share-885512d0e95bf6e634870c148cd11707.js"></script>
 < <script src="/js/analytics-647bf8f98e22da5a496b8fc658500c0b.js"></script>
----
-> <script src="/js/share.js"></script>

@@ -246,6 +246,6 @@ Then, we examined 4 (4-and-a-half? 5?) caching techniques with a globally shared
 
 Here’s a cheat sheet to help you remember these techniques:
 
-![](https://thoughtspile.github.io/images/global-memo-cheatsheet.png)
+![](https://blog.thoughtspile.tech/images/global-memo-cheatsheet.png)
 
 These techniques are useful in regular react apps, and can up your performance. But we don’t always need our cache to be shared between component instances. Luckily, all these methods also work when scoped to a component — stay tuned for the next post on alternate `useMemo` implementations.

@@ -106,6 +106,6 @@ And a few more tips for library authors:
 
 Finally, I made a cheat sheet with all the conflicting effects that can blur the reported size:
 
-![](https://thoughtspile.github.io/images/lib-bundle-size.png)
+![](https://blog.thoughtspile.tech/images/lib-bundle-size.png)
 
 Hope this helps you build snappier apps without the unnecessary anxiety. See you later.

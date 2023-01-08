@@ -111,7 +111,7 @@ return (
 );
 ```
 
-If listing dependencies feels boring, try `useObjectMemo` hook I proposed in an [earlier post](https://thoughtspile.github.io/2021/04/05/useref-usememo/). Now, finally, the components that depend on `isMobile` only will not re-render on every width change.
+If listing dependencies feels boring, try `useObjectMemo` hook I proposed in an [earlier post](https://blog.thoughtspile.tech/2021/04/05/useref-usememo/). Now, finally, the components that depend on `isMobile` only will not re-render on every width change.
 
 ### Rule 2, option b: Maybe use atomic context values
 
@@ -288,4 +288,4 @@ The way forward appears to be _context selectors_ — used like `useContext(Cont
 - Look into [dai-shi's amazing useContext wrappers.](https://github.com/dai-shi)
 - Context is not suitable for complex state management. Try using a real state manager.
 
-As usual, have fun, make good apps, don't ride the hype train. If you like what I have to say about React, see if [setState has some features you don't know](https://thoughtspile.github.io/2021/09/27/usestate-tricks/) (a big hit!) or [why you shouldn't setState in useLayoutEffect](https://thoughtspile.github.io/2021/09/21/useeffect-derived-state/).
+As usual, have fun, make good apps, don't ride the hype train. If you like what I have to say about React, see if [setState has some features you don't know](https://blog.thoughtspile.tech/2021/09/27/usestate-tricks/) (a big hit!) or [why you shouldn't setState in useLayoutEffect](https://blog.thoughtspile.tech/2021/09/21/useeffect-derived-state/).

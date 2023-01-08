@@ -4,7 +4,9 @@ layout: layout.ejs
 <%- include('_partial/header', { is_post: true }) %>
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header>
-    <%- include('_partial/post/title', { post: page, index: false, class_name: 'posttitle' }) %>
+    <h1 class="posttitle" itemprop="name headline">
+        <%= title %>
+    </h1>
   </header>
   <div class="content" itemprop="articleBody">
     <%- content %>

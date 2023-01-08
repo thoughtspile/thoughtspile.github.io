@@ -105,7 +105,7 @@ So, here are the five types of interview questions that I hate, most hopeless to
 
 Here’s my advice on improving interview questions, as a nice flowchart:
 
-![](https://thoughtspile.github.io/images/interview-guide.png)
+![](https://blog.thoughtspile.tech/images/interview-guide.png)
 
 For candidates, I’m afraid, I have fewer actionable tips. Sure, practice makes perfect, and skimming the common interview questions won’t hurt even if you’re a hot shot lead senior, but other than that it’s hard to escape a bad question with an bad interviewer. You can’t convince the interviewer to change the question or his approach on the fly (if you can, apply for a top-tier sales representative position instead). Tough luck, but be ready to admit you don’t know some things, and try to work from the knowledge you have around the topic.
 

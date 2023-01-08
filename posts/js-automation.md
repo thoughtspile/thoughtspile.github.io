@@ -21,7 +21,7 @@ I must confess, I’ve never been comfortable with `bash`, and for years I’ve 
 
 Let’s go — see if this convinces you to stop worrying and embrace JS for your automation. Many of these points also apply when comparing to `make` or `python` (yes, I’ve seen a JS project with python automation once). Here’s a quick comparison table, if you’re in a hurry:
 
-![](https://thoughtspile.github.io/images/node-vs-bash.png)
+![](https://blog.thoughtspile.tech/images/node-vs-bash.png)
 
 ## It’s your team’s primary language
 

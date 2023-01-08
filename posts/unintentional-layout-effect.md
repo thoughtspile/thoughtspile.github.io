@@ -109,9 +109,9 @@ useLayoutEffect(() => {
 
 Good advice, but easier said than done — `useEffect` is a worse place to update state, because flickering is poor UX, and UX is more important than performance. Updating state during render looks dangerous. 
 
-Sometimes state can be safely replaced with useRef. Updating a ref doen't trigger an update, and the effect can run as intended. I happen to have [a post exploring some of these cases.](https://thoughtspile.github.io/2021/10/18/non-react-state/)
+Sometimes state can be safely replaced with useRef. Updating a ref doen't trigger an update, and the effect can run as intended. I happen to have [a post exploring some of these cases.](https://blog.thoughtspile.tech/2021/10/18/non-react-state/)
 
-If you can, try to come up with a [state model that doesn't rely on effects,](https://thoughtspile.github.io/2021/09/21/useeffect-derived-state/) but I don't know how to invent "good" state models on command.
+If you can, try to come up with a [state model that doesn't rely on effects,](https://blog.thoughtspile.tech/2021/09/21/useeffect-derived-state/) but I don't know how to invent "good" state models on command.
 
 ### Bypass state update
 
@@ -136,7 +136,7 @@ return (
 );
 ```
 
-I've explored this technique in my [older post on avoiding `useState`](https://thoughtspile.github.io/2021/10/18/non-react-state/), and we just got one more reason to skip react updates. Still, manually managing DOM updates is complicated and error-prone, so reserve this trick for performance-critical situations — very hot components or super-heavy useEffects.
+I've explored this technique in my [older post on avoiding `useState`](https://blog.thoughtspile.tech/2021/10/18/non-react-state/), and we just got one more reason to skip react updates. Still, manually managing DOM updates is complicated and error-prone, so reserve this trick for performance-critical situations — very hot components or super-heavy useEffects.
 
 ---
 
