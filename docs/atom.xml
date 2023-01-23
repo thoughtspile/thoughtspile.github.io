@@ -4,12 +4,173 @@
 	
 	<link href="https://blog.thoughtspile.tech/atom.xml" rel="self"/>
 	<link href="https://blog.thoughtspile.tech"/>
-	<updated>2022-03-28T00:00:00Z</updated>
+	<updated>2023-01-23T00:00:00Z</updated>
 	<id>https://blog.thoughtspile.tech/</id>
 	<author>
 		<name>Vladimir Klepov</name>
 		<email>v.klepov@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Making sense of TypeScript using set theory</title>
+		<link href="https://blog.thoughtspile.tech/2023/01/23/typescript-sets/"/>
+		<published>2023-01-23T00:00:00Z</published>
+		<id>https://blog.thoughtspile.tech/2023/01/23/typescript-sets/</id>
+		<content type="html">&lt;p&gt;I&#39;ve been working with TypeScript for a long long time. I think I&#39;m not too bad at it. However, to my despair, some low-level behaviors still confuse me:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Why does &lt;code&gt;0 | 1 extends 0 ? true : false&lt;/code&gt; evaluate to &lt;code&gt;false&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;I&#39;m very ashamed, but I sometimes confuse &amp;quot;subtype&amp;quot; and &amp;quot;supertype&amp;quot;. Which is which?&lt;/li&gt;
+&lt;li&gt;While we&#39;re at it, what are type &amp;quot;narrowing&amp;quot; and &amp;quot;widening&amp;quot;, and how do they relate to sub/supertypes?&lt;/li&gt;
+&lt;li&gt;If you want an object that satisfies both &lt;code&gt;{ name: string }&lt;/code&gt; and &lt;code&gt;{ age: number }&lt;/code&gt;, do you &lt;code&gt;&amp;amp;&lt;/code&gt; or &lt;code&gt;|&lt;/code&gt;? Both make some sense, since I want a &lt;em&gt;union&lt;/em&gt; of the functionality in both interfaces, but I also want the object to satisfy left &amp;amp; (and) right interfaces.&lt;/li&gt;
+&lt;li&gt;How is &lt;code&gt;any&lt;/code&gt; different from &lt;code&gt;unknown&lt;/code&gt;? All I get is imprecise mnemonics like &amp;quot;Avoid Any, Use Unknown&amp;quot;. Why?&lt;/li&gt;
+&lt;li&gt;What, exactly, is &lt;code&gt;never&lt;/code&gt;? &amp;quot;A value that &lt;em&gt;never&lt;/em&gt; happens&amp;quot; is very dramatic, but not too precise.&lt;/li&gt;
+&lt;li&gt;Why &lt;code&gt;whatever | never === whatever&lt;/code&gt; and &lt;code&gt;whatever &amp;amp; never === never&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;Why on earth is &lt;code&gt;const x: {} = true;&lt;/code&gt; valid TS code? &lt;code&gt;true&lt;/code&gt; is clearly not an empty object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I was doing some research on &lt;code&gt;never&lt;/code&gt;, and stumbled upon Zhenghao He&#39;s &lt;a href=&quot;https://www.zhenghao.io/posts/ts-never&quot;&gt;Complete Guide To TypeScript’s Never Type&lt;/a&gt; (check out his blog, it&#39;s super cool!). It mentions that a type is just a set of values, and — boom — it clicked. I went back to the basics, re-formulating everything I know about TS into set-theoretic terms. Follow me as I:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Refresh my knowledge of set theory,&lt;/li&gt;
+&lt;li&gt;Map TS concepts to their set counterparts,&lt;/li&gt;
+&lt;li&gt;Start simple with booelan, null and undefined types,&lt;/li&gt;
+&lt;li&gt;Extend to strings and numbers, finding some types that TS can not express,&lt;/li&gt;
+&lt;li&gt;Jump into objects, proving my assumptions about them wrong,&lt;/li&gt;
+&lt;li&gt;Finally gain confidence writing &lt;code&gt;extends&lt;/code&gt; caluses,&lt;/li&gt;
+&lt;li&gt;And put &lt;code&gt;unknown&lt;/code&gt; and &lt;code&gt;any&lt;/code&gt; where they belong.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the end, I solve most of my questions, grow much cozier with TS, and come up with this brilliant map of TS types:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/everything.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Set theory&lt;/h2&gt;
+&lt;p&gt;First up, a refresher on set theory. Feel free to skip if you&#39;re a pro, but my algebra skills are a bit rusty, so I could use a reminder of how it works.&lt;/p&gt;
+&lt;p&gt;Sets are unordered collections of objects. In kindergarten terms: say we have two apples aka &lt;em&gt;objects&lt;/em&gt; (let&#39;s call them ivan and bob, shall we?), and some bags aka &lt;em&gt;sets&lt;/em&gt; where we can put the apples. We can make, in total, 4 apple sets:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A bag with apple ivan, &lt;code&gt;{ ivan }&lt;/code&gt; — sets are written as curly brackets with the set items inside.&lt;/li&gt;
+&lt;li&gt;Similarly, you can have a bag with apple bob, &lt;code&gt;{ bob }&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A bag with both apples, &lt;code&gt;{ ivan, bob }&lt;/code&gt;. Hold onto your hats, this is called a &lt;em&gt;universe&lt;/em&gt; because at the moment there&#39;s nothing in our world except these two apples.&lt;/li&gt;
+&lt;li&gt;An empty bag aka empty set, &lt;code&gt;{}&lt;/code&gt;. This one gets a special symbol, ∅&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Sets are often drawn as &amp;quot;venn diagrams&amp;quot;, with each set represented as a circle:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/apples.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Apart from listing all the items, we can also build sets by &lt;em&gt;condition.&lt;/em&gt; I can say &amp;quot;R is a set of red apples&amp;quot; to mean &lt;code&gt;{ ivan }&lt;/code&gt;, considernig ivan is red and bob is green. So far, so good.&lt;/p&gt;
+&lt;p&gt;Set A is a &lt;em&gt;subset&lt;/em&gt; of set B if every element from A is also in B. In our apple world, &lt;code&gt;{ ivan }&lt;/code&gt; is a subset of &lt;code&gt;{ ivan, bob }&lt;/code&gt;, but &lt;code&gt;{ bob }&lt;/code&gt; is not a subset of &lt;code&gt;{ ivan }&lt;/code&gt;. Obviously, any set is a subset of itself, and &lt;code&gt;{}&lt;/code&gt; is a subset of any other set S, because not a single item from &lt;code&gt;{}&lt;/code&gt; is missing from S.&lt;/p&gt;
+&lt;p&gt;There are a few useful operators defined on sets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Union &lt;em&gt;C = A ∪ B&lt;/em&gt; contains all the elements that are in A or in B. Note that &lt;em&gt;A ∪ ∅ = A&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Intersection &lt;em&gt;C = A ∩ B&lt;/em&gt; contains all the elements that are in A &lt;em&gt;and&lt;/em&gt; B. Note that &lt;em&gt;A ∪ ∅ = ∅&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Difference &lt;em&gt;C = A \ B&lt;/em&gt; contains all the elements that are in A, but not in B. Note that &lt;em&gt;A \ ∅ = A&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This should be enough! Let&#39;s see how it all maps to types.&lt;/p&gt;
+&lt;h2&gt;What does it have to do with types&lt;/h2&gt;
+&lt;p&gt;So, the big reveal: you can think of &amp;quot;types&amp;quot; as sets of JavaScript values. Then:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Our &lt;em&gt;universe&lt;/em&gt; is all the values a JS program can produce.&lt;/li&gt;
+&lt;li&gt;A type (not even a typescript type, just a type in general) is some set of JS values.&lt;/li&gt;
+&lt;li&gt;Some types can be represented in TS, while other can not — for example, &amp;quot;non-zero numbers&amp;quot;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A extends B&lt;/code&gt; as seen in &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/2/conditional-types.html&quot;&gt;conditional types&lt;/a&gt; and &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints&quot;&gt;generic constraints&lt;/a&gt; can be read as &amp;quot;A is subset of B&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Type union, &lt;code&gt;|&lt;/code&gt;, and intersection, &lt;code&gt;&amp;amp;&lt;/code&gt;, operators are just the union and intersection of two sets.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Exclude&amp;lt;A, B&amp;gt;&lt;/code&gt; is as close as TS gets to a difference operator, except it &lt;em&gt;only&lt;/em&gt; works when both &lt;code&gt;A&lt;/code&gt; and &lt;code&gt;B&lt;/code&gt; are union types.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;never&lt;/code&gt; is an empty set. Proof: &lt;code&gt;A &amp;amp; never = never&lt;/code&gt; and &lt;code&gt;A | never = A&lt;/code&gt; for any type &lt;code&gt;A&lt;/code&gt;, and &lt;code&gt;Exclude&amp;lt;0, 0&amp;gt; = never&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This change of view already yields some useful insights:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Subtype of type A is a &lt;em&gt;subset&lt;/em&gt; of type A. Supertype is a superset. Easy.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Widening&lt;/em&gt; makes a type-set wider by allowing some extra values. &lt;em&gt;Narrowing&lt;/em&gt; removes certain values. Makes geometrical sense.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I know this all sounds like a lot, so let&#39;s proceed by example, starting with a simple case of boolean values.&lt;/p&gt;
+&lt;h2&gt;Boolean types&lt;/h2&gt;
+&lt;p&gt;For now, pretend JS only has boolean values. There are exaclty &lt;em&gt;two&lt;/em&gt; — &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;false&lt;/code&gt;. Recalling the apples, we can make a total of 4 types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Literal types &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;false&lt;/code&gt;, each made up of a single value;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;boolean&lt;/code&gt;, which is &lt;em&gt;any&lt;/em&gt; boolean value;&lt;/li&gt;
+&lt;li&gt;The empty set, &lt;code&gt;never&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The diagram of the &amp;quot;boolean types&amp;quot; is basically the one that we had for apples, just the names swapped:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/bool.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Let&#39;s try moving between type world and set world:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;boolean&lt;/code&gt; can be written as &lt;code&gt;true | false&lt;/code&gt; (in fact, that&#39;s exactly how TS impements it).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;true&lt;/code&gt; is a subset (aka sub-type) of &lt;code&gt;boolean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;never&lt;/code&gt; is an empty set, so &lt;code&gt;never&lt;/code&gt; is a sub-set/type of &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt;, and &lt;code&gt;boolean&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; is an &lt;em&gt;intersection,&lt;/em&gt; so &lt;code&gt;false &amp;amp; true = never&lt;/code&gt;, and &lt;code&gt;boolean &amp;amp; true = (true | false) &amp;amp; true = true&lt;/code&gt; (the universe, &lt;code&gt;boolean&lt;/code&gt;, doesn&#39;t affect intersections), and &lt;code&gt;true &amp;amp; never = never&lt;/code&gt;, etc.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;|&lt;/code&gt; is a &lt;em&gt;union,&lt;/em&gt; so &lt;code&gt;true | never = true&lt;/code&gt;, and &lt;code&gt;boolean | true = boolean&lt;/code&gt; (the universe, &lt;code&gt;boolean&lt;/code&gt;, &amp;quot;swallows&amp;quot; other intersection items because they&#39;re all subsets of universe).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Exclude&lt;/code&gt; correctly computes set difference: &lt;code&gt;Exclude&amp;lt;boolean, true&amp;gt; -&amp;gt; false&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, a little self-assessment of the tricky &lt;code&gt;extends&lt;/code&gt; cases:&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;never&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;B&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;C&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;never&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;D&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;never&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;never&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you recall that &amp;quot;extends&amp;quot; can be read as &amp;quot;is subset of&amp;quot;, the answer should be clear — A0,B1,C1,C1. We&#39;re making progress!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;null&lt;/code&gt; and &lt;code&gt;undefined&lt;/code&gt; are just like &lt;code&gt;boolean&lt;/code&gt;, except they only contain &lt;em&gt;one&lt;/em&gt; value each. &lt;code&gt;never extends null&lt;/code&gt; still holds, &lt;code&gt;null &amp;amp; boolean&lt;/code&gt; is &lt;code&gt;never&lt;/code&gt; since no JS value can simultaneously be of 2 different JS types, and so on. Let&#39;s add these to our &amp;quot;trivial types map&amp;quot;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/finites.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;Strings and other primitives&lt;/h2&gt;
+&lt;p&gt;With the simple ones out of the way, let&#39;s move on to string types. At first, it seems that nothing&#39;s changed — &lt;code&gt;string&lt;/code&gt; is a type for &amp;quot;all JS strings&amp;quot;, and every string has a corresponding literal type: &lt;code&gt;const str: &#39;hi&#39; = &#39;hi&#39;;&lt;/code&gt; However, there&#39;s one key difference — there are &lt;em&gt;infinitely many&lt;/em&gt; possible string values.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It might be a lie, because you can only represent so many strings in finite computer memory, but a) it&#39;s enough strings to make enumerating them all unpractical, and b) type systems &lt;em&gt;can&lt;/em&gt; operate on pure abstrations without worrying about dirty real-life limitations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Just like sets, string types can be constructed in a few different ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;|&lt;/code&gt; union lets you constuct any &lt;em&gt;finite&lt;/em&gt; string set — e.g. &lt;code&gt;type Country = &#39;de&#39; | &#39;us&#39;;&lt;/code&gt;. This won&#39;t work for &lt;em&gt;infinite&lt;/em&gt; sets — say, all strings with length &amp;gt; 2 — since you can&#39;t write an infinite list of value.&lt;/li&gt;
+&lt;li&gt;Funky &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html&quot;&gt;template literal types&lt;/a&gt; let you construct &lt;em&gt;some&lt;/em&gt; infinite sets — e.g. &lt;code&gt;type V = `v${string}`;&lt;/code&gt; is a set of all strings that start with &lt;code&gt;v&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can go a bit further by making unions and intersections of literal and template types. Fun time: when combining a &lt;em&gt;union&lt;/em&gt; with a &lt;em&gt;template,&lt;/em&gt; TS is smart enough to just filter the literals againts the template, so that &lt;code&gt;&#39;a&#39; | &#39;b&#39; &amp;amp; `a${string}` = &#39;a&#39;&lt;/code&gt;. Yet, TS is not &lt;em&gt;smart enough&lt;/em&gt; to merge templates, so you get really fancy ways of saying &lt;code&gt;never&lt;/code&gt;, such as &lt;code&gt;`a${string}` &amp;amp; `b${string}`&lt;/code&gt; (obviously, a string can&#39;t start with &amp;quot;a&amp;quot; and &amp;quot;b&amp;quot; at the same time).&lt;/p&gt;
+&lt;p&gt;However, some string types are &lt;em&gt;not&lt;/em&gt; representable in TS at all. Try &amp;quot;every string except &#39;a&#39;&amp;quot;. You could &lt;code&gt;Exclude&amp;lt;string, &#39;a&#39;&amp;gt;&lt;/code&gt;, but since TS doesn&#39;t &lt;em&gt;actually&lt;/em&gt; model &lt;code&gt;string&lt;/code&gt; as &lt;em&gt;union of all possible string literals,&lt;/em&gt; this in fact evaluates back to &lt;code&gt;string&lt;/code&gt;. The template grammar can not express this negative condition either. Bad luck!&lt;/p&gt;
+&lt;p&gt;The types for numbers, symbols and bigints work the same way, except they don&#39;t even get a &amp;quot;template&amp;quot; type, and are limited to finite sets. It&#39;s a pity, as I could really use some number subtypes — &lt;em&gt;integer, number between 0 and 1,&lt;/em&gt; or &lt;em&gt;positive number.&lt;/em&gt; Anyways, all together:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/primitives.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Phew, we&#39;ve covered all primitive, &lt;em&gt;non-intersecting&lt;/em&gt; JS / TS types. We&#39;ve gotten comfortable moving between sets and types, and discovered that some types can&#39;t be defined in TS. Here comes the tricky part.&lt;/p&gt;
+&lt;h2&gt;Interfaces &amp;amp; object types&lt;/h2&gt;
+&lt;p&gt;If you think  &lt;code&gt;const x: {} = 9;&lt;/code&gt; makes no sense, this section is for you. As it appears, our mental model of what TS object types / records / interfaces was built on the wrong assumptions.&lt;/p&gt;
+&lt;p&gt;First, you&#39;d probably expect types like &lt;code&gt;type Sum9 = { sum: 9 }&lt;/code&gt; to act like &amp;quot;literal types&amp;quot; for objects — matching a single object value &lt;code&gt;{ sum: 9 }&lt;/code&gt;, adjusted for referential equality. This is absolutely &lt;em&gt;not&lt;/em&gt; how it works. Instead, &lt;code&gt;Sum9&lt;/code&gt; is a &amp;quot;&lt;em&gt;thing&lt;/em&gt; on which you can access propery &lt;code&gt;sum&lt;/code&gt; to get &lt;code&gt;9&lt;/code&gt;&amp;quot; — more like a condition / constraint. This lets us call &lt;code&gt;(data: Sum9) =&amp;gt; number&lt;/code&gt; with an object &lt;code&gt;obj = { sum: 9, date: &#39;2022-09-13&#39; }&lt;/code&gt; without TS complaining about unknown &lt;code&gt;date&lt;/code&gt; property. See, handy!&lt;/p&gt;
+&lt;p&gt;Then, &lt;code&gt;{}&lt;/code&gt; type is not an &amp;quot;empty object&amp;quot; type corresponding to a &lt;code&gt;{}&lt;/code&gt; JS literal, but a &amp;quot;thing where I can access properties, but I don&#39;t care about any particular properties&amp;quot;. Aha, now we can see what&#39;s going on in our initial mind-bender: if &lt;code&gt;x = 9&lt;/code&gt;, you can safely &lt;code&gt;x[&#39;whatever&#39;]&lt;/code&gt;, so it satisfies the unconstrained &lt;code&gt;{}&lt;/code&gt; interface. In fact, we can even make bolder claims like &lt;code&gt;const x: { toString(): string } = 9;&lt;/code&gt;, since we can &lt;code&gt;x.toString()&lt;/code&gt; and actuallty get a string. More yet, &lt;code&gt;keyof number&lt;/code&gt; gives us &lt;code&gt;&amp;quot;toString&amp;quot; | &amp;quot;toFixed&amp;quot; | &amp;quot;toExponential&amp;quot; | &amp;quot;toPrecision&amp;quot; | &amp;quot;valueOf&amp;quot; | &amp;quot;toLocaleString&amp;quot;&lt;/code&gt;, meaning that TS secretly sees our primitive type as an object, which it is (thanks to &lt;a href=&quot;https://javascript.plainenglish.io/javascript-boxing-wrappers-5b5ff9e5f6ab&quot;&gt;autoboxing&lt;/a&gt;). &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;undefined&lt;/code&gt; do not satisfy &lt;code&gt;{}&lt;/code&gt;, because they throw if you try to read a property. Not super intuitive, but makes sense now.&lt;/p&gt;
+&lt;p&gt;Coming back to my little &amp;quot;&lt;code&gt;|&lt;/code&gt; or &lt;code&gt;&amp;amp;&lt;/code&gt;&amp;quot; problem, &lt;code&gt;&amp;amp;&lt;/code&gt; and &lt;code&gt;|&lt;/code&gt; operate on &amp;quot;value sets&amp;quot;, not on &amp;quot;object shapes&amp;quot;, so you need &lt;code&gt;{ name: string } &amp;amp; { age: number }&lt;/code&gt; to get objects with &lt;em&gt;both&lt;/em&gt; &lt;code&gt;name&lt;/code&gt; and (extra hint: and = &lt;code&gt;&amp;amp;&lt;/code&gt;) &lt;code&gt;age&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Oh, and what about that odd &lt;code&gt;object&lt;/code&gt; type? Since every property on an interface just adds a constraint to the &amp;quot;thing&amp;quot; we&#39;re typing, there&#39;s no way to declare an interface that filters out primitive values. It&#39;s why TS has a built-in &lt;code&gt;object&lt;/code&gt; type that means specifically &amp;quot;JS object, not a primitive&amp;quot;. Yes, you can intersect with &lt;code&gt;object&lt;/code&gt; to get only &lt;em&gt;non-primitive&lt;/em&gt; values satisfying an interface: &lt;code&gt;const x: object &amp;amp; { toString(): string } = 9&lt;/code&gt; fails.&lt;/p&gt;
+&lt;p&gt;Let&#39;s add all of these to our type map:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/everything.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h2&gt;extends&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;extends&lt;/code&gt; keyword in TS can be confusing. It comes from the object-oriented world where you &lt;em&gt;extend&lt;/em&gt; a class in the sense of &lt;em&gt;adding functionality&lt;/em&gt; to it, &lt;em&gt;but,&lt;/em&gt; since TS uses &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/type-compatibility.html&quot;&gt;structural typing&lt;/a&gt;, &lt;code&gt;extends&lt;/code&gt; as used in &lt;code&gt;type Extends&amp;lt;A, B&amp;gt; = A extends B ? true : false&lt;/code&gt; is &lt;em&gt;not&lt;/em&gt; the same &lt;code&gt;extends&lt;/code&gt; from &lt;code&gt;class X extends Y {}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Instead, &lt;code&gt;A extends B&lt;/code&gt; can be read as &lt;em&gt;A is a sub-type of B&lt;/em&gt; or, in set terms, &lt;em&gt;A is a subset of B.&lt;/em&gt; If B is a union, every member of A must also be in B. If B is a &amp;quot;constrained&amp;quot; interface, A must not violate any of B&#39;s constraints. Good news: a usual OOP &lt;code&gt;class A extends B {}&lt;/code&gt; fits &lt;code&gt;A extends B ? 1 : 0&lt;/code&gt;. So does &lt;code&gt;&#39;a&#39; extends string&lt;/code&gt;, meaning that (excuse the pun) TS &lt;code&gt;extends&lt;/code&gt; extends &lt;code&gt;extends&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This &amp;quot;subset&amp;quot; view is the best way to never mix up the order of &lt;code&gt;extends&lt;/code&gt; operands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0 | 1 extends 0&lt;/code&gt; is false, since a 2-element set &lt;code&gt;{0, 1}&lt;/code&gt; is not a subset of the 1-element &lt;code&gt;{0}&lt;/code&gt; (even though &lt;code&gt;{0,1}&lt;/code&gt; does extend &lt;code&gt;{1}&lt;/code&gt; in a geometrical sense).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;never extends T&lt;/code&gt; is always true, because &lt;code&gt;never&lt;/code&gt;, the empty set, is a subset of any set.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;T extends never&lt;/code&gt; is only true if T is &lt;code&gt;never&lt;/code&gt;, because an empty set has no subsets except itself.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;T extends string&lt;/code&gt; allows T to be a string, a literal, or a literal union, or a template, because all of these are subsets of &lt;code&gt;string&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;T extends string ? string extends T&lt;/code&gt; makes sure that T is &lt;em&gt;exactly&lt;/em&gt; &lt;code&gt;string&lt;/code&gt;, because that&#39;s the only way it can be both a subset &lt;em&gt;and&lt;/em&gt; a superset of string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;unknown and any&lt;/h2&gt;
+&lt;p&gt;Typescript has two types that can represent an arbitrary JS value — &lt;code&gt;unknown&lt;/code&gt; and &lt;code&gt;any&lt;/code&gt;. The normal one is &lt;code&gt;unknown&lt;/code&gt; — the universe of JS values:&lt;/p&gt;
+&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// It&#39;s a 1&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;Y&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; object &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; bigint &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;symbol&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;unknown&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;// a shorter one, given the {} oddity&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;Y2&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;unknown&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;// For other types, this is 0:&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token constant&quot;&gt;N&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;unknown&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;&lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On a puzzling side, though:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;unknown&lt;/code&gt; is &lt;em&gt;not&lt;/em&gt; a union of all other base types, so you can&#39;t &lt;code&gt;Exclude&amp;lt;unknown, string&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unknown extends string | number | boolean | object | bigint | symbol | null | undefined&lt;/code&gt; is false, meaning that some TS types are not listed. I suspect &lt;code&gt;enum&lt;/code&gt;s.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All in all, it&#39;s safe to think of &lt;code&gt;unknown&lt;/code&gt; as &amp;quot;the set of all possible JS values&amp;quot;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;any&lt;/code&gt; is the weird one:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;any extends string ? 1 : 0&lt;/code&gt; evaluates to &lt;code&gt;0 | 1&lt;/code&gt; which is basically a &amp;quot;dunno&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Even &lt;code&gt;any extends never ? 1 : 0&lt;/code&gt; evaluates to &lt;code&gt;0 | 1&lt;/code&gt;, meaning that &lt;code&gt;any&lt;/code&gt; &lt;em&gt;might&lt;/em&gt; be empty.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We should conclude that &lt;code&gt;any&lt;/code&gt; is &amp;quot;some set, but we&#39;re not sure which one&amp;quot; — like a type &lt;code&gt;NaN&lt;/code&gt;. However, upon further inspection, &lt;code&gt;string extends any&lt;/code&gt;, &lt;code&gt;unknown extends any&lt;/code&gt; and even &lt;code&gt;any extends any&lt;/code&gt; are all true, none of which holds for &amp;quot;some set&amp;quot;. So, &lt;code&gt;any&lt;/code&gt; is a &lt;em&gt;paradox&lt;/em&gt; — every set is a subset of &lt;code&gt;any&lt;/code&gt;, but &lt;code&gt;any&lt;/code&gt; &lt;em&gt;might&lt;/em&gt; be empty. The only good news I have is that &lt;code&gt;any extends unknown&lt;/code&gt;, so &lt;code&gt;unknown&lt;/code&gt; is still the universe, and &lt;code&gt;any&lt;/code&gt; does not allow &amp;quot;alien&amp;quot; values.&lt;/p&gt;
+&lt;p&gt;So, to finish mapping our types, we wrap our entire diagram into &lt;code&gt;unknown&lt;/code&gt; bubble:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/ts-sets/all.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Today, we&#39;ve learnt to that TS &lt;em&gt;types&lt;/em&gt; are basically &lt;em&gt;sets&lt;/em&gt; of JS values. Here&#39;s a little dictionary to go from type-world to set-world, and back:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Our universe = all JS values = the type &lt;code&gt;unknown&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;never&lt;/code&gt; is an empty set.&lt;/li&gt;
+&lt;li&gt;Subtype = narrowed type = subset, supertype = widened type = superset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;A extends B&lt;/code&gt; can be read as &amp;quot;A is subset of B&amp;quot;.&lt;/li&gt;
+&lt;li&gt;Union and intersection types are, really, just set union and intersection.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Exclude&lt;/code&gt; is an &lt;em&gt;approximation&lt;/em&gt; of set difference that only works on union types.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Going back my our initial questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0 | 1 extends 0&lt;/code&gt; is false because &lt;em&gt;{0,1}&lt;/em&gt; is &lt;em&gt;not&lt;/em&gt; a subset of &lt;em&gt;{0}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; and &lt;code&gt;|&lt;/code&gt; work on sets, not on object shapes. &lt;code&gt;A &amp;amp; B&lt;/code&gt; is a set of things that satisfy both &lt;code&gt;A&lt;/code&gt; and &lt;code&gt;B&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;unknown&lt;/code&gt; is the set of all JS values. &lt;code&gt;any&lt;/code&gt; is a paradoxical set that includes everything, but &lt;em&gt;might&lt;/em&gt; also be empty.&lt;/li&gt;
+&lt;li&gt;Intersecting with &lt;code&gt;never&lt;/code&gt; gives you &lt;code&gt;never&lt;/code&gt; because it&#39;s an empty set. &lt;code&gt;never&lt;/code&gt; has no effect in a union.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;const x: {} = true;&lt;/code&gt; works because TS interfaces work by &lt;em&gt;constraining&lt;/em&gt; the property values, and we haven&#39;t constrained anything here, so &lt;code&gt;true&lt;/code&gt; fits.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We still have a lot of TS mysteries to solve, so stay tuned!&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Seven habits of bad interviewers</title>
@@ -2039,7 +2200,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Extravagantly fast rendering with React benders</title>
 		<link href="https://blog.thoughtspile.tech/2019/01/06/vdom-bend-memo/"/>
-		<published>2019-01-06T11:02:42Z</published>
+		<published>2019-01-06T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2019/01/06/vdom-bend-memo/</id>
 		<content type="html">&lt;p&gt;The other day I was working on a React-based library of huge, reusable SVG images, and I ran into performance problems. Just kidding, I&#39;ve never had a problem I&#39;m solving here, but I&#39;ve had great fun working around it. I wanted to make components producing mostly static DOM as fast to render as humanly possible. And I&#39;m not talking just about updates — I wanted to optimize mounting. Of course, normally you&#39;d just skip remounting and hide / show the component with CSS, but that&#39;s not fun enough for me. Let&#39;s say we want to render it fast in random locations of your app.&lt;/p&gt;
 &lt;p&gt;Let&#39;s start with something simple — a component with no props. Since the renders are pure, the component always returns the same markup, which makes it a perfect candidate for our game. I know, I know, context and connected components, but let&#39;s ignore these for a while. An SVG image works well — think this one, but huge:&lt;/p&gt;
@@ -2072,7 +2233,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>10 Design Rules for Programmers</title>
 		<link href="https://blog.thoughtspile.tech/2018/12/17/design-crash-course/"/>
-		<published>2018-12-17T17:10:23Z</published>
+		<published>2018-12-17T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/12/17/design-crash-course/</id>
 		<content type="html">&lt;p&gt;For some reason, many developers disdain design. We are programmers, we are smart and rational, and we think technically. Designers are weird and artistic, they wear black sweaters and long scarves, they are no match to us. I never quite understood how you can ignore design if you do any front-end job.&lt;/p&gt;
 &lt;p&gt;Knowing core design principles will help you understand &lt;em&gt;why&lt;/em&gt; your designer did what he did, will allow you to spot and fix &amp;quot;design typos&amp;quot;, and will also go great lengths to freeing you from pixel-perfect layout slavery. Also, if you ever land in a team without a designer, your product might not make users&#39; eyes bleed.&lt;/p&gt;
@@ -2197,7 +2358,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Keep a React component mounted</title>
 		<link href="https://blog.thoughtspile.tech/2018/12/02/react-keep-mounted/"/>
-		<published>2018-12-02T17:04:51Z</published>
+		<published>2018-12-02T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/12/02/react-keep-mounted/</id>
 		<content type="html">&lt;p&gt;The second most important React optimization technique after &lt;code&gt;shouldComponentUpdate&lt;/code&gt; and friends is remount management. Some portions of the UI can be hidden or shown — sidebars, drop-down menus, modals and draggable widgets are all prominent examples. The basic React pattern for conditional rendering is boolean short-circuiting:&lt;/p&gt;
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;condition &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Component data&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -2242,7 +2403,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Major Garbage Producers in JS</title>
 		<link href="https://blog.thoughtspile.tech/2018/11/24/garbage-producing-js/"/>
-		<published>2018-11-24T18:25:43Z</published>
+		<published>2018-11-24T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/11/24/garbage-producing-js/</id>
 		<content type="html">&lt;p&gt;The reckless coding culture of JS favors producing garbage. In real life, if you&#39;re environmentally conscious (hey there, my European readers), you probably do all sorts of crazy thinks to cut down on garbage — reject plastic bags in a supermarket, recycle bottles, keep the paper garbage in a closet until the special paper-garbage truck comes on Thursday. But when it comes to JS, the general sentiment magically becomes &amp;quot;let&#39;s litter like crazy, then let the engine designers do their thing and come up with something to make that work at the speed of C&amp;quot;. Apparently, there&#39;s only that much the poor guys can do.&lt;/p&gt;
 &lt;p&gt;Even if you do a quick complexity analysis here and there, and know your way around a profiler, hot garbage is going to bite you. It won&#39;t be a literal memory leak — occasionally garbage collector would come and clean up your mess — but it places strain on the user&#39;s PC resources, and in the worst case you might end up with a 10+ seconds GC pause.&lt;/p&gt;
@@ -2284,7 +2445,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Why you Might Want to Extend React Components</title>
 		<link href="https://blog.thoughtspile.tech/2018/11/05/react-extend-justified/"/>
-		<published>2018-11-05T14:38:29Z</published>
+		<published>2018-11-05T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/11/05/react-extend-justified/</id>
 		<content type="html">&lt;p&gt;Do not &lt;code&gt;extend&lt;/code&gt; components. If there is anything React community agrees upon, this is it. &lt;a href=&quot;https://reactjs.org/docs/composition-vs-inheritance.html&quot;&gt;Use HOCs&lt;/a&gt;. Use state managers (and their connector HOCs). Use render props. &lt;a href=&quot;https://stackoverflow.com/a/47032288/2699012&quot;&gt;Do not inherit&lt;/a&gt;. Remember, &lt;a href=&quot;https://en.wikipedia.org/wiki/Composition_over_inheritance&quot;&gt;composition over inheritance&lt;/a&gt;! Obey your guru. Once upon a time, a developer extended his component, and a lightning stroke him.&lt;/p&gt;
 &lt;p&gt;This is a mantra. I like mantras just as much as &lt;a href=&quot;https://www.thoughtworks.com/insights/blog/composition-vs-inheritance-how-choose&quot;&gt;Steven here&lt;/a&gt; (I don&#39;t). Things other people say should not discourage you from thinking for yourself, doing your research and analyzing design choices pragmatically, not superstitiously.&lt;/p&gt;
@@ -2337,7 +2498,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>OOP for FP lovers: Simplistic Dependency Injection</title>
 		<link href="https://blog.thoughtspile.tech/2018/10/28/simplistic-di/"/>
-		<published>2018-10-28T14:28:01Z</published>
+		<published>2018-10-28T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/10/28/simplistic-di/</id>
 		<content type="html">&lt;p&gt;With all the enthusiasm around functional design in javascript community, we&#39;ve come to reject the concepts whose names remind us of object-orientation. We throw constructors, methods and classes out of the window because they seem to smell of bank cubicles, water coolers and ERP. I&#39;ve been on that train, but now I&#39;m free from the prejudice. Great, useful ideas are hidden inside the fancy OOP terming, and I&#39;m here to expose their niceness. We shall begin with Dependency Injection.&lt;/p&gt;
 &lt;h2&gt;We Have a Problem&lt;/h2&gt;
@@ -2367,7 +2528,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Angular Tip: Derived Interfaces in TypeScript</title>
 		<link href="https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/"/>
-		<published>2018-10-22T11:21:34Z</published>
+		<published>2018-10-22T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/10/22/typescript-derived-interface/</id>
 		<content type="html">&lt;p&gt;If you use Angular DI, you probably declare your service classes twice, like this:&lt;/p&gt;
 &lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IUserService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token function&quot;&gt;getUsers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; IUser&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IUserService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token function&quot;&gt;getUsers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token generic-function&quot;&gt;&lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token generic class-name&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;IUser&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;/users&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -2382,7 +2543,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Five Tricks for Debug-Logging in JavaScript</title>
 		<link href="https://blog.thoughtspile.tech/2018/10/05/js-debug-logging/"/>
-		<published>2018-10-05T13:33:42Z</published>
+		<published>2018-10-05T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/10/05/js-debug-logging/</id>
 		<content type="html">&lt;p&gt;Cheer up, today is a quick tip day. No &lt;a href=&quot;https://blog.thoughtspile.tech/2018/09/23/bad-software-week/&quot;&gt;rants&lt;/a&gt;, no &lt;a href=&quot;https://blog.thoughtspile.tech/2018/09/23/bad-software-week/&quot;&gt;motivation&lt;/a&gt;, no existentialism — just a few simple tricks you can use right now.&lt;/p&gt;
 &lt;p&gt;We&#39;ll be talking about &lt;code&gt;console.log&lt;/code&gt; and friends for debugging javascript, mostly in the browser. If you don&#39;t use devtools debugger — try it, but I&#39;m not here to judge you (unless you use &lt;code&gt;alert&lt;/code&gt;). There is at least one case where &lt;code&gt;console&lt;/code&gt; is better: you have a method that gets called frequently, and want to inspect the internal state over multiple runs, then drill down on the interesting ones. Pausing on every hit would be extremely tedious.&lt;/p&gt;
@@ -2416,7 +2577,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Let&#39;s Make Software Better</title>
 		<link href="https://blog.thoughtspile.tech/2018/09/29/lets-make-software-better/"/>
-		<published>2018-09-29T17:10:00Z</published>
+		<published>2018-09-29T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/09/29/lets-make-software-better/</id>
 		<content type="html">&lt;p&gt;My &lt;a href=&quot;https://blog.thoughtspile.tech/2018/09/23/bad-software-week/&quot;&gt;previous post&lt;/a&gt;, a classic rant, how-bad-software-is-these-days kind, attracted unexpected and probably even unreasonable attention. This time I&#39;m in for something different — I&#39;m going to preach. Behold, and open your eyes, and open your hearts, and open your minds, as I am about to tell how we should live our lives to bring about a lifetime of good software. This is an uphill battle, people will not come in droves to cheer you up on what a great job you did, but we must stay strong and fight. We shall begin now.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://blog.thoughtspile.tech/images/vienna.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
@@ -2454,7 +2615,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Another Week with Bad Software</title>
 		<link href="https://blog.thoughtspile.tech/2018/09/23/bad-software-week/"/>
-		<published>2018-09-23T14:35:02Z</published>
+		<published>2018-09-23T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/09/23/bad-software-week/</id>
 		<content type="html">&lt;p&gt;In the midst of my September job hop I headed to Kazan for the weekend. I don&#39;t know exactly why — probably because I could. I had a hotel booked via booking.com, but once I arrived there the receptionist told me it was the first time he&#39;s heard of my booking, and he told me that they had no more rooms, and he told me that I&#39;d rather find another place to stay.&lt;/p&gt;
 &lt;p&gt;But why, I always see these things for what they are. Some sneaky caffeinated programmer kids at work with the booking system integrations, you should always double-check after us! After what came next, I started suspecting there&#39;s some particularly defective developer marketing himself as a &lt;em&gt;&amp;quot;Chief Hotel Booking Management System (HBMS) Professional with 10+ years experience in the field&amp;quot;&lt;/em&gt;.&lt;/p&gt;
@@ -2498,7 +2659,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Not Sucking at TypeScript: 3 Tips</title>
 		<link href="https://blog.thoughtspile.tech/2018/09/22/typescript-unsuck-guide/"/>
-		<published>2018-09-22T16:37:41Z</published>
+		<published>2018-09-22T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/09/22/typescript-unsuck-guide/</id>
 		<content type="html">&lt;p&gt;I have spent three years developing in TypeScript, but sometimes it is owerwhelming. I&#39;m sitting there with all those little &amp;quot;fuck-fuck-fucks&amp;quot; in my head, thinking of how I&#39;d great it would be to burn the annotations, change the extensions to &lt;code&gt;.js&lt;/code&gt; and get out of this nighmare already. But hey, if used properly, TS makes you happy, not depressed! Here are my top 3 tips to ease the pain.&lt;/p&gt;
 &lt;h2&gt;Let TS do its type inference&lt;/h2&gt;
@@ -2543,7 +2704,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Simpifying AngularJS controllers with ES5 get / set</title>
 		<link href="https://blog.thoughtspile.tech/2018/09/20/angularjs-service-property-getter/"/>
-		<published>2018-09-20T17:04:06Z</published>
+		<published>2018-09-20T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/09/20/angularjs-service-property-getter/</id>
 		<content type="html">&lt;p&gt;I&#39;ve been developing an AngularJS application for the past year — and &lt;em&gt;voila!&lt;/em&gt; here I am, alive and well. I&#39;m not some crazy old fuck who thinks AngularJS is a promising new technology. Nor have I been waiting to publish this post for 3 years. It&#39;s just how things turned up for me. Since there&#39;s no shortage of AngularJS apps in the wild, I&#39;ve decided to share some tips for taming Angular (the Terrible one) and staying sane (yes you can).&lt;/p&gt;
 &lt;h2&gt;The context — where am I? (Help)&lt;/h2&gt;
@@ -2587,7 +2748,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Quick Tip: docx is a zip Archive</title>
 		<link href="https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/"/>
-		<published>2018-07-14T14:33:41Z</published>
+		<published>2018-07-14T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/07/14/docx-is-a-zip-archive/</id>
 		<content type="html">&lt;p&gt;Microsof Office&#39;s &lt;code&gt;docx&lt;/code&gt; files are actually zip archives with a bunch of XMLs and all the attached media. Super useful, everyone should know it!&lt;/p&gt;
 &lt;p&gt;When I tell my colleagues, friends, or students about it, they don&#39;t take me seriously the first time. So, here we go again. If you have a docx (or xlsx, or pptx) file, you can unzip it with &lt;code&gt;unzip proj.docx -d proj&lt;/code&gt; or any other unarchiver and get a folder with all the stuff that makes up the document:&lt;/p&gt;
@@ -2604,7 +2765,7 @@ On the other hand, `useState` (and `useReducer`) is an entirely different cup of
 	<entry>
 		<title>Advanced Promise Coordination: Rate Limiting</title>
 		<link href="https://blog.thoughtspile.tech/2018/07/07/rate-limit-promises/"/>
-		<published>2018-07-07T10:11:13Z</published>
+		<published>2018-07-07T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/07/07/rate-limit-promises/</id>
 		<content type="html">&lt;p&gt;In the &lt;a href=&quot;https://blog.thoughtspile.tech/2018/06/20/serialize-promises/&quot;&gt;previous post&lt;/a&gt; we learnt to serialize
 and concurrecy-limit promise-based operations in js. This time we dive further
@@ -2737,7 +2898,7 @@ I have RSS now, so be sure to stay tuned!&lt;/p&gt;
 	<entry>
 		<title>Advanced Promises Coordination: Serialization and Concurrency Limiting</title>
 		<link href="https://blog.thoughtspile.tech/2018/06/20/serialize-promises/"/>
-		<published>2018-06-20T12:42:08Z</published>
+		<published>2018-06-20T00:00:00Z</published>
 		<id>https://blog.thoughtspile.tech/2018/06/20/serialize-promises/</id>
 		<content type="html">&lt;p&gt;I&#39;m sure you can chain promises with &lt;code&gt;doBefore().then(() =&amp;gt; doAfter())&lt;/code&gt; and even
 run multiple promises in parallel using &lt;code&gt;Promise.any&lt;/code&gt;. However, chaining an

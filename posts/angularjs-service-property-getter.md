@@ -5,7 +5,7 @@ tags:
   - javascript
   - programming
   - frontend
-date: 2018-09-20 17:04:06
+date: 2018-09-20
 ---
 
 

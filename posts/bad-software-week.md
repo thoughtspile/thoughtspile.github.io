@@ -6,7 +6,7 @@ tags:
   - thoughtspile
   - programming
   - depression
-date: 2018-09-23 14:35:02
+date: 2018-09-23
 ---
 
 

@@ -4,7 +4,7 @@ tags:
   - javascript
   - programming
   - performance
-date: 2018-11-24 18:25:43
+date: 2018-11-24
 ---
 
 

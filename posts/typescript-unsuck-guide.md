@@ -5,7 +5,7 @@ tags:
   - javascript
   - programming
   - tips
-date: 2018-09-22 16:37:41
+date: 2018-09-22
 ---
 
 I have spent three years developing in TypeScript, but sometimes it is owerwhelming. I'm sitting there with all those little "fuck-fuck-fucks" in my head, thinking of how I'd great it would be to burn the annotations, change the extensions to `.js` and get out of this nighmare already. But hey, if used properly, TS makes you happy, not depressed! Here are my top 3 tips to ease the pain.

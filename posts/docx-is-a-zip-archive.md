@@ -1,6 +1,6 @@
 ---
 title: 'Quick Tip: docx is a zip Archive'
-date: 2018-07-14 14:33:41
+date: 2018-07-14
 tags:
     - tips
     - microsoft

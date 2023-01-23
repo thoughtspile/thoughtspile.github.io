@@ -4,7 +4,7 @@ tags:
   - javascript
   - programming
   - OOP
-date: 2018-10-28 14:28:01
+date: 2018-10-28
 ---
 
 

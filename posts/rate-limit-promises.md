@@ -5,7 +5,7 @@ tags:
   - javascript
   - programming
   - high availability
-date: 2018-07-07 10:11:13
+date: 2018-07-07
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: Why you Might Want to Extend React Components
-date: 2018-11-05 14:38:29
+date: 2018-11-05
 tags:
   - react
   - frontend

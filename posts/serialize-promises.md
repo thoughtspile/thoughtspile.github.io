@@ -1,7 +1,7 @@
 ---
 title: 'Advanced Promises Coordination: Serialization and Concurrency Limiting'
 tags: [promises, javascript, programming, concurrency]
-date: 2018-06-20 12:42:08
+date: 2018-06-20
 ---
 
 I'm sure you can chain promises with `doBefore().then(() => doAfter())` and even

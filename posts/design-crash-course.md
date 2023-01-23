@@ -4,7 +4,7 @@ tags:
   - design
   - frontend
   - programming
-date: 2018-12-17 17:10:23
+date: 2018-12-17
 ---
 
 For some reason, many developers disdain design. We are programmers, we are smart and rational, and we think technically. Designers are weird and artistic, they wear black sweaters and long scarves, they are no match to us. I never quite understood how you can ignore design if you do any front-end job.

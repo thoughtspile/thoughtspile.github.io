@@ -7,7 +7,7 @@ tags:
   - programming
   - frontend
   - tips
-date: 2018-10-22 11:21:34
+date: 2018-10-22
 ---
 
 If you use Angular DI, you probably declare your service classes twice, like this:

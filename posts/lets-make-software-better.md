@@ -6,7 +6,7 @@ tags:
   - thoughtspile
   - programming
   - happiness
-date: 2018-09-29 17:10:00
+date: 2018-09-29
 ---
 
 My [previous post](/2018/09/23/bad-software-week/), a classic rant, how-bad-software-is-these-days kind, attracted unexpected and probably even unreasonable attention. This time I'm in for something different — I'm going to preach. Behold, and open your eyes, and open your hearts, and open your minds, as I am about to tell how we should live our lives to bring about a lifetime of good software. This is an uphill battle, people will not come in droves to cheer you up on what a great job you did, but we must stay strong and fight. We shall begin now.
