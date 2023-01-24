@@ -1,5 +1,9 @@
 ---
 title: Making sense of TypeScript using set theory
+tags:
+  - typescript
+  - javascript
+  - programming
 date: 2023-01-23
 ---
 
@@ -50,7 +54,7 @@ Set A is a _subset_ of set B if every element from A is also in B. In our apple 
 There are a few useful operators defined on sets:
 
 - Union _C = A ∪ B_ contains all the elements that are in A or in B. Note that _A ∪ ∅ = A_
-- Intersection _C = A ∩ B_ contains all the elements that are in A _and_ B. Note that _A ∪ ∅ = ∅_
+- Intersection _C = A ∩ B_ contains all the elements that are in A _and_ B. Note that _A ∩ ∅ = ∅_
 - Difference _C = A \ B_ contains all the elements that are in A, but not in B. Note that _A \ ∅ = A_
 
 This should be enough! Let's see how it all maps to types.
