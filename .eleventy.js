@@ -1,10 +1,7 @@
 const htmlMinifier = require ('html-minifier')
 const { DateTime } = require("luxon");
-const { parse } = require('node-html-parser')
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const externalLinks = require('eleventy-plugin-external-links');
-
+const { parse } = require('node-html-parser');
+const config = require('./_data/config.json');
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -18,7 +15,23 @@ module.exports = function(eleventyConfig) {
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(externalLinks);
+
+  eleventyConfig.addTransform('absoluteHrefs', (content, name) => {
+    if (!name.endsWith('.html')) return content;
+
+    const isExternal = href => href.startsWith('https://');
+    const root = parse(content);
+    for (const link of root.querySelectorAll("a")) {
+      const href = link.getAttribute('href');
+      console.log(href);
+      if (href && isExternal(href)) {
+        link.setAttribute("target", '_blank');
+        link.setAttribute("rel", 'noopener');
+      }
+    }
+
+    return root.toString();
+  });
 
   eleventyConfig.addTransform('htmlMinifier', (content, name) => {
     if (!name.endsWith('.html')) return content;
@@ -27,7 +40,7 @@ module.exports = function(eleventyConfig) {
       removeComments: true,
       collapseWhitespace: true,
     });
-  })
+  });
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
@@ -39,7 +52,10 @@ module.exports = function(eleventyConfig) {
   });
   
   eleventyConfig.addFilter('getImages', (content) => {
-    return parse(content).querySelectorAll('img').map(img => img.getAttribute('src'));
+    return parse(content).querySelectorAll('img').map(img => {
+      const src = img.getAttribute('src');
+      return `${config.base}${src}`;
+    });
   });
 
   function filterTagList(tags) {
@@ -57,21 +73,6 @@ module.exports = function(eleventyConfig) {
 
     return filterTagList([...tagSet]);
   });
-
-  // Customize Markdown library and settings:
-  // let markdownLibrary = markdownIt({
-  //   html: true,
-  //   linkify: true
-  // }).use(markdownItAnchor, {
-  //   permalink: markdownItAnchor.permalink.ariaHidden({
-  //     placement: "after",
-  //     class: "direct-link",
-  //     symbol: "#"
-  //   }),
-  //   level: [1,2,3,4],
-  //   slugify: eleventyConfig.getFilter("slugify")
-  // });
-  // eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
