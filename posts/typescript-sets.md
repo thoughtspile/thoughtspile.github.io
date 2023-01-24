@@ -50,7 +50,7 @@ Set A is a _subset_ of set B if every element from A is also in B. In our apple 
 There are a few useful operators defined on sets:
 
 - Union _C = A ∪ B_ contains all the elements that are in A or in B. Note that _A ∪ ∅ = A_
-- Intersection _C = A ∩ B_ contains all the elements that are in A _and_ B. Note that _A ∪ ∅ = ∅_
+- Intersection _C = A ∩ B_ contains all the elements that are in A _and_ B. Note that _A ∩ ∅ = ∅_
 - Difference _C = A \ B_ contains all the elements that are in A, but not in B. Note that _A \ ∅ = A_
 
 This should be enough! Let's see how it all maps to types.
@@ -104,7 +104,7 @@ type C = never extends false ? 1 : 0;
 type D = never extends never ? 1 : 0;
 ```
 
-If you recall that "extends" can be read as "is subset of", the answer should be clear — A0,B1,C1,C1. We're making progress!
+If you recall that "extends" can be read as "is subset of", the answer should be clear — A0,B1,C1,D1. We're making progress!
 
 `null` and `undefined` are just like `boolean`, except they only contain _one_ value each. `never extends null` still holds, `null & boolean` is `never` since no JS value can simultaneously be of 2 different JS types, and so on. Let's add these to our "trivial types map":
 
