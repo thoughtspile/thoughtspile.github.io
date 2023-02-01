@@ -108,7 +108,7 @@ type C = never extends false ? 1 : 0;
 type D = never extends never ? 1 : 0;
 ```
 
-If you recall that "extends" can be read as "is subset of", the answer should be clear — A0,B1,C1,C1. We're making progress!
+If you recall that "extends" can be read as "is subset of", the answer should be clear — A0,B1,C1,D1. We're making progress!
 
 `null` and `undefined` are just like `boolean`, except they only contain _one_ value each. `never extends null` still holds, `null & boolean` is `never` since no JS value can simultaneously be of 2 different JS types, and so on. Let's add these to our "trivial types map":
 
