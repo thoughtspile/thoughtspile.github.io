@@ -59,7 +59,7 @@ console.log(JSON.stringify(city));
 
 Another trick with boolean short-circuiting is conditional logging. Suppose we have an array of users, and there's a bug displaying users from Australia. But if you log all the users, there is a lot of eye-scanning to find the necessary ones. Booelan short-circuiting to the rescue again, with `condition && console.log(data)`
 
-![](/images/conditional-logging.png)
+![](/images/conditional-logging.png?invert)
 
 Bad code style? Sure. But you'll remove it in a minute anyways.
 
@@ -67,7 +67,7 @@ Bad code style? Sure. But you'll remove it in a minute anyways.
 
 With a lot of logs running around your console, finding the ones you just added is no easy task.
 
-![](/images/painted-log.png)
+![](/images/painted-log.png?invert)
 
 If you use `console.error` or `warn`, your line will be brighter-colored and easier to find. At least until you write 20 `console.warn`s.
 

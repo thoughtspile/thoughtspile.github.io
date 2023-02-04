@@ -1,7 +1,7 @@
 :root {
   --primary: #383838;
-  --secondary: #8c8c8c;
   --bg: #fff;
+  --secondary: #8c8c8c;
   --accent-primary: #2bbc8a;
   --brand-bmc: #fd0;
   --text-bmc: #000;
@@ -10,7 +10,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #eaeaea;
-    --bg: #000;
+    --bg: rgb(18,18,18);
+  }
+  img[src*="?invert"] {
+    filter: invert(0.89) hue-rotate(180deg) contrast(1.1);
   }
 }
 
@@ -170,6 +173,8 @@ html {
 }
 body {
   color-scheme: light dark;
+  color: var(--primary);
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   font-weight: 400;

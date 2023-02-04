@@ -217,7 +217,7 @@ I expect the runtime performance difference between single object state and mult
 
 I've made a tiny [benchmark](https://jsbench.me/qvkumpoejp/1) comparing several useState calls, single `useState(object)` call and single `useState(() => lazy object)`. The results are available in a [google sheet](https://docs.google.com/spreadsheets/d/1IpPuc77S9UODSpLELqGSy-_06xYo11BIEcHVadId1H0/edit?usp=sharing). I've also made a nice chart that shows percent increase in mount time over baseline — no hooks, just a stateless render:
 
-![](/images/usestate-perf.png)
+![](/images/usestate-perf.png?invert)
 
 I wouldn't dare interpret these results given how cool optimizing compilers are, but the general as I see it pattern makes sense:
 

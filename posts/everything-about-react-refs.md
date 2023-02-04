@@ -69,7 +69,7 @@ In contrast, `componentWillUnmount` and unmount `useLayoutEffect()` cleanup are 
 
 Here's a chart that summarizes all this timing:
 
-![](/images/react-ref-order.png)
+![](/images/react-ref-order.png?invert)
 
 Now I feel like we're getting somewhere in our understanding of `refs` — but does it have any practical value? Read on!
 

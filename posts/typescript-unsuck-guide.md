@@ -55,7 +55,7 @@ As a rule of thumb, we only need explicit type annotations for:
 - Values coming from outside the codebase. This one's trickier, but think af an API call: `get<IUser[]>('/users')`.
 - (Yes, there are other cases, you'll know it when you see one, don't get mad at me).
 
-![](/images/ts-just-enough.png)
+![](/images/ts-just-enough.png?invert)
 
 Generally, annotate as few types as you can, then check the IDE hints to see if TS got it right. If not, help him.
 
@@ -69,7 +69,7 @@ With TS, you always have an easy way out — there's no shame in dropping an `an
 
 ## Prevent compilation error buildup with global overrides
 
-![](/images/ts-errors.png)
+![](/images/ts-errors.png?invert)
 
 Accidentally you slip and ignore a TS error. The code still compiles, no harm done! But once your compilation log is several 10+ of bloody redness, it's lost as a source of information about global project correctness. The generic advice is "look if it's a real error, then either fix or re-type it", but yes, I do have something specific in mind. Global type overrides are your friends!
 

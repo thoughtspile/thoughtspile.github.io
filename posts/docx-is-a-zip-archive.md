@@ -10,7 +10,7 @@ Microsof Office's `docx` files are actually zip archives with a bunch of XMLs an
 
 When I tell my colleagues, friends, or students about it, they don't take me seriously the first time. So, here we go again. If you have a docx (or xlsx, or pptx) file, you can unzip it with `unzip proj.docx -d proj` or any other unarchiver and get a folder with all the stuff that makes up the document:
 
-![](/images/unzipped-docx.png)
+![](/images/unzipped-docx.png?invert)
 
 From here, you can:
 

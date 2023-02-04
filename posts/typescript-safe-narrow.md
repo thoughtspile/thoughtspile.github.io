@@ -341,4 +341,4 @@ A very neat (and type-safe!) alternative to type guards is a _downcast function_
 
 Here are all the options we discussed today, in a cute diagram:
 
-![](/images/ts-narrowing.png)
+![](/images/ts-narrowing.png?invert)

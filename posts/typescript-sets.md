@@ -30,7 +30,7 @@ I was doing some research on `never`, and stumbled upon Zhenghao He's [Complete 
 
 In the end, I solve most of my questions, grow much cozier with TS, and come up with this brilliant map of TS types:
 
-![](/images/ts-sets/everything.png)
+![](/images/ts-sets/everything.png?invert)
 
 ## Set theory
 
@@ -45,7 +45,7 @@ Sets are unordered collections of objects. In kindergarten terms: say we have tw
 
 Sets are often drawn as "venn diagrams", with each set represented as a circle:
 
-![](/images/ts-sets/apples.png)
+![](/images/ts-sets/apples.png?invert)
 
 Apart from listing all the items, we can also build sets by _condition._ I can say "R is a set of red apples" to mean `{ ivan }`, considernig ivan is red and bob is green. So far, so good. 
 
@@ -88,7 +88,7 @@ For now, pretend JS only has boolean values. There are exaclty _two_ — `true` 
 
 The diagram of the "boolean types" is basically the one that we had for apples, just the names swapped:
 
-![](/images/ts-sets/bool.png)
+![](/images/ts-sets/bool.png?invert)
 
 Let's try moving between type world and set world:
 
@@ -112,7 +112,7 @@ If you recall that "extends" can be read as "is subset of", the answer should be
 
 `null` and `undefined` are just like `boolean`, except they only contain _one_ value each. `never extends null` still holds, `null & boolean` is `never` since no JS value can simultaneously be of 2 different JS types, and so on. Let's add these to our "trivial types map":
 
-![](/images/ts-sets/finites.png)
+![](/images/ts-sets/finites.png?invert)
 
 ## Strings and other primitives
 
@@ -131,7 +131,7 @@ However, some string types are _not_ representable in TS at all. Try "every stri
 
 The types for numbers, symbols and bigints work the same way, except they don't even get a "template" type, and are limited to finite sets. It's a pity, as I could really use some number subtypes — _integer, number between 0 and 1,_ or _positive number._ Anyways, all together:
 
-![](/images/ts-sets/primitives.png)
+![](/images/ts-sets/primitives.png?invert)
 
 Phew, we've covered all primitive, _non-intersecting_ JS / TS types. We've gotten comfortable moving between sets and types, and discovered that some types can't be defined in TS. Here comes the tricky part.
 
@@ -149,7 +149,7 @@ Oh, and what about that odd `object` type? Since every property on an interface 
 
 Let's add all of these to our type map:
 
-![](/images/ts-sets/everything.png)
+![](/images/ts-sets/everything.png?invert)
 
 ## extends
 
@@ -194,7 +194,7 @@ We should conclude that `any` is "some set, but we're not sure which one" — li
 
 So, to finish mapping our types, we wrap our entire diagram into `unknown` bubble:
 
-![](/images/ts-sets/all.png)
+![](/images/ts-sets/all.png?invert)
 
 ---
 

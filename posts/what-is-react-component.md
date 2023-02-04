@@ -8,7 +8,7 @@ tags:
 
 I used to teach a class on React. There’s no better way to start a hands-on course than “Let’s write a simple component!”. But time after time I hear — “Vladimir, what’s a component, anyways?”. Bah, what a question! It’s a react thingie. React apps are made of components. Why do you care at all? When you grow up you’ll see. But at some point in life you just have to find the definitive answer to this question, and for me this time is now.
 
-![](https://blog.thoughtspile.tech/images/hat-soup.png)
+![](https://blog.thoughtspile.tech/images/hat-soup.png?invert)
 
 Here’s what we know so far. `Card` here is most certainly a component:
 
@@ -37,7 +37,7 @@ And, surprise, it’s a bit of all four, really. Let’s dive in!
 
 The most intuitive answer for anyone with front-end experience (both developers _and_ designers) is that React component is a reusable piece of UI. You look at figma designs, spot recurring fragments, and these are your React components:
 
-![](https://blog.thoughtspile.tech/images/cmp-decomposition.png)
+![](https://blog.thoughtspile.tech/images/cmp-decomposition.png?invert)
 
 It’s tempting to say that React components implement the concept of UI components. It’s a good first attempt at definition. Still, it leaves some questions unanswered. Our `renderCard` function is a reusable piece of UI, so it must be a component. This feels wrong. Next, React allows for components that don’t actually own any UI — most [higher-order components](https://reactjs.org/docs/higher-order-components.html) and some [libraries](https://github.com/downshift-js/downshift) work that way:
 

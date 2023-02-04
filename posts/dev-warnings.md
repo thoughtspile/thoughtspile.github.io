@@ -76,7 +76,7 @@ isDev && console.log('ooh no');
 
 Modern web apps use many different libraries. When a developer sees your message, it may not be obvious where it came from. A good first step is replacing `console.log` with a `warn` or `error` that fires with a nice expandable stack trace:
 
-![](/images/warn-trace.png)
+![](/images/warn-trace.png?invert)
 
 In some frameworks (looking at you, React) the stack trace may not be that useful. If that's your case, provide extra identification inside the message:
 

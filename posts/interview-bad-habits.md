@@ -23,7 +23,7 @@ If this sounds trivial, then why do some interviewers…
 
 Because they’re bad at interviewing, that’s why. Or, being more positive — because they’ve lost sight of the _goal_ to be achieved behind the _ritual._ In this article, I go over the major sources of my frustration with interviews, and share some advice for improving your interviews.
 
-![](https://blog.thoughtspile.tech/images/bad-interview-habits.png)
+![](https://blog.thoughtspile.tech/images/bad-interview-habits.png?invert)
 
 ## Me smart — you stupid
 
@@ -72,7 +72,7 @@ Timing is not as important as you think. Finishing early is fine — whether the
 
 While we’re at it, locking yourself into a very strict script is no better than having no plan at all. If the question sparks some interesting discussion, don’t kill it just to ask more low-level stuff. If you were looking for a senior developer, but happen to have a good junior before you, you’d better adapt — a good junior is still useful and hard to come by. If the candidate has never worked on performance optimization, there’s no use asking in-depth about TTI measurement. Open-ended tasks give you more flexibility in all these cases than “senior-only” questions.
 
-![](https://blog.thoughtspile.tech/images/bad-interview-habits-plan.png)
+![](https://blog.thoughtspile.tech/images/bad-interview-habits-plan.png?invert)
 
 So, do prepare the list of questions that reasonably cover the topics you care about, but don’t obsess over that plan too much — at the end of the day, you’re after a candidate to reinforce your team, not a walking encyclopedia of development.
 
@@ -95,7 +95,7 @@ I’m fine with 2 interviews and a phone screening, as long as I genuinely like 
 
 Having _too many_ interviews is not the only way to overstretch the process. You can only have two, scheduled too far from each other, or be generally slow to organize them and gather feedback. I’m no expert on office administration, but remember that your goal is to hire people _before_ they accept another offer, so please do your best here.
 
-![](https://blog.thoughtspile.tech/images/bad-interview-habits-overstretching.png)
+![](https://blog.thoughtspile.tech/images/bad-interview-habits-overstretching.png?invert)
 
 So, _only_ add more interviews if you really need them, and your offering justifies the extra time required. Also remember that extra interviews are not free for your team.
 
@@ -109,7 +109,7 @@ One pitfall is follow-up questions. Every interviewer wants to ask one, then it 
 
 Another problem that arises with a “passive” interviewer is boredom. Listening to the same answers for the tenth time is not always exciting. However, it’s not very reassuring to see a visibly bored interviewer, especially one who starts playing with the phone because business. The worst of I’ve seen a bored interviewer do is reach into his pants, take something out and chew on it. Hope it was a candy. I needed time to accept this experience.
 
-![](https://blog.thoughtspile.tech/images/bad-interview-habits-group.png)
+![](https://blog.thoughtspile.tech/images/bad-interview-habits-group.png?invert)
 
 If you bring buddies to the interview, make sure to agree on who asks what in advance, avoid useless follow-ups that assert your smartness, and make sure not to fall asleep when it’s not your talking time.
 

@@ -26,7 +26,7 @@ There is, however, a more interesting passage in the docs:
 
 This is a good guarantee — you can be sure no updates are missed. But it also implies that sometimes the effect fires before paint. If _a)_ effects are flushed before a new update starts, and _b)_ an update can start _before_ paint, e.g. when triggered from `useLayoutEffect`, _then_ the effect must be flushed _before_ that update, which is _before_ paint. Here's a timeline:
 
-![](/images/forced-le-flush-chart.png)
+![](/images/forced-le-flush-chart.png?invert)
 
 1. React update 1: render virtual DOM, schedule effects, update DOM
 2. Call `useLayoutEffect`
@@ -63,7 +63,7 @@ const ResponsiveInput = ({ onClear, ...props }) => {
 
 We've tried to delay `addEventListener` until after paint with `useEffect`, but the state update in `useLayoutEffect` forces it to happen before paint [(see sandbox):](https://codesandbox.io/s/infallible-wildflower-127lv?file=/src/App.js:294-408)
 
-![](/images/le-flush-paint.png)
+![](/images/le-flush-paint.png?invert)
 
 `useLayoutEffect` is not the only place where updating forces an early effect flush — host refs (`<div ref={HERE}>`), `requestAnimationFrame` loops, and microtasks scheduled from uLE trigger the same behavior.
 

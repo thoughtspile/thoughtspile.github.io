@@ -24,7 +24,7 @@ Courageous, but not always as intuitive as you’d expect. Time after time I sho
 
 If you’re in a hurry, I’ve made a cheat sheet:
 
-![](https://blog.thoughtspile.tech/images/jsx-conditional-cheatsheet.png)
+![](https://blog.thoughtspile.tech/images/jsx-conditional-cheatsheet.png?invert)
 
 ## Beware of zero
 
