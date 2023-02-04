@@ -13,6 +13,11 @@
     <meta property="og:url" content="<%= config.base %><%= page.url %>">
     <meta property="og:site_name" content="Vladimir Klepov as a Coder">
     <meta property="og:locale" content="en_US">
+    <% if (typeof summary !== 'undefined' && summary) { %>
+        <meta name="description" content="<%=summary%>">
+        <meta property="og:description" content="<%=summary%>">
+        <meta property="twitter:description" content="<%=summary%>">
+    <% } %>
     <% const images = js.getImages(content); %>
     <% for (const img of images) { %>
         <meta property="og:image" content="<%= img %>">
@@ -26,9 +31,7 @@
     <% } %>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:creator" content="@thoughtspile">
-    <% if (images.length) { %>
-        <meta name="twitter:image" content="<%= images[0] %>">
-    <% } %>
+    <meta name="twitter:image" content="<%= images[0] %>">
 
     <!-- title -->
     <title><%= title %></title>

@@ -57,10 +57,11 @@ module.exports = function(eleventyConfig) {
   });
   
   eleventyConfig.addFilter('getImages', (content) => {
-    return parse(content).querySelectorAll('img').map(img => {
+    const images = parse(content).querySelectorAll('img').map(img => {
       const src = img.getAttribute('src');
       return `${config.base}${src}`;
     });
+    return images.length ? images : [`${config.base}/images/main-promo.png`];
   });
 
   function filterTagList(tags) {
