@@ -2,6 +2,8 @@
   "title": "Vladimir Klepov as a Coder",
   "base": "https://blog.thoughtspile.tech",
   "twitter": "https://twitter.com/thoughtspile",
+  "mastodon": "https://mastodon.online/@thoughtspile",
+  "linkedin": "https://www.linkedin.com/in/vklepov/",
   "github": "https://github.com/thoughtspile",
   "bmc": "https://buymeacoffee.com/thoughtspile",
   "primaryTags": ["react", "testing", "eslint", "design", "typescript", "rant", "infra", "open source", "javascript"],

@@ -4,18 +4,25 @@ tags: []
 title: Vladimir Klepov as a Coder
 ---
 
-<%- include('layout/_partial/header', { is_post: false }) %>
-<section id="about">
-  <p>
-    My name is Vladimir, and I do frontend tricks for money.
-  </p>
+<section>
+  <div class="about">
+    <span class="me-greet">Nice to meet you, my name is</span>
+    <h1 class="me">Vladimir Klepov</h1>
+    I&nbsp;am a&nbsp;front-end team&nbsp;lead, currently building a&nbsp;fintech startup. I&nbsp;write 
+    in-depth articles about web development — best known for&nbsp;my&nbsp;<a href="/tags/react">React series,</a> but eager&nbsp;to 
+    explore other technologies.
+  </div>
 
-  Like my stuff? Follow me on
-  <a target="_blank" href="<%- config.twitter %>">twitter</a>
-  or
-  <a target="_blank" href="<%- config.github %>">github.</a>
-
-  You can even <a href="<%- config.bmc %>">buy me a coffee.</a>
+  <a href="<%= config.bmc %>" class="link--bare bmc-card">
+    <div>
+      My&nbsp;goal is to&nbsp;become an independent content creator. But before I&nbsp;get there, 
+      I&nbsp;need to make this blog self-sustaining —  gathering $130 in 2023 to&nbsp;pay for the 
+      domain and hosting. Currently I'm at&nbsp;$5. 
+      It&nbsp;would greatly help if you <span class="bmc">bought me a&nbsp;coffee!</span>
+    </div>
+  </a>
+  
+  <%- include('layout/_partial/social-links') %>
 </section>
 
 <section id="writing">

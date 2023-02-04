@@ -7,6 +7,9 @@ layout: layout.ejs
     <h1 class="posttitle" itemprop="name headline">
         <%= title %>
     </h1>
+    <div class="post__date">
+      Written in<%- include('_partial/post/date', { post: page, class_name: 'postdate' }) %>
+    </div>
   </header>
   <div class="content" itemprop="articleBody">
     <%- content %>
@@ -25,32 +28,38 @@ layout: layout.ejs
       <a href="https://twitter.com/search?q=<%= config.base + page.url %>">Discuss on Twitter</a>
     </div>
   </span>  
-  
+
+  <%- include('_partial/social-links') %>
+
+  <a href="<%= config.bmc %>" class="link--bare bmc-card">
+    <div>
+      <b>Hello, friend!</b> My name is Vladimir, and I love writing about web development.
+      If you got down here, you probably enjoyed this article. My goal is to become an independent 
+      content creator, and you'll help me get there by <span class="bmc">buying me a coffee!</span>
+    </div>
+    <img src="/images/bmc.png" class="bmc-image" />
+  </a>
+
   <div class="post-related">
-    More?<%- include('_partial/post/tag') %>
-  </div>
-
-  <div class="post-actions">
-    Written in<%- include('_partial/post/date', { post: page, class_name: 'postdate' }) %> by&nbsp;your friend, <a href="/">Vladimir.</a>
-    Follow&nbsp;me on&nbsp;<a href="<%= config.twitter %>" target="_blank">Twitter</a> to&nbsp;get post updates.
-    I&nbsp;have <a href="/atom.xml">RSS,</a> too. And you can <a class="bmc link--bare" href="<%= config.bmc %>">buy me a coffee!</a>
-  </div>
-
-  <div class="post-siblings">
+    <div class="post-sibling">
+      <span class="post-siblings__direction">More?</span><%- include('_partial/post/tag') %>
+    </div>
+    
     <% var nextPost = js.getPreviousCollectionItem(collections.posts, page) %>
     <% if (nextPost) { %>
-      <a class="link--bare" href="<%=nextPost.url%>">
-        <div class="post-siblings__direction">Older</div>
+      <a class="link--bare post-sibling" href="<%=nextPost.url%>">
+        <span class="post-siblings__direction">Older?</span>
         <span class="link__text"><%-nextPost.data.title%></span>
       </a>
     <% } %>
     <% var previousPost = js.getNextCollectionItem(collections.posts, page) %>
     <% if (previousPost) { %>
-      <a class="link--bare" href="<%=previousPost.url%>">
-        <div class="post-siblings__direction">Newer</div>
+      <a class="link--bare post-sibling" href="<%=previousPost.url%>">
+        <span class="post-siblings__direction">Newer?</span>
         <span class="link__text"><%-previousPost.data.title%></span>
       </a>
     <% } %>
   </div>
+
 </article>
 <script async src="/js/share.js"></script>
