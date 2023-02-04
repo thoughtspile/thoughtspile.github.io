@@ -23,11 +23,16 @@ module.exports = function(eleventyConfig) {
     const root = parse(content);
     for (const link of root.querySelectorAll("a")) {
       const href = link.getAttribute('href');
-      console.log(href);
       if (href && isExternal(href)) {
         link.setAttribute("target", '_blank');
         link.setAttribute("rel", 'noopener');
       }
+    }
+    for (const css of root.querySelectorAll('link[rel=stylesheet]')) {
+      if (!css.getAttribute('href')) throw new Error(`${css} has no href`);
+      const url = new URL(config.base + css.getAttribute('href'));
+      url.searchParams.append('ts', String(Date.now()));
+      css.setAttribute('href', `${url.pathname}${url.search}`);
     }
 
     return root.toString();

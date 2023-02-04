@@ -247,6 +247,11 @@
         </url>
     
         <url>
+            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://blog.thoughtspile.tech/tags/javascript/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -257,27 +262,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/react/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -302,12 +292,17 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/open%20source/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/react/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/open%20source/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -342,7 +337,7 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/happiness/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -358,6 +353,11 @@
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/high%20availability/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/happiness/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
