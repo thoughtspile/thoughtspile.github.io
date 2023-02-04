@@ -14,7 +14,7 @@ layout: layout.ejs
 
   <span class="share">
     <div>
-      <a href="https://twitter.com/share?url=<%= page.permalink %>&text=<%= page.title %> by @thoughtspile">
+      <a href="https://twitter.com/share?url=<%= config.base + page.url %>&text=<%= title %> by @thoughtspile">
         Tweet
       </a>
     </div>
@@ -22,7 +22,7 @@ layout: layout.ejs
       <a>Share</a>
     </div>
     <div>
-      <a href="https://twitter.com/search?q=<%= config.base %><%= page.url %>">Discuss on Twitter</a>
+      <a href="https://twitter.com/search?q=<%= config.base + page.url %>">Discuss on Twitter</a>
     </div>
   </span>  
   
