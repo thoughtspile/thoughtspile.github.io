@@ -257,12 +257,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/design/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -287,22 +287,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/react/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -317,21 +307,6 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/design/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/performance/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/tips/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -342,12 +317,32 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/happiness/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/performance/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/testing/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/webdev/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/happiness/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -372,6 +367,16 @@
         </url>
     
         <url>
+            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://blog.thoughtspile.tech/_drafts/non-tree-shaking/</loc>
             <lastmod>2023-01-12T00:00:00.000Z</lastmod>
         </url>
@@ -384,6 +389,11 @@
         <url>
             <loc>https://blog.thoughtspile.tech/_drafts/dont-dry/</loc>
             <lastmod>2023-01-18T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/_drafts/typescript-enum-escape/</loc>
+            <lastmod>2023-01-23T00:00:00.000Z</lastmod>
         </url>
     
         <url>
@@ -404,6 +414,21 @@
         <url>
             <loc>https://blog.thoughtspile.tech/2023/01/31/typescript-safe-narrow/</loc>
             <lastmod>2023-01-31T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/_drafts/no-bs-colors/</loc>
+            <lastmod>2023-02-05T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2023/02/12/open-source-analytics/</loc>
+            <lastmod>2023-02-12T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/_drafts/plausible-tutorial/</loc>
+            <lastmod>2023-02-13T10:08:45.312Z</lastmod>
         </url>
     
 </urlset>
