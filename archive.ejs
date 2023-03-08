@@ -1,0 +1,19 @@
+---
+layout: layout.ejs
+tags: []
+title: Vladimir Klepov as a Coder
+summary: I write in-depth articles about web development — best known for my React series, but eager to explore other technologies.
+---
+
+<%- include('layout/_partial/header', { is_post: false }) %>
+
+<section>
+  <%- include('layout/_partial/social-links') %>
+</section>
+
+<section id="writing">
+  <span class="h1"><a href="/archive">Writing</a></span>
+  <%- include('layout/_partial/post-list', { posts: collections.posts.slice().reverse(), tags: true }) %>
+</section>
+
+<%- include('layout/_partial/bmc-lead') %>

@@ -57,7 +57,7 @@ module.exports = function(eleventyConfig) {
   });
   
   eleventyConfig.addFilter('getImages', (content) => {
-    const images = parse(content).querySelectorAll('img').map(img => {
+    const images = parse(content).querySelectorAll('img:not([data-no-preview])').map(img => {
       const src = img.getAttribute('src');
       return `${config.base}${src}`;
     });

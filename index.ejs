@@ -3,6 +3,7 @@ layout: layout.ejs
 tags: []
 title: Vladimir Klepov as a Coder
 summary: I write in-depth articles about web development — best known for my React series, but eager to explore other technologies.
+postLimit: 10
 ---
 
 <section>
@@ -27,15 +28,34 @@ summary: I write in-depth articles about web development — best known for my R
 </section>
 
 <section id="writing">
-  <span class="h1">Writing</span>
-  <%- include('layout/_partial/post-list', { posts: collections.posts.slice().reverse(), tags: true }) %>
+  <span class="h1"><a href="/archive">Writing</a></span>
+  <%- include('layout/_partial/post-list', { posts: collections.posts.slice().reverse().slice(0, postLimit), tags: true }) %>
+  <a href="/archive">And <%=collections.posts.length - postLimit%> more</a>
 </section>
 
 <section id="projects">
   <span class="h1"><a href="<%- config.github %>">Projects</a></span>
   <ul class="project-list">
     <li class="project-item">
-      <a target="_blank" rel="noopener" href="https://thoughtspile.github.io/grafar/#/">Grafar</a>: Reactive multidimensional math &amp; data visualization for the web.
+      <a target="_blank" href="https://blog.thoughtspile.tech/grafar/#/">Grafar:</a>
+      Reactive multidimensional math &amp; data visualization for the web.
+    </li>
+    <li class="project-item">
+      <a target="_blank" href="https://github.com/thoughtspile/banditypes">Banditypes:</a>
+      The smallest validation library for JS / TS — only 400 bytes!
+    </li>
+    <li class="project-item">
+      <a target="_blank" href="https://github.com/thoughtspile/banditstash">Banditstash:</a>
+      Type-safe localStorage wrapper with validation, key scoping and error handling. 
+      Highly configurable, 500 bytes.
+    </li>
+    <li class="project-item">
+      <a target="_blank" href="https://github.com/thoughtspile/awesome-tiny-js">Awesome tiny JS:</a>
+      Curated list of extremely small JS libraries.
+    </li>
+    <li class="project-item">
+      <a target="_blank" href="https://blog.thoughtspile.tech/procedural/">Procedural art:</a>
+      Beautiful moving things.
     </li>
   </ul>
 </section>

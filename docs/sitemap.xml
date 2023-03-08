@@ -247,17 +247,17 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/design/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/frontend/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/programming/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/design/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -287,6 +287,16 @@
         </url>
     
         <url>
+            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://blog.thoughtspile.tech/tags/rant/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -307,11 +317,6 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/react/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -327,12 +332,17 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/tips/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/eslint/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -347,6 +357,11 @@
         </url>
     
         <url>
+            <loc>https://blog.thoughtspile.tech/tags/promises/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://blog.thoughtspile.tech/tags/testing/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -357,32 +372,17 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/tips/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/promises/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/high%20availability/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/concurrency/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/OOP/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/OOP/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/concurrency/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -439,6 +439,11 @@
         <url>
             <loc>https://blog.thoughtspile.tech/2023/03/02/banditypes-smallest-validation/</loc>
             <lastmod>2023-03-02T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/archive/</loc>
+            <lastmod>2023-03-08T16:13:32.315Z</lastmod>
         </url>
     
 </urlset>
