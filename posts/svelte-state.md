@@ -126,7 +126,7 @@ Based on the points above, you'd assume that assigning to the variable _always_ 
 let isEnabled = false;
 // only run on the first click
 afterUpdate(() => console.log('updated'));
-$: console.log({ isEnabled })
+$: console.log(isEnabled)
 
 <button on:click={() => isEnabled = true}>
     {isEnabled ? 'clicked' : 'click me'}
@@ -140,13 +140,13 @@ In general, setting a primitive variable to its current value does not trigger a
 But in that case, how on earth can this support object mutation and self-assignment that don't change the object reference? Well, the trick is simple — it doesn't. Wrapping `isEnabled` with an object removes the optimization, and now the update [happens on every click:](https://svelte.dev/repl/06962949791c4e1897bbb41714d71385?version=3.58.0)
 
 ```jsx
-let isEnabled = false;
+let state = { isEnabled: false };
 // runs on every click
 afterUpdate(() => console.log('updated'));
-$: console.log({ isEnabled })
+$: console.log(state.isEnabled)
 
-<button on:click={() => isEnabled = true}>
-    {isEnabled ? 'clicked' : 'click me'}
+<button on:click={() => state.isEnabled = true}>
+    {state.isEnabled ? 'clicked' : 'click me'}
 </button>
 ```
 
