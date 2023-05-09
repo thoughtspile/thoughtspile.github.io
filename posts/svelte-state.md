@@ -126,7 +126,7 @@ Based on the points above, you'd assume that assigning to the variable _always_ 
 let isEnabled = false;
 // only run on the first click
 afterUpdate(() => console.log('updated'));
-$: console.log(isEnabled)
+$: console.log({ isEnabled });
 
 <button on:click={() => isEnabled = true}>
     {isEnabled ? 'clicked' : 'click me'}
