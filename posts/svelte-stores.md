@@ -106,7 +106,7 @@ s.subscribe(console.log);
 s.set(9);
 ```
 
-Object state [disables this optimization:](https://svelte.dev/repl/eb1a787c9bce4ae8b88f85934d7ec37d?version=3.59.1)
+Object state [disables this optimization](https://svelte.dev/repl/eb1a787c9bce4ae8b88f85934d7ec37d?version=3.59.1) — you can pass a shallow equal object, or the same (by reference) object, the subscribers will be called in any case:
 
 ```js
 const s = writable({ value: 9 });
@@ -115,6 +115,15 @@ s.subscribe(console.log);
 s.update(s => s);
 s.set(get(s));
 s.set({ value: 9 });
+```
+
+On the bright side, you can mutate the state in update, and it works:
+
+```js
+s.update(s => {
+    s.value += 1;
+    return s
+});
 ```
 
 ## Subscriber consistency
@@ -281,7 +290,7 @@ To summarize:
 1. Both `readable` and `derived` are built on top of `writable` — readable only picks `subscribe` method, derived is a readable with a smart start / stop notifier.
 2. Built-in stores don't rely on `this`, so you can safely use their methods as free functions.
 3. Calling `subscribe(fn)` immediately invokes `fn` with the current value — used in `get(store)` to get the current value.
-4. Calling `set()` with the current value of the store will skip notifying subscribers if the value is primitive (but not if it's an object)
+4. Calling `set()` with the current value of the store will skip notifying subscribers if the value is primitive. set() on object state always notifies, even if the object is same, by reference, as the current state.
 5. The subscribers for a single `set()` run after one another. If a subscriber calls `set`, this update will be processed once the first `set()` is fully flushed.
 6. `derived` only subscribes to the base stores and maps the value when someone's actively listening to it.
 7. When synchronously changing two dependencies of `derived`, the mapper _will_ be called after the first change. There's no way to batch these updates.
