@@ -262,7 +262,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/career/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/life/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -272,12 +277,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/infra/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/interview/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/infra/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -292,22 +297,22 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/react/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/typescript/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://blog.thoughtspile.tech/tags/rant/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/life/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -322,7 +327,17 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/angularjs/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/react/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/hooks/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/interviews/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -332,22 +347,7 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/babel/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/performance/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://blog.thoughtspile.tech/tags/tips/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://blog.thoughtspile.tech/tags/testing/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -357,12 +357,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/performance/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/promises/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/testing/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -372,12 +372,17 @@
         </url>
     
         <url>
+            <loc>https://blog.thoughtspile.tech/tags/promises/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://blog.thoughtspile.tech/tags/high%20availability/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/OOP/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/concurrency/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -387,7 +392,12 @@
         </url>
     
         <url>
-            <loc>https://blog.thoughtspile.tech/tags/concurrency/</loc>
+            <loc>https://blog.thoughtspile.tech/tags/OOP/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/tags/microsoft/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -474,6 +484,16 @@
         <url>
             <loc>https://blog.thoughtspile.tech/2023/04/22/svelte-stores/</loc>
             <lastmod>2023-04-22T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/_drafts/effective-interviews/</loc>
+            <lastmod>2024-01-02T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://blog.thoughtspile.tech/2024/01/06/60-interview-lessons/</loc>
+            <lastmod>2024-01-06T00:00:00.000Z</lastmod>
         </url>
     
 </urlset>

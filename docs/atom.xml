@@ -4,12 +4,60 @@
 	
 	<link href="https://blog.thoughtspile.tech/atom.xml" rel="self"/>
 	<link href="https://blog.thoughtspile.tech"/>
-	<updated>2023-04-22T00:00:00Z</updated>
+	<updated>2024-01-06T00:00:00Z</updated>
 	<id>https://blog.thoughtspile.tech/</id>
 	<author>
 		<name>Vladimir Klepov</name>
 		<email>v.klepov@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>I conducted 60 interviews in 2 months — here&#39;s what I learnt</title>
+		<link href="https://blog.thoughtspile.tech/2024/01/06/60-interview-lessons/"/>
+		<published>2024-01-06T00:00:00Z</published>
+		<id>https://blog.thoughtspile.tech/2024/01/06/60-interview-lessons/</id>
+		<content type="html">&lt;p&gt;It&#39;s hard to believe, but, starting mid-october 2023 I conducted 60 technical interviews and hired 10 people into our team. It&#39;s been &lt;em&gt;extremely&lt;/em&gt; tiring: around 80 hours of &lt;em&gt;active&lt;/em&gt; interviewing, plus writing interview reports, plus screening CVs and take-home assignments, plus onboarding new members — all while doing my normal work stuff. Still, I feel like I learnt a lot in the process — things that would help me as a candidate in the future, and might help you land your next job.&lt;/p&gt;
+&lt;p&gt;Note that I&#39;m a fairly relaxed interviewer, and, as an internal startup of a large tech company, we generally have a more &lt;em&gt;humane&lt;/em&gt; hiring process, so your mileage may vary. Still, I&#39;ve done my best to pick the tips that I feel are universally applicable.&lt;/p&gt;
+&lt;p&gt;Here are nine insights I took out of this experience, in no particular order:&lt;/p&gt;
+&lt;h2&gt;Be generous with your &amp;quot;expected income&amp;quot;.&lt;/h2&gt;
+&lt;p&gt;Say you&#39;re a solid higher-middle engineer, and you ask for a senior salary. My thought process: OK buddy, it&#39;s a bit more than reasonable &lt;em&gt;now,&lt;/em&gt; but I won&#39;t have to fight for your promotion 8–12 months from now when you get there, and I don&#39;t have to spend another 12 hours of my own time (and leave my team understaffed for another few weeks) looking for a real hardcore senior, so I&#39;ll let you have it. Now suppose you ask for a junior salary. It&#39;s suspicious — &lt;em&gt;why is your bar so low?&lt;/em&gt; Is there someting about your work performance you&#39;re not telling us? So, do your research on reasonable salaries for your level of experience, and aim &lt;em&gt;slightly&lt;/em&gt; above that.&lt;/p&gt;
+&lt;h2&gt;Ask the right questions.&lt;/h2&gt;
+&lt;p&gt;I always leave time for the candidate to ask &lt;em&gt;me&lt;/em&gt; questions — obviously, this lets the candidate probe what it&#39;s like to work at our team, but it&#39;s also the best opportunity for me to learn what really matters to the candidate. I&#39;ve never been much of an asker myself, but now I see that &amp;quot;Thanks, I have no questions&amp;quot; does not look good — if anything, it paints you as someone who doesn&#39;t care. Here&#39;s a short list of good questions:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What does the daily work in this role look like? Harmless.&lt;/li&gt;
+&lt;li&gt;What features are you building next? Caring about the overall product, nice. Sometimes the answer is &amp;quot;I can&#39;t disclose this secret&amp;quot;, but not that often.&lt;/li&gt;
+&lt;li&gt;Anyting about processes or team structure: how many people are on the team? How often do you release? What regular meetings do you have? Interested in organization, might want to be a team lead someday, great.&lt;/li&gt;
+&lt;li&gt;Anything tech-related: which framework do you use? Why did you pick framework X? How do you test your app? Especially suitable for junior- to middle developers who are most involved in hands-on work.&lt;/li&gt;
+&lt;li&gt;What kind of tasks do you see me doing? Again, just a good neutral question, because responsibilities for any role differ wildly between companies.&lt;/li&gt;
+&lt;li&gt;What growth / promotion opportunities does this position have? Cool trick, flipping the feared &amp;quot;where do you see yourself in 5 years&amp;quot; question against the hiring manager.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here are a few questions that are &lt;em&gt;not&lt;/em&gt; very good:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Do you use jira and github? It&#39;s a minor detail, won&#39;t you be able to work with youtrack and gitlab?&lt;/li&gt;
+&lt;li&gt;Do you sometimes work late? Only if something breaks, but overall this question makes you seem a bit &lt;em&gt;lazy.&lt;/em&gt; People on poor teams that routinely overtime aren&#39;t likely to answer this question honestly, at any rate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Social skills matter.&lt;/h2&gt;
+&lt;p&gt;I understand that not everybody is super outgoing, but if we already feel awkward 1 hour into our acquaintance, why work together — to feel awkward for months to come? Just a few tips anyone can follow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Be energetic. You&#39;re tired, I&#39;m tired, we&#39;re all tired of endless interviews. Are you just tired today, or generally always too tired to get anything done? I know it&#39;s easier said than done, but try and show me all the energy you have left.&lt;/li&gt;
+&lt;li&gt;Show respect. People enjoy being respected. Very easy one: &lt;em&gt;you have a great product. Sounds like you have a great engineering culture. This is one of the most interesting interviews I&#39;ve ever seen.&lt;/em&gt; Like, I know you don&#39;t necessarily mean that, but subconsciously I&#39;m very pleased: &amp;quot;oh yes, I&#39;m very proud of my interview process, thanks for noticing&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On a related note...&lt;/p&gt;
+&lt;h2&gt;Provide conversation opportunities.&lt;/h2&gt;
+&lt;p&gt;Q: Do you use TDD? Bad answer: &amp;quot;no&amp;quot;. Good answer: &amp;quot;no, but I&#39;ve heard of it. Interesting approach. Does your team use TDD?&amp;quot; Now you get to spend 5 minutes talking on your terms instead of being bombarded with random questions, &lt;em&gt;and&lt;/em&gt; you come off as someone curious about stuff.&lt;/p&gt;
+&lt;p&gt;On another related note...&lt;/p&gt;
+&lt;h2&gt;It&#39;s easy to hurt people.&lt;/h2&gt;
+&lt;p&gt;People normally ask you about stuff because they care about it. So, again, the interviewer askning &amp;quot;do you use TDD?&amp;quot;, presumably, likes TDD and uses it. So, the worst answer: &amp;quot;no, TDD sucks, it&#39;s pure waste of time for idiots.&amp;quot; A &lt;em&gt;rare&lt;/em&gt; interviewer might appreciate you having a strong opinion on a topic, but to most this just paints you as a jerk, kinda like &lt;em&gt;&amp;quot;Here&#39;s a photo of my children — &amp;quot;I hate children, and yours are especialy horrible&amp;quot;.&lt;/em&gt; Not smart.&lt;/p&gt;
+&lt;h2&gt;Smart talk is not your friend.&lt;/h2&gt;
+&lt;p&gt;Saying stuff like &amp;quot;our front-end guild evaluated several cutting-edge approaches to testing universal applications&amp;quot; only makes you seem smart &lt;em&gt;if&lt;/em&gt; you can elaborate on that topic: &lt;em&gt;what&lt;/em&gt; these approaches were, the pros and cons you found, what tradeoffs you made for your final decision. If you can&#39;t answer a follow-up question beside &amp;quot;we settled on jest, not sure why&amp;quot;, it was better to stay away from that topic altogether. Related: &amp;quot;in code reviews, I always consider the optimality of the algorithm selected&amp;quot; (proceeds to estimate the time complexity of comparison-based sorting as O(1). I never ask this unless the candidate boasts about her algo skillz).&lt;/p&gt;
+&lt;h2&gt;Admit your mistakes.&lt;/h2&gt;
+&lt;p&gt;Don&#39;t know an answer? Your code has a bug? It&#39;s always better to &lt;em&gt;admit it&lt;/em&gt; and then try to come up with something at the spot than trying to talk your way out of it. &lt;em&gt;Event loop? Sure thing, I&#39;m an expert on loops. It&#39;s the way events are looped. Uses logarithmic weighing.&lt;/em&gt; Again, this makes you look like a candidate with big mouth and small hands. I &lt;em&gt;have&lt;/em&gt; seen a couple of people who could talk their way out of any situation, but I honestly think with such skills you&#39;d do better in a different line of work, like international relations, or selling financial services. Note that you really &lt;em&gt;should&lt;/em&gt; give it your best shot — giving up at the first sign of trouble is not a good impression. If you genuinely have no idea — see &lt;em&gt;conversation opportunity:&lt;/em&gt; &amp;quot;Event delegation? Tough luck, never heard of it. &lt;em&gt;Would you tell me about it so that I learn something new today?&lt;/em&gt;&amp;quot;&lt;/p&gt;
+&lt;h2&gt;Make yourself memorable.&lt;/h2&gt;
+&lt;p&gt;It&#39;s hard to keep detailed profiles of 10 candidates in mind — after a good interview streak all I remember is the general impression (great / OK / horrible) and a &lt;em&gt;few&lt;/em&gt; truly notable things. This guy worked for some crypto scam that went bust, that girl had a cute dog that was trying to eat the camera. The worst you can do is be a totally &lt;em&gt;neutral&lt;/em&gt; candidate — we&#39;ve had an interview, but I can&#39;t remember any details. So try and sneak some anecdote, or wear a silly scarf — &lt;em&gt;something&lt;/em&gt; to remember. This point is especially important for intern / junior positions — online JS bootcamps do a good job of covering the basics, and it&#39;s really hard to differentiate these candidates. The memorable thing doesn&#39;t have to be professional, or even positive (even though it sure won&#39;t hurt) — your best bet would be some &lt;em&gt;original&lt;/em&gt; personal project.&lt;/p&gt;
+&lt;h2&gt;Ask for feedback on the spot.&lt;/h2&gt;
+&lt;p&gt;Asking how you did at the end of the interview doesn&#39;t hurt. Yes, some interviewers will be hesitant to answer — at large companies, the feedback is normally sent through the recruiter, and you&#39;re never sure if sidestepping this process would get you into trouble. Besides, if the feedback is not complimentary, you&#39;re essentially asking for conflict at the spot, and people normally avoid conflict when possible. Still, it&#39;s a chance to adjust your expectations (if the interviewer says, looking you in the eyes, that you&#39;ve done great, it&#39;s a good sign), and you &lt;em&gt;might&lt;/em&gt; get actually useful tips that would probably get lost passing through the written report, and then through the non-technical recruiter.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Svelte stores: the curious parts</title>
