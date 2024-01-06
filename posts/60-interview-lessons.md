@@ -1,5 +1,5 @@
 ---
-title: I conducted 60 interviews in 2 months — here's what I learnt
+title: I conducted 60 interviews in 2 months — here's what I learned
 tags:
   - interviews
   - career
