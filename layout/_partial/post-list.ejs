@@ -1,5 +1,6 @@
 <ul class="post-list">
   <% posts.map((post, i) => { %>
+    <% if (post.data.hidden) return  %>
     <% const year = new Date(post.date).getFullYear() %>
     <% if (i !== 0 && year !== new Date(posts[i-1].date).getFullYear()) { %>
       <li class="post-year"><%= year %></li>
