@@ -242,8 +242,8 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/</loc>
-            <lastmod>2023-01-08T18:49:11.957Z</lastmod>
+            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
@@ -257,17 +257,12 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/life/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/tags/frontend/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/life/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -292,6 +287,11 @@
         </url>
     
         <url>
+            <loc>https://thoughtspile.github.io/tags/typescript/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://thoughtspile.github.io/tags/open%20source/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -302,12 +302,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/typescript/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
+            <loc>https://thoughtspile.github.io/tags/babel/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -327,7 +322,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/babel/</loc>
+            <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -372,17 +367,22 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/promises/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/tags/webdev/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
+            <loc>https://thoughtspile.github.io/tags/promises/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://thoughtspile.github.io/tags/high%20availability/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/OOP/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -393,11 +393,6 @@
     
         <url>
             <loc>https://thoughtspile.github.io/tags/svelte/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/OOP/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -504,6 +499,11 @@
         <url>
             <loc>https://thoughtspile.github.io/_drafts/better-interview-questions/</loc>
             <lastmod>2024-01-10T00:00:00.000Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/</loc>
+            <lastmod>2024-01-21T11:16:12.022Z</lastmod>
         </url>
     
 </urlset>
