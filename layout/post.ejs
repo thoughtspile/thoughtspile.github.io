@@ -38,14 +38,14 @@ layout: layout.ejs
       <span class="post-siblings__direction">More?</span><%- include('_partial/post/tag') %>
     </div>
     
-    <% var nextPost = js.getPreviousCollectionItem(collections.posts, page) %>
+    <% var nextPost = js.getPreviousCollectionItem(collections.posts.filter(x => !x.data.hidden), page) %>
     <% if (nextPost) { %>
       <a class="link--bare post-sibling" href="<%=nextPost.url%>">
         <span class="post-siblings__direction">Older?</span>
         <span class="link__text"><%-nextPost.data.title%></span>
       </a>
     <% } %>
-    <% var previousPost = js.getNextCollectionItem(collections.posts, page) %>
+    <% var previousPost = js.getNextCollectionItem(collections.posts.filter(x => !x.data.hidden), page) %>
     <% if (previousPost) { %>
       <a class="link--bare post-sibling" href="<%=previousPost.url%>">
         <span class="post-siblings__direction">Newer?</span>
