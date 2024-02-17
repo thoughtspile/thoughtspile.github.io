@@ -257,7 +257,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
+            <loc>https://thoughtspile.github.io/tags/frontend/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -267,7 +267,12 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/frontend/</loc>
+            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/life/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -287,7 +292,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/life/</loc>
+            <loc>https://thoughtspile.github.io/tags/infra/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -302,11 +307,6 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/infra/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/tags/typescript/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
@@ -317,12 +317,32 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/hooks/</loc>
+            <loc>https://thoughtspile.github.io/tags/babel/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/rant/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/thoughtspile/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/depression/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/hooks/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -347,32 +367,12 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/rant/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/thoughtspile/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/depression/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/babel/</loc>
+            <loc>https://thoughtspile.github.io/tags/testing/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
             <loc>https://thoughtspile.github.io/tags/happiness/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/testing/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -392,7 +392,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
+            <loc>https://thoughtspile.github.io/tags/OOP/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -402,7 +402,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/OOP/</loc>
+            <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
