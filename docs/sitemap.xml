@@ -127,16 +127,6 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/_drafts/ssr-dangers/</loc>
-            <lastmod>2021-09-22T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/svelte-stores/</loc>
-            <lastmod>2021-09-22T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/2021/09/22/dev-warnings/</loc>
             <lastmod>2021-09-22T00:00:00.000Z</lastmod>
         </url>
@@ -242,42 +232,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/career/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/management/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/tech/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/frontend/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/programming/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/life/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/design/</loc>
+            <loc>https://thoughtspile.github.io/tags/babel/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -287,42 +242,7 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/interview/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/tags/infra/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/open%20source/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/developer%20experience/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/typescript/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/react/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/babel/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -332,7 +252,17 @@
         </url>
     
         <url>
+            <loc>https://thoughtspile.github.io/tags/life/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://thoughtspile.github.io/tags/thoughtspile/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/programming/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -342,7 +272,62 @@
         </url>
     
         <url>
+            <loc>https://thoughtspile.github.io/tags/react/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/frontend/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://thoughtspile.github.io/tags/hooks/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/interviews/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/career/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/open%20source/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/typescript/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/interview/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/angularjs/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/design/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/developer%20experience/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/eslint/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -357,12 +342,17 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/eslint/</loc>
+            <loc>https://thoughtspile.github.io/tags/performance/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/performance/</loc>
+            <loc>https://thoughtspile.github.io/tags/management/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/tech/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -377,17 +367,22 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/webdev/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/tags/promises/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
         <url>
+            <loc>https://thoughtspile.github.io/tags/webdev/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
             <loc>https://thoughtspile.github.io/tags/high%20availability/</loc>
+            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
+        </url>
+    
+        <url>
+            <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
             <lastmod>2023-01-08T18:49:11.976Z</lastmod>
         </url>
     
@@ -402,53 +397,13 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/tags/concurrency/</loc>
-            <lastmod>2023-01-08T18:49:11.976Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/non-tree-shaking/</loc>
-            <lastmod>2023-01-12T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/optimize-anything/</loc>
-            <lastmod>2023-01-17T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/dont-dry/</loc>
-            <lastmod>2023-01-18T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/typescript-enum-escape/</loc>
-            <lastmod>2023-01-23T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/2023/01/23/typescript-sets/</loc>
             <lastmod>2023-01-23T00:00:00.000Z</lastmod>
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/_drafts/typescript-sets-ru/</loc>
-            <lastmod>2023-01-27T19:50:40.593Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/typescript-array-facts/</loc>
-            <lastmod>2023-01-31T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/2023/01/31/typescript-safe-narrow/</loc>
             <lastmod>2023-01-31T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/no-bs-colors/</loc>
-            <lastmod>2023-02-05T00:00:00.000Z</lastmod>
         </url>
     
         <url>
@@ -467,21 +422,6 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/_drafts/lodash-not-recommended/</loc>
-            <lastmod>2023-03-11T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/leaked/</loc>
-            <lastmod>2023-03-25T21:15:57.135Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/large-software-teams/</loc>
-            <lastmod>2023-04-02T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/2023/04/22/svelte-state/</loc>
             <lastmod>2023-04-22T00:00:00.000Z</lastmod>
         </url>
@@ -489,16 +429,6 @@
         <url>
             <loc>https://thoughtspile.github.io/2023/04/22/svelte-stores/</loc>
             <lastmod>2023-04-22T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/effective-interviews/</loc>
-            <lastmod>2024-01-02T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
-            <loc>https://thoughtspile.github.io/_drafts/tech-product-team/</loc>
-            <lastmod>2024-01-06T00:00:00.000Z</lastmod>
         </url>
     
         <url>
@@ -512,11 +442,6 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/_drafts/better-interview-questions/</loc>
-            <lastmod>2024-01-10T00:00:00.000Z</lastmod>
-        </url>
-    
-        <url>
             <loc>https://thoughtspile.github.io/</loc>
             <lastmod>2024-01-21T11:16:12.022Z</lastmod>
         </url>
@@ -527,8 +452,8 @@
         </url>
     
         <url>
-            <loc>https://thoughtspile.github.io/_drafts/bad-team-leads/</loc>
-            <lastmod>2024-02-17T00:00:00.000Z</lastmod>
+            <loc>https://thoughtspile.github.io/2024/04/18/team-scaling/</loc>
+            <lastmod>2024-04-18T00:00:00.000Z</lastmod>
         </url>
     
 </urlset>

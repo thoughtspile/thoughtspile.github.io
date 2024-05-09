@@ -4,12 +4,156 @@
 	
 	<link href="https://thoughtspile.github.io/atom.xml" rel="self"/>
 	<link href="https://thoughtspile.github.io"/>
-	<updated>2024-02-16T00:00:00Z</updated>
+	<updated>2024-04-18T00:00:00Z</updated>
 	<id>https://blog.thoughtspile.tech/</id>
 	<author>
 		<name>Vladimir Klepov</name>
 		<email>v.klepov@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Growing my team 4x has been a pain. Can we do better?</title>
+		<link href="https://thoughtspile.github.io/2024/04/18/team-scaling/"/>
+		<published>2024-04-18T00:00:00Z</published>
+		<id>https://thoughtspile.github.io/2024/04/18/team-scaling/</id>
+		<content type="html">&lt;p&gt;My name is Vladimir, and I&#39;m an engineering manager of a team building a banking app. Following the success of our core banking product, we&#39;ve decided to expand to other financial services. In the last four months my team has grown 4x, going from a 4-person team to 4 teams totalling 15 people. It was, frankly, a shitshow, and now I see many things we could have done better.&lt;/p&gt;
+&lt;p&gt;At first sight, increasing your team is a perfect way to speed up your product development. In practice, scaling is &lt;em&gt;very&lt;/em&gt; challenging. Today, I&#39;ll share the pains of growth we&#39;ve ran into:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Disbalanced growth across functions.&lt;/li&gt;
+&lt;li&gt;Teams becoming &lt;em&gt;too large&lt;/em&gt; to manage.&lt;/li&gt;
+&lt;li&gt;Processes breaking down.&lt;/li&gt;
+&lt;li&gt;Mass onboarding challenges.&lt;/li&gt;
+&lt;li&gt;Seniority skew.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now that it&#39;s all done, I can&#39;t say these problems were unexpected, or that our solutions have been incredibly inventive, but a first-hand account is worth writing down. Whether you&#39;re a leader expecting your team to scale, or just curious about the daily challenges of an engineering manager, hope you&#39;ll find something for yourself. Let&#39;s go!&lt;/p&gt;
+&lt;h2&gt;Scale evenly across functions&lt;/h2&gt;
+&lt;p&gt;You lead a 5-man engineering team. You&#39;d like to build 2x the stuff you&#39;re building. The obvious solution is to hire 5 more engineers. Problem solved? Not so fast.&lt;/p&gt;
+&lt;p&gt;Anything you build flows across several stages, each handled by a certain role, for example: product manager -&amp;gt; design -&amp;gt; engineering -&amp;gt; QA -&amp;gt; product analytics -&amp;gt; (back to) product manager. If you have a balanced flow with your current team, enlarging just the engineering will &lt;em&gt;not&lt;/em&gt; make you more productive:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Downstream functions (QA / analytics) can&#39;t keep up with the increased production — they must either put in overtime or downgrade quality standards.&lt;/li&gt;
+&lt;li&gt;Upstream functions (product / design) can&#39;t fill the backlog fast enough, and the eng team has nothing to focus on, either slacking or refactoring the refactorings.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With rapid growth, some temporary disbalances are unavoidable. It&#39;s fine to spend a few weeks or months in a disproportionate state, but overall aim for balanced scaling. Here are some tips to smooth the transition and even use the disbalance to your advantage:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you have any control over it, give product &amp;amp; design a hiring head-start. You can get their artifacts ready for development with a limited series of grooming meetings, and once the new engineers are on board, you&#39;ll have some great useful tasks to feed them.&lt;/li&gt;
+&lt;li&gt;Catch up on your tech debt. Have too many engineers and not enough product tasks? Don&#39;t despair: use the time to clean up some old bugs, do the overdue refactorings, and prepare the codebase for the speed-up.&lt;/li&gt;
+&lt;li&gt;Expand the area of responsibility. If you lack QA specialists, it might be time for the engineers to practice their testing skills. Oversized non-technical component (product / design) is more problematic, but you can give them some no-code tools to replace the eng team in some scenarios — e.g. build an admin UI where PM can edit the texts, create new banners, and so on, without involving your team.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Update team structure&lt;/h2&gt;
+&lt;p&gt;Say you have a normal-sized team (4–7 engineers) with your average meeting structure (whole-team planning, grooming, and retro + weekly 1x1 with every team member). Making it a 15-person team won&#39;t work &lt;em&gt;at all.&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;An hour-long 4-person retro has 10 minutes of speaking time per member — enough to make a point. In a 15-person retro, it&#39;s 3 minutes — not practical. You either exclude some people, or extend the meetings — both poor options.&lt;/li&gt;
+&lt;li&gt;It&#39;s harder to agree on any decision, because you now have 3x the possible objections.&lt;/li&gt;
+&lt;li&gt;The 1x1s alone eat up 7 hours (almost a full day!) of your time a week.&lt;/li&gt;
+&lt;li&gt;Managing communication of 15 people plus all the external stakeholders is time-consuming.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The team must be split. What does it mean to be a separate team, anyways? Ever heard of &amp;quot;high cohesion and low coupling&amp;quot; principle in software architecture? I think this also applies to teams:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Shared information space. Team members know what you&#39;re working on, where you&#39;re going, who your peers are, the system structure and so on.&lt;/li&gt;
+&lt;li&gt;Own a well-defined part of the product and the codebase. A look at a random feature is enough to guess the responsible team.&lt;/li&gt;
+&lt;li&gt;Control your processes — meeting structure, releases, etc. You can&#39;t be responsible for what you can&#39;t control.&lt;/li&gt;
+&lt;li&gt;Have all the capabilities needed for your day-to-day work. Begging someone each time you need to deploy, change the API or add a banner is not very effective.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It&#39;s best to split by product domain: &lt;em&gt;customer acquisition team&lt;/em&gt; owns the landing page and signup, &lt;em&gt;daily banking team&lt;/em&gt; owns the main app, and so on. You could split by layer (product + infra) or by function (backend + frontend + mobile) — I feel these compromise points 2 and 4, but let&#39;s not die on this hill today. At any rate, a team over 8–10 people must be split into sane-sized chunks to keep going.&lt;/p&gt;
+&lt;h3&gt;A note on grouping&lt;/h3&gt;
+&lt;p&gt;You can split a team by (A) building the new team out of newbies or (B) mixing newbies and oldies in each new part. Prefer mixing: it distributes the knowledge across the organization, and the social connections from the original team prevent siloing. You could argue that (A) keeps the original high-performing team intact, but it does so by slowing down the new team and undermining your long-term flexibility.&lt;/p&gt;
+&lt;h3&gt;Where to get new leaders?&lt;/h3&gt;
+&lt;p&gt;Splitting a team into 3 parts creates 2–4 leadership positions, depending on your place in the new structure. Ideally, you have senior members of the original team to lead the new teams, because it&#39;s a rare opportunity for career growth on a management track, and they can easily hire and onboard new members of their teams. If you don&#39;t have a suitable candidate (everyone is either very junior, or hates management), it&#39;s fine to hire externally — following a few hiccups, I recommend hiring people with prior leadership experience, because adjusting to a new product &lt;em&gt;and&lt;/em&gt; a new role &lt;em&gt;at once&lt;/em&gt; can be too much.&lt;/p&gt;
+&lt;h3&gt;Split iteratively&lt;/h3&gt;
+&lt;p&gt;You don&#39;t have to produce a fully separate team right away. As usual, move step by step — you get faster results, and can adapt to the issues that arise. Here&#39;s one possible sequence:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Assemble a domain team, appoint one as the &lt;em&gt;lead&lt;/em&gt; (you can call it trial-lead, to give them a chance to cop out).&lt;/li&gt;
+&lt;li&gt;See how they like their new roles, and if the headcount needs tweaking.&lt;/li&gt;
+&lt;li&gt;Run a retro for the new team to catch communication issues or cross-team dependencies early.&lt;/li&gt;
+&lt;li&gt;Separate the domain backlog and kanban boards (or wherever you track the tasks). You&#39;ll need it for further process splitting, and to assess the team&#39;s load and velocity.&lt;/li&gt;
+&lt;li&gt;Split planning and daily meetings, so that the teams don&#39;t waste each other&#39;s time on discussing irrelevant tasks.&lt;/li&gt;
+&lt;li&gt;Gradually transfer the remaining processes (1x1s, onboarding, postmortems) to the new lead.&lt;/li&gt;
+&lt;li&gt;Split the codebase, so that the new team can fully own its service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Update your processes&lt;/h2&gt;
+&lt;p&gt;Just like your single-team structure, the processes you have will likely fail for a larger team, especially if you have many newbies. Example: we had a liberal release process — if &lt;em&gt;you&lt;/em&gt; want some feature in production, &lt;em&gt;you&lt;/em&gt; deploy it. As the team grew, the release frequency dropped — the newbies were afraid to touch prod, the oldies were hoping &lt;em&gt;one&lt;/em&gt; of the other 14 people would do it. Before I give you my solution to this puzzle, let&#39;s look at the general advice for process scaling.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Localize processes to the new teams.&lt;/strong&gt; Owning processes makes a team more effective. Retros, plannings, kickoffs, demos, daily stand-ups, releases, documenting, on-call duty, whatever you can split, do split. Yes, your overall team loses sight of the stuff going on across the system, causing duplication and poor decisions, but in return we can focus on a specific business area, and maximize productive time instead of drowning in discussions. If you need to offset the downsides, introduce a cross-team sync here and there (still working on this one).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Let the new teams experiment with processes.&lt;/strong&gt; What worked for your original team doesn&#39;t matter, that team is dead and gone. What works for one of your teams won&#39;t necessarily work for the other, because they work in different conditions. For example, our CA team has many time-bound tasks from marketing. The core banking team focuses on building &lt;em&gt;quality&lt;/em&gt; software, and fixing the bugs as they arise. Very different teams. Start with a copy of your current processes (just to start somewhere!), and introduce team retros as early as possible to tweak the process as needed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stricten the centralized processes.&lt;/strong&gt; Back to our problem with deployment — we couldn&#39;t isolate the release process to sub-teams, because splitting a monolithic front-end into independently deployable parts is technically challenging. We introduced a more structured release process:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The releases are automatically built and ready to deploy every morning. No more decisions to make.&lt;/li&gt;
+&lt;li&gt;Daily rotation of &lt;em&gt;release managers&lt;/em&gt; responsible for getting the release to production. With regular training, you get better at releasing.&lt;/li&gt;
+&lt;li&gt;The release process is clearly documented. The newbies have a clear path to follow, making it less stressful.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This works for other centralized processes — writing documentation, debugging with customer support, maintaining shared libs.&lt;/p&gt;
+&lt;p&gt;Overall: hand over as much process as you can to the sub-teams, and introduce clear rules for the remaining centralized processes.&lt;/p&gt;
+&lt;h2&gt;The onboarding valley&lt;/h2&gt;
+&lt;p&gt;Surprisingly, fast hiring can &lt;em&gt;reduce&lt;/em&gt; your team&#39;s productivity in the short term. The newbies are not yet up to speed, and the oldies now spend time explaining your codebase and reviewing code. This &lt;em&gt;will&lt;/em&gt; fix itself over time, but here are a few strategies to get past the bump faster.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Prefer slower growth.&lt;/strong&gt; Adding one person every few weeks is much better than adding 6 people simultaneously, because:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &amp;quot;onboarding load&amp;quot; stretched over time occupies a smaller share of your team&#39;s resource.&lt;/li&gt;
+&lt;li&gt;A few weeks in, new hires can already help onboard someone else. In some cases, they&#39;ll do a better job than any oldie, because their memories of one-off tasks like setting up the dev environment are fresh.&lt;/li&gt;
+&lt;li&gt;Every onboarding exposes new roadblocks in your process, helping you smooth the next ones.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;On paper, batch onboarding might seem like a time-saver, as you can make a &lt;em&gt;lecture&lt;/em&gt; explaining the basics to many people at once. In practice, unless your product is very small, or the tasks are very repetitive, every newbie faces very different challenges, drowning you with a wave of questions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Encourage peer-to-peer onboarding.&lt;/strong&gt; As a leader, you might think onboarding is your personal responsibility. I call BS — peer-to-peer onboarding is clearly better:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;More &amp;quot;onboarding resource&amp;quot; leads to faster, better onboarding.&lt;/li&gt;
+&lt;li&gt;The load on you, personally, decreases, freeing time to do other impactful things and, you know, live.&lt;/li&gt;
+&lt;li&gt;Team members get a safe environment to practice their mentorship skills.&lt;/li&gt;
+&lt;li&gt;People get to know each other, instead of only talking to you.&lt;/li&gt;
+&lt;li&gt;ICs with recent hands-on experience do a better job at explaining the specifics than you.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can pair a formal &amp;quot;mentor&amp;quot; to every newbie, or direct questions to a team group chat. If you want to control the overall onboarding, at least route specific questions to team members experienced in that area instead of trying to come up with all the answers yourself.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Write the docs.&lt;/strong&gt; The best way to make onboardings cheaper is writing stuff down instead of explaining it over and over again, with your mouth. Some particular things to focus on:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Onboarding checklist — the things &lt;em&gt;every&lt;/em&gt; new team member must do: get a VPN certificate from the security dude, join this and that chat, clone a repo here and there, boom you&#39;re done. Only include &lt;em&gt;essential&lt;/em&gt; steps — adding somewhat useful stuff obscures the actually important things.&lt;/li&gt;
+&lt;li&gt;Document your existing business processes, system architecture, technical conventions, team and communication structure. It&#39;s better than explaining in real-time, because you get higher-quality charts, relevant links, and you can collaborate to put the knowledge of multiple team members in one place.&lt;/li&gt;
+&lt;li&gt;Tooling and automation. The more automated a process or convention is, the less onboarding you need. Example: if you build your releases locally and upload somewhere via FTP using the keys you get from Piotr the devops, it&#39;s time to set up decent CD instead of documenting the current state of affairs.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pro tip: encourage newbies to improve and update the docs as they follow along — it&#39;s a great first contribution to your team!&lt;/p&gt;
+&lt;h2&gt;Senior vs junior hires&lt;/h2&gt;
+&lt;p&gt;It seems sensible to focus exclusively on senior hires. Experienced engineers get up to speed quicker, because they&#39;re already familiar with the basics, have a lower risk of making catastrophically poor decisions, and can bring good practices and ideas from across the industry to your team.&lt;/p&gt;
+&lt;p&gt;Not so fast — here are some reasons to hire junior developers. With little exposure to the industry, they can easily adapt to whatever culture and processes you have. &lt;em&gt;Anyone&lt;/em&gt; on your team can mentor a junior hire, while getting e.g. a junior engineer with decent knowledge of the product to mentor a newly hired senior engineer might be awkward, not very productive, or even taken as an insult. And of course, you can hire more junior engineers on the same budget.&lt;/p&gt;
+&lt;p&gt;Overall, aim for a balanced team composition in the mid-term. You don&#39;t want your team to be a kindergarten, but a nursing home is no good either. Remember that people tend to gain experience, so the junior engineers you hire will become middle in no time.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Today, we&#39;ve discussed the challenges of rapid team growth — and ways to address them:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Hiring more engineers won&#39;t speed you up unless product, design and QA grow to match.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Start by growing product &amp;amp; design.&lt;/li&gt;
+&lt;li&gt;If product lags behind, use the spare time to clean up the tech debt.&lt;/li&gt;
+&lt;li&gt;Expand the area of responsibility of the oversized roles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Teams over 8–10 people are hard to manage.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Split into chunks of 3–7 people, preferably by business domain.&lt;/li&gt;
+&lt;li&gt;Mix old and new members in each team.&lt;/li&gt;
+&lt;li&gt;Split step-by-step instead of going all in.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;The processes of your original team won&#39;t accommodate a larger team.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Localize the processes to the sub-teams as much as possible.&lt;/li&gt;
+&lt;li&gt;Let the teams tweak their processes to suit their needs.&lt;/li&gt;
+&lt;li&gt;Stricten the remaining centralized processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Onboarding is time-consuming, and can slow you down.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Go slow: onboarding a person every week is easier than 6 people at once.&lt;/li&gt;
+&lt;li&gt;Write the docs instead of explaining stuff over and over.&lt;/li&gt;
+&lt;li&gt;Peer-to-peer knowledge transfer is better than onboarding everyone personally.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Hiring only senior engineers is not a silver bullet.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Aim for a healthy experience distribution in the mid-term.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hope these tips help you get past the scaling issues and up to speed in no time.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>From engineer to manager: what I love, what I hate</title>

@@ -11,7 +11,7 @@ date: 2024-02-17
 
 You used to write code. As a good enginer, you took responsibility for the features you make by keeping the code good. Now that you're responsible for the project, as a whole,
 
-## The Spetsnaz
+## The Commando
 
 You haven't been policing the codebase well enough, and a bug has made it to production. Oh noes! Time for you to put on the bulletproof vest, hop onto a chopper and head onto a mission to save the users, because no one can do it better than you.
 
